@@ -9,3 +9,4 @@ cpawebsite V.3 add Altorouter <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-> ita<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-> pdffile ในโฟลเดอร์ก็จะมีสับลงไปอีก คือ pdf,price,spec<br>
 4.หากโฟลเดอร์ vender ไม่มีหรือมาไม่ครบทำให้เรียก path Routing ไม่ได้ ให้รันคำสั้ง composer  require altorouter/altorouter ใน directory cpawebsite<br>
+5.default user test user:admin password:taotest

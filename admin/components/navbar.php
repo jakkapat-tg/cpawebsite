@@ -108,16 +108,16 @@
                                 <p>เพิ่ม/แก้ไข ข้อมูลผู้บริหาร</p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href="pages/forms/editors.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>จัดการตารางตรวจแพทย์</p>
                             </a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="pages/forms/addphone.php"class="nav-link <?php if($page == 'addphone'){echo 'active';}?>">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>จัดการเบอร์โทรภายใน</p>
+                                <p>เพิ่ม/แก้ไข เบอร์โทรภายใน</p>
                             </a>
                         </li>
                     </ul>

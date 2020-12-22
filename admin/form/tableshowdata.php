@@ -65,8 +65,12 @@
                 $inpage = 'ตาราง แก้ไขแถบด้านล่างเว็บไซต์';
                 $sqlgetfrompage = "SELECT * FROM cpa_ceo";
                 $resultquery = mysqli_query($con, $sqlgetfrompage);
+            } else if ($getpage == 'addphone') {
+                $inpage = 'ตาราง แก้ไขแถบด้านล่างเว็บไซต์';
+                $sqlgetfrompage = "SELECT * FROM phone_detail_cpa";
+                $resultquery = mysqli_query($con, $sqlgetfrompage);
             }else{
-                echo ' <script> window.location = "../"; </script>';
+                echo ' <script> window.location = "../index.php"; </script>';
             }
             ?>
 

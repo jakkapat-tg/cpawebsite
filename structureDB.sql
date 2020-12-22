@@ -11,7 +11,7 @@
  Target Server Version : 50643
  File Encoding         : 65001
 
- Date: 22/12/2020 15:24:54
+ Date: 22/12/2020 16:25:52
 */
 
 SET NAMES utf8mb4;
@@ -371,10 +371,10 @@ DROP TABLE IF EXISTS `cpa_web_phone_detail_log`;
 CREATE TABLE `cpa_web_phone_detail_log`  (
   `id` int(30) NOT NULL AUTO_INCREMENT,
   `phone_id` int(30) DEFAULT NULL,
-  `dep_nameold` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `depname_old` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `depname_new` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `tel_numberold` int(15) DEFAULT NULL,
-  `tel_numbernew` int(15) DEFAULT NULL,
+  `tel_numberold` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `tel_numbernew` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `zone_nameold` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `zone_namenew` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `updateuser` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
@@ -669,7 +669,7 @@ CREATE TABLE `phone_detail_cpa`  (
   `userupdate` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `max_search` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 362 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 366 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of phone_detail_cpa
@@ -1035,6 +1035,10 @@ INSERT INTO `phone_detail_cpa` VALUES (358, 'ห้องพัสดุ', '2519
 INSERT INTO `phone_detail_cpa` VALUES (359, 'แม่บ้าน', '2539', 'p', 'อาคารเฉลิมพระเกียรติฯ', '5', NULL, 'Y', '2020-12-16 08:27:32', 'admin', 0);
 INSERT INTO `phone_detail_cpa` VALUES (360, 'Fax. ธุรการ', '037-211243', 'f', 'อาคารเฉลิมพระเกียรติฯ', '5', NULL, 'Y', '2020-12-16 08:27:32', 'admin', 0);
 INSERT INTO `phone_detail_cpa` VALUES (361, 'FAX หน้าห้องผอก.', '037-214946', 'f', 'อาคารเฉลิมพระเกียรติฯ', '5', NULL, 'Y', '2020-12-16 08:27:32', 'admin', 0);
+INSERT INTO `phone_detail_cpa` VALUES (362, 'test', '1234', NULL, 'มูลนิธิ', '', NULL, 'N', NULL, 'รัชวิทย์ พลชู', NULL);
+INSERT INTO `phone_detail_cpa` VALUES (363, 'test2', '333/555', 'P', 'ตึกคลอดผ่าตัด', '', NULL, 'N', NULL, 'รัชวิทย์ พลชู', NULL);
+INSERT INTO `phone_detail_cpa` VALUES (364, 'test3', '333/789', 'P', 'ตึกอุบัติเหตุฉุกเฉิน', '5', NULL, 'N', NULL, 'รัชวิทย์ พลชู', NULL);
+INSERT INTO `phone_detail_cpa` VALUES (365, 'test4', '1', 'P', 'อาคาร 114 เตียง', '2', NULL, 'Y', '2020-12-22 15:54:15', 'รัชวิทย์ พลชู', NULL);
 
 -- ----------------------------
 -- Table structure for phone_detail_cpa_test

@@ -48,46 +48,23 @@
             if ($getid == '' || $getid == null) {
                 if (isset($_POST['submit'])) {
                     $datetime = date("Y/m/d H:i:s");
-                    $ceoname = $_POST['ceoname'];
-                    $ceoclass = $_POST['ceoclass'];
-                    $positionshow = $_POST['position'];
-
-                    $var = pathinfo(basename($_FILES['fileToUpload']['name']), PATHINFO_EXTENSION);
-                    $datefile = date("Ymd") . 'ceo' . date("His");
-                    $new_name = $datefile . "." . $var;
-                    $file_path = "../../uploads/image/ceo/";
-                    $path_up = $file_path . $new_name;
-                    $imageFileType = strtolower(pathinfo($path_up, PATHINFO_EXTENSION)); //ดึง type ไฟล์
-
-                    // เช็คนามสกุลไฟล์
-                    if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") //เช็คว่าใช่ไฟล์ภาพหรือไม่
-                    {
-                        echo "<script>Swal.fire({icon: 'error', title: 'Invalid...', text: 'โปรเลือกไฟล์ที่เป็น .jpg .png .jpeg', })</script>";
-                        sleep(2);
-                        echo "<script> document.location.href='./addceo.php';</script>";
-                    } else {
-                        $done = move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $path_up); //เพิ่มไฟล์ลงโฟลเดอร์
-                        if ($done) { //หากอัพโหลดสำเร็๗ให้เพิ่มข้อมูลลง DB 
-                            //echo "upload img successfull";
-                            $sqlceo = "INSERT INTO cpa_ceo (cpa_ceo_name,cpa_ceo_detail,cpa_ceo_position_show,cpa_ceo_picturename,cpa_ceo_createdate,cpa_ceo_statusactive)
-                                VALUE ('$ceoname','$ceoclass','$positionshow','$new_name',' $datetime','1')";
-                            $queryceo = mysqli_query($con, $sqlceo);
-                            if ($queryceo) {
-                                echo '<script>
-                                    Swal.fire({
-                                        icon: "success",
-                                        title: "สำเร็จ",
-                                        text: "เพิ่มข้อมูลสำเร็จ!",
-                                        type: "success"
-                                    }).then(function() {
-                                        window.location = "./addceo.php";
-                                    });
-                                    </script>';
-                            } else {
-                                echo "<script>Swal.fire({icon: 'error', title: 'Invalid...', text: 'ผิดพลาด', })</script>";
-                            }
-                        }
-                    }
+                    $dep_name = $_POST['depname'];
+                    $tel = $_POST['tel'];
+                    $zone = $_POST['zone'];
+                    $classname = $_POST['classname'];
+                    $userupdate = $_SESSION['fname'].' '.$_SESSION['lname']; 
+                    $sqlphone = "INSERT INTO phone_detail_cpa (dep_name,tel_number,tel_type,zone_name,class_name,status_on,userupdate,dateupdate) 
+                    VALUE ('$dep_name','$tel','P','$zone','$classname',   'Y',     '$userupdate','$datetime')";
+                    $queryphone = mysqli_query($con, $sqlphone);
+                     if ($queryphone) {
+                        echo '<script>
+                              Swal.fire({
+                                icon: "success",
+                                title: "สำเร็จ",
+                                text: "เพิ่มข้อมูลสำเร็จ!",
+                                type: "success"
+                            }).then(function() { window.location = "./addphone.php";  });  </script>';
+                            } else { echo "<script>Swal.fire({icon: 'error', title: 'Invalid...', text: 'ผิดพลาด', })</script>";  }
                 }
             }
 
@@ -100,27 +77,34 @@
                 $getdepname = $resultGetphone['dep_name'];
                 $getzonename = $resultGetphone['zone_name'];
                 $gettel= $resultGetphone['tel_number'];
+                $getclass= $resultGetphone['class_name'];
                 $datetime = date("Y/m/d H:i:s");
 
-
                 if (isset($_POST['updatedata'])) {
+                    $dep_namenew = $_POST['depname'];
+                    $telnew = $_POST['tel'];
+                    $classnamenew = $_POST['classname'];
+                    $zonenew = $_POST['zone'];
+                    $userupdatenew = $_SESSION['fname'].' '.$_SESSION['lname']; 
+                    $status = $_POST['status'];
 
-                        $sqllogphone = "";
+                    $sqleditphone = "UPDATE phone_detail_cpa SET dep_name = '$dep_namenew', tel_number = '$telnew',
+                    class_name = '$classnamenew' , zone_name = '$zonenew',status_on = '$status' where id = '$getid'";
+                    $queryeditphone = mysqli_query($con, $sqleditphone);
+
+                    if ($queryeditphone) {
+                        echo $sqllogphone = "INSERT INTO cpa_web_phone_detail_log (phone_id,depname_old,depname_new,tel_numberold,tel_numbernew,zone_nameold,zone_namenew,updateuser)
+                        VALUE ('$getid',' $getdepname','$dep_namenew','$gettel','$telnew','$getzonename','$zonenew','$userupdatenew')";
                         $querysqllogphone = mysqli_query($con, $sqllogphone);
-
-                        if ($querysqllogphone) {
-                            echo '<script>
-                                Swal.fire({
-                                    icon: "success",
-                                    title: "สำเร็จ",
-                                    text: "แก้ไขข้อมูลสำเร็จ!",
-                                    type: "success"
-                                }).then(function() {
-                                    window.location = "./tableshowdata.php?page=addceo";
-                                });
-                                </script>';
+                        echo '<script>
+                            Swal.fire({
+                                icon: "success",
+                                title: "สำเร็จ",
+                                text: "แก้ไขข้อมูลสำเร็จ!",
+                                type: "success"
+                            }).then(function() { window.location = "./tableshowdata.php?page=addphone"; }); </script>';
                         } else {
-                            echo "<script>Swal.fire({icon: 'error', title: 'Invalid...', text: 'ผิดพลาดอัพโหลดไม่สำเร็จ', })</script>";
+                            echo "<script>Swal.fire({icon: 'error', title: 'Invalid...', text: 'แก้ไขไม่สำเร็จ', })</script>";
                         }
                     
                     } //end if post 
@@ -138,7 +122,7 @@
                                 <h3 class="card-title">เพิ่ม/แก้ไข ข้อมูลเบอร์ติดต่อภายใน</h3>
 
                                 <?php if ($getid != '' || $getid != null) {
-                                    $sqlgetfrompage = "SELECT * FROM cpa_web_phone_detail_log where phone_id = '$getid' ORDER BY update_datetime desc limit 15";
+                                    $sqlgetfrompage = "SELECT * FROM cpa_web_phone_detail_log where phone_id = '$getid' ORDER BY updatedatetime desc limit 15";
                                     $resultquery = mysqli_query($con, $sqlgetfrompage);
                                 ?>
                                     <button type="button" class="btn btn-info" data-toggle="modal" style="float:right;" data-target=".bd-example-modal-lg">Log</button>
@@ -155,10 +139,19 @@
 
                                     <div class="col-12 col-lg-12">
                                         <div class="form-group">
-                                            <label>ชื่อตึกห้องหรือแผนก</label>
+                                            <label>ชื่อตึกห้องหรือคลินิก/แผนก/หน่วยงาน</label>
                                             <input type="text" placeholder="ชื่อตึกห้องหรือแผนก" name="depname" value="<? if($getid != '' || $getid != null) {echo   $getdepname ;}?>" class="form-control">
                                         </div>
                                     </div>
+
+                                       <div class="col-12 col-lg-12">
+                                        <div class="form-group">
+                                            <label>ชั้น</label>
+                                            <input type="text"  name="classname" value="<? if($getid != '' || $getid != null) {echo  $getclass; }?>" placeholder="ชั้น" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    
 
                                     <div class="col-12 col-lg-12">
                                         <div class="form-group">

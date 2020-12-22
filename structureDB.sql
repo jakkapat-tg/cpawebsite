@@ -11,7 +11,7 @@
  Target Server Version : 50643
  File Encoding         : 65001
 
- Date: 22/12/2020 15:00:29
+ Date: 22/12/2020 15:24:54
 */
 
 SET NAMES utf8mb4;
@@ -362,6 +362,24 @@ CREATE TABLE `cpa_web_news`  (
   `cpa_status` int(40) DEFAULT NULL,
   `cpa_views` int(40) DEFAULT NULL,
   PRIMARY KEY (`cpa_news_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for cpa_web_phone_detail_log
+-- ----------------------------
+DROP TABLE IF EXISTS `cpa_web_phone_detail_log`;
+CREATE TABLE `cpa_web_phone_detail_log`  (
+  `id` int(30) NOT NULL AUTO_INCREMENT,
+  `phone_id` int(30) DEFAULT NULL,
+  `dep_nameold` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `depname_new` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `tel_numberold` int(15) DEFAULT NULL,
+  `tel_numbernew` int(15) DEFAULT NULL,
+  `zone_nameold` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `zone_namenew` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `updateuser` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `updatedatetime` datetime(0) DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP(0),
+  PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------

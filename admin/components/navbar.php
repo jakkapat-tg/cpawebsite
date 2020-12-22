@@ -115,7 +115,7 @@
                             </a>
                         </li> -->
                         <li class="nav-item">
-                            <a href="pages/forms/addphone.php"class="nav-link <?php if($page == 'addphone'){echo 'active';}?>">
+                            <a href="/cpawebsite/admin/form/addphone.php"class="nav-link <?php if($page == 'addphone'){echo 'active';}?>">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>เพิ่ม/แก้ไข เบอร์โทรภายใน</p>
                             </a>

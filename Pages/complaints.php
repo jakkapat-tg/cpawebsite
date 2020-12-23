@@ -373,7 +373,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         echo "<script>Swal.fire({icon: 'error', title: 'Invalid...', text: 'ไม่สามารถแก้ไขได้', })</script>";
                     }
   }
-}
+} 
 function test_input($data) {
   $data = trim($data);
   $data = stripslashes($data);

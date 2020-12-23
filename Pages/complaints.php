@@ -137,21 +137,21 @@
 
 	<!-- -----------------------------------------------   FROM  ----------------------------------------------- -->
 <?php
-$allowShow = $pname = $fname = $lname = $gender = "";
+$offname = $pname = $fname = $lname = $gender = "";
 $cidcode = $profession = $province = $amphoe = $district = $zipcode = "";
 $addess =  $phone = $mobile = $email = "";
 $req_to = $req_head = $req_prob_type = $req_details = $request = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["allowShow"])) {
-    $allowShow = "";
+  if (empty($_POST["offname"])) {
+    $offname = "";
   } else {
-    $allowShow = test_input($_POST["allowShow"]);
-    if (!preg_match('/^[0-1]+$/', $allowShow)) {
-      $allowShowErr = "พบข้อผิดพลาด!!";
+    $offname = test_input($_POST["offname"]);
+    if (!preg_match('/^[A-Z]+$/', $offname)) {
+      $offnameErr = "พบข้อผิดพลาด!!";
     }
   }     
-  $allowShow =$_POST["allowShow"];
+  $offname =$_POST["offname"];
   if (empty($_POST["pname"])) {
     $pnameErr = "กรุณากรอกคำนำหน้าชื่อ";
   } else {
@@ -340,38 +340,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $requestErr == '' &&
       $req_detailsErr == '' &&
       $req_headErr == '' &&
-      //($req_prob_typeErr == '') &&
+      $req_prob_typeErr == '' &&
       $req_toErr == '' &&
-
       $pnameErr == '' &&
       $fnameErr == '' &&
       $lnameErr == '' &&
       $cidcodeErr == '' &&
       ($genderErr == '') &&
       ($mobileErr == ''||$phoneErr == '') &&
-      $allowShowErr == '' 
+      $offnameErr == '' 
       
   ) {
-                    $sqlinsert = "INSERT INTO req_prob_user (cidcode	,pname	,fname	,lname	,gender	,profession	,province	,amphoe	,district	,address	,zipcode	,phone	,mobile	,email) 
-                    VALUE ('$cidcode','$pname','$fname','$lname','$gender','$profession','$province','$amphoe','$district','$addess','$zipcode','$phone','$mobile','$email')";
-                    $query = mysqli_query($con,$sqlinsert);
-                    $sqlinsert2 = "INSERT INTO req_prob (cidcode	,req_to	,req_head	,req_prob_type	,req_details	,request	,allowShow) 
-                    VALUE ('$cidcode','$req_to','$req_head','$req_prob_type','$req_details','$request','$allowShow')";
-                    $query2 = mysqli_query($con,$sqlinsert2);
-                    if ($query&&$query2) {
-                        echo '<script>
-                            Swal.fire({
-                                icon: "success",
-                                title: "สำเร็จ",
-                                text: "แจ้งข้อมูลเรียบร้อยแล้ว!",
-                                type: "success"
-                            }).then(function() {
-                                window.location = "./";
-                            });
-                        </script>';
-                    } else {
-                        echo "<script>Swal.fire({icon: 'error', title: 'Invalid...', text: 'ผิดพลาด', })</script>";
-                    }
+      if($offname==""){
+        $offname ="N";
+      }
+      echo $sqlinsert = "INSERT INTO req_prob (cidcode,pname,fname,lname,gender,profession,province,amphoe,district,address,zipcode,phone,mobile,email,req_to,req_head,req_prob_type,req_details,request,offname) 
+      VALUE ('$cidcode' ,'$pname' ,'$fname' ,'$lname' ,'$gender' ,'$profession' ,'$province' ,'$amphoe' ,'$district' ,'$address' ,'$zipcode' ,'$phone' ,'$mobile' ,'$email' ,'$req_to' ,'$req_head' ,'$req_prob_type' ,'$req_details' ,'$request ','$offname' )";
+      $query = mysqli_query($con,$sqlinsert);
+      if ($query) {
+          echo '<script>
+              Swal.fire({
+                  icon: "success",
+                  title: "สำเร็จ",
+                  text: "แจ้งข้อมูลเรียบร้อยแล้ว!",
+                  type: "success"
+              }).then(function() {
+                  window.location = "./";
+              });
+          </script>';
+      } else {
+          echo "<script>Swal.fire({icon: 'error', title: 'Invalid...', text: 'ผิดพลาด', })</script>";
+      }
   }
 } 
 function test_input($data) {
@@ -408,10 +407,10 @@ function test_input($data) {
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
-                <!-- <?php echo $allowShowErr==""?"":"checked"?> -->
-                  <input type="checkbox" name="allowShow" id="allowShow" value="1"<?php echo $allowShow==""?"":"checked"?>>
+                <!-- <?php echo $offnameErr==""?"":"checked"?> -->
+                  <input type="checkbox" name="offname" id="offname" value="Y"<?php echo $offname==""?"":"checked"?>>
                   <font color="red"> คลิกถ้าต้องการปกปิด ชื่อและข้อมูลส่วนตัว</font><br>
-                  <span class="error" style ="color:red"><?php echo $allowShowErr;?></span>
+                  <span class="error" style ="color:red"><?php echo $offnameErr;?></span>
                 </div>
               </div>
             </div>
@@ -486,7 +485,7 @@ function test_input($data) {
             <div class="row">
               <div class="col-md-4">
                 <div class="form-group">
-                  <input class="form-last-name form-control" id="zipcode" name="zipcode" placeholder="ไปรษณีย์" type="number" value="<?php echo $zipcode?>"maxlength="5">
+                  <input class="form-last-name form-control" id="zipcode" name="zipcode" placeholder="ไปรษณีย์" type="text" value="<?php echo $zipcode?>"maxlength="5">
                 </div>
               </div>
               <div class="col-md-4">
@@ -523,11 +522,22 @@ function test_input($data) {
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
+                  <?php 
+                  $tmp = '';
+                  if(!empty($_POST["req_prob_type"])){
+                    $tmp = "SELECT describes FROM req_prob_type WHERE id = $req_prob_type";
+                    $tmp = mysqli_fetch_assoc(mysqli_query($con, $tmp));
+                    $tmp =  $tmp['describes'];
+
+                  }
+                  
+                  
+                  ?>
                   <label class="sr-only" for="form-last-name">ประเภทเรื่องร้องเรียน</label>
                   <select name="req_prob_type" class="form-last-name form-control" id="req_prob_type">
-                    <option selected="" value=<?php echo $req_prob_type=="null"?"null":$req_prob_type?>><?php echo $req_prob_type=="null"?"เลือกประเภทเรื่องร้องเรียน":($req_prob_type==""?"เลือกประเภทเรื่องร้องเรียน":$req_prob_type)?></option>
+                    <option selected="" value=<?php echo $req_prob_type=="null"?"null":$req_prob_type?>><?php echo $req_prob_type=="null"?"เลือกประเภทเรื่องร้องเรียน":($req_prob_type==""?"เลือกประเภทเรื่องร้องเรียน":$tmp)?></option>
                     <?php
-                      $selectceo = "SELECT * FROM req_prob_type ORDER BY orderBy";
+                      $selectceo = "SELECT * FROM req_prob_type WHERE status  = 'Y' ORDER BY orderBy";
                       $queryselectceo = mysqli_query($con, $selectceo);
                       while ($ResultCeo = mysqli_fetch_assoc($queryselectceo)) {
                       ?>

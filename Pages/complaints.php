@@ -26,7 +26,7 @@
         ga('create', 'UA-33058582-1', 'auto', {
             'name': 'Main'
         });
-        ga('Main.send', 'event', 'jquery.Thailand.js', 'GitHub', 'Visit');
+        ga('Main.send', 'event', /cpawebsite/Pages'jquery.Thailand.js', 'GitHub', 'Visit');
     </script>
 </head>
  
@@ -373,7 +373,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         echo "<script>Swal.fire({icon: 'error', title: 'Invalid...', text: 'ผิดพลาด', })</script>";
                     }
   }
-}
+} 
 function test_input($data) {
   $data = trim($data);
   $data = stripslashes($data);

@@ -88,7 +88,7 @@
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">	ติดต่อ</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<a class="dropdown-item" href="./contact">ติดต่อ</a>
-						<a class="dropdown-item" target="_blank" href="	https://cpa.go.th/complaint/">แนะนำร้องเรียนติชม</a>
+						<a class="dropdown-item" target="_blank" href="	./complaints">แนะนำร้องเรียนติชม</a>
 				</li>
 			</ul>
 		</div>

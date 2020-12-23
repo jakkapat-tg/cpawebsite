@@ -9,7 +9,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <?php include ("./cpawebsite/components/header.php");?>
 
-  <link rel="stylesheet" href="./jquery.Thailand.js/dist/jquery.Thailand.min.css">
+  <link rel="stylesheet" href="./cpawebsite/Pages/jquery.Thailand.js/dist/jquery.Thailand.min.css">
 
    <script>
         (function (i, s, o, g, r, a, m) {
@@ -26,7 +26,7 @@
         ga('create', 'UA-33058582-1', 'auto', {
             'name': 'Main'
         });
-        ga('Main.send', 'event', 'jquery.Thailand.js', 'GitHub', 'Visit');
+        ga('Main.send', 'event', /cpawebsite/Pages'jquery.Thailand.js', 'GitHub', 'Visit');
     </script>
 </head>
  
@@ -601,18 +601,18 @@ function test_input($data) {
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.20/js/uikit.min.js"></script>
     
     <!-- dependencies for zip mode -->
-    <script type="text/javascript" src="./jquery.Thailand.js/dependencies/zip.js/zip.js"></script>
+    <script type="text/javascript" src="./cpawebsite/Pages/jquery.Thailand.js/dependencies/zip.js/zip.js"></script>
     <!-- / dependencies for zip mode -->
 
-    <script type="text/javascript" src="./jquery.Thailand.js/dependencies/JQL.min.js"></script>
-    <script type="text/javascript" src="./jquery.Thailand.js/dependencies/typeahead.bundle.js"></script>
+    <script type="text/javascript" src="./cpawebsite/Pages/jquery.Thailand.js/dependencies/JQL.min.js"></script>
+    <script type="text/javascript" src="./cpawebsite/Pages/jquery.Thailand.js/dependencies/typeahead.bundle.js"></script>
     
-    <script type="text/javascript" src="./jquery.Thailand.js/dist/jquery.Thailand.min.js"></script>
+    <script type="text/javascript" src="./cpawebsite/Pages/jquery.Thailand.js/dist/jquery.Thailand.min.js"></script>
     
     <script type="text/javascript">
       
         $.Thailand({
-            database: './jquery.Thailand.js/database/db.json', 
+            database: './cpawebsite/Pages/jquery.Thailand.js/database/db.json', 
 
             $district: $('#form_compatient [name="district"]'),
             $amphoe: $('#form_compatient [name="amphoe"]'),

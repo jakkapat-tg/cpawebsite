@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <?php include ("./cpawebsite/components/header.php");?>
-
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <link rel="stylesheet" href="./cpawebsite/Pages/jquery.Thailand.js/dist/jquery.Thailand.min.css">
 
    <script>
@@ -358,19 +358,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $sqlinsert2 = "INSERT INTO req_prob (cidcode	,req_to	,req_head	,req_prob_type	,req_details	,request	,allowShow) 
                     VALUE ('$cidcode','$req_to','$req_head','$req_prob_type','$req_details','$request','$allowShow')";
                     $query2 = mysqli_query($con,$sqlinsert2);
-                    if ($query) {
+                    if ($query&&$query2) {
                         echo '<script>
                             Swal.fire({
                                 icon: "success",
                                 title: "สำเร็จ",
-                                text: "แก้ไขข้อมูลสำเร็จ!",
+                                text: "แจ้งข้อมูลเรียบร้อยแล้ว!",
                                 type: "success"
                             }).then(function() {
-                                window.location = "./tableshowdata.php?page=edituser";
+                                window.location = "./";
                             });
                         </script>';
                     } else {
-                        echo "<script>Swal.fire({icon: 'error', title: 'Invalid...', text: 'ไม่สามารถแก้ไขได้', })</script>";
+                        echo "<script>Swal.fire({icon: 'error', title: 'Invalid...', text: 'ผิดพลาด', })</script>";
                     }
   }
 } 

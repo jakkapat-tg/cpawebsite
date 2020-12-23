@@ -4,16 +4,36 @@
 <head>
 	<title>โรงพยาบาลเจ้าพระยาอภัยภูเบศร</title>
 	<link rel="shortcut icon" type="image/x-icdo" href="./cpawebsite/uploads/image/icon.png">
-	<meta charset="utf-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<?php include ("./cpawebsite/components/header.php");?>
+  <?php include ("./cpawebsite/components/header.php");?>
 
+  <link rel="stylesheet" href="./jquery.Thailand.js/dist/jquery.Thailand.min.css">
+
+   <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-33058582-1', 'auto', {
+            'name': 'Main'
+        });
+        ga('Main.send', 'event', 'jquery.Thailand.js', 'GitHub', 'Visit');
+    </script>
 </head>
-
+ 
 <body>
-
+  
 	<?php $page = "contact";include "./cpawebsite/components/navbar.php" ?>
-	<div  id="sure" class="container" style="padding-top: 45px; padding-bottom: 125px;">
+	<div  id="sure" class="container" style="padding-top: 45px; padding-bottom: 125px; display:<?php echo ($_SERVER["REQUEST_METHOD"] == "POST")?"none":"block" ?>;">
 		<div class="row">
 			<div class="col-md-12 col-sm-12 col-xs-12 ">
 				<p style="text-align: center;">
@@ -100,237 +120,258 @@
 				</span>			
 			</div>		
 		</div>
+   
     <div class="row">
-        <div class="col-md-12" style="text-align:center; padding-top: 15px;">
-            <button onclick="myFunction()"class="btn" style="text-align: center; font-weight: bold;font-size:20px;color: #207dff;">ยอมรับ</button>
-        </div>
+      <div class="col-md-12" style="text-align:center; padding-top: 15px;">
+          <button onclick="myFunction()"class="btn" style="text-align: center; font-weight: bold;font-size:20px;color: #207dff;">ยอมรับ</button>
+      </div>
     </div>
+    
 	</div>
-
-
 <script>
     function myFunction() {
       document.getElementById("complaints").style.display = "block";
       document.getElementById("sure").style.display = "none";
     }
 </script>
+
 	<!-- -----------------------------------------------   FROM  ----------------------------------------------- -->
-	
-  
-  <div class="modal-dialog modal-lg" id="complaints" style="display: none; padding-top: 45px; padding-bottom: 45px;">
-        <div class="modal-content">
-
-          <div class="modal-body">
-            <!--#########################   FROM  ################################-->
-            <!--#########################   FROM  ################################-->
-            <form role="form" id="form_compatient" name="form_compatient" action="" method="post" class="registration-form">
-            <div class="row" >  
-                <div class="col-md-12"style="text-align: right;">
-                  <span id="datetime" style="font-size:16px"></span>
-                </div>
-            </div>
-            <div class="row" style="padding-left: 15px;">
-			          <h4  id="modal-register-label">ข้อมูลเกี่ยวกับผู้ร้องเรียน</h4>
-            </div>
-                <script>
-                var dt = new Date();
-                document.getElementById("datetime").innerHTML = "วันที่ " + dt.toLocaleDateString('th-TH', 
-                  {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  });
-                </script>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <input type="checkbox" name="patientshow" id="patientshow" value="1"><font color="red"> คลิกถ้าต้องการปกปิด ชื่อและข้อมูลส่วนตัว</font><br>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-3">
-                  <div class="form-group">
-                    <input type="text" name="prename" placeholder="คำนำหน้า" class="form-first-name form-control" id="prename">
-
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="form-group">
-                    <input type="text" name="fname" placeholder="ชื่อ" class="form-first-name form-control" id="fname">
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="form-group">
-                    <input type="text" name="lname" placeholder="นามสกุล" class="form-first-name form-control" id="lname">
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="form-group">
-                    <select name="sex" class="form-last-name form-control" id="sex">
-                      <option selected="" value="">เพศ</option>
-                      <option value="M">ชาย</option>
-                      <option value="F">หญิง</option>
-                    </select>
-                  </div>
-                </div>
-
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <input type="text" name="cidcode" onkeyup="onlyCid();" onkeypress="return isNumber(event)" placeholder="เลขประจำตัวประชาชน( 13 หลัก)" class="form-last-name form-control" id="cidcode">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <input type="text" name="profession" placeholder="อาชีพ" class="form-last-name form-control" id="profession">
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <input type="text" name="addess" placeholder="ที่อยู่" class="form-last-name form-control" id="addess">
-                  </div>
-                </div>
-              </div>
-
-              
-              <div class="row">
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <input class="form-last-name form-control" id="xzipcode" name="xzipcode" placeholder="ไปรษณีย์" readonly="">
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <input type="text" name="phonehome" placeholder="โทรศัพท์" onkeypress="return isNumberPhone(event)" class="form-last-name form-control" id="phonehome">
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <input type="text" name="phone" placeholder="มือถือ" onkeypress="return isNumberPhone(event)" class="form-last-name form-control" id="phone">
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-8">
-                  <div class="form-group">
-                    <input type="text" name="mail" onkeyup="validateMail();" placeholder="E-Mail" class="form-last-name form-control" id="mail">
-                    <label id="resultEmail"></label>
-                  </div>
-                </div>
-              </div>
-              <p><h4 class="modal-title" id="modal-register-label">ข้อมูลเกี่ยวกับเรื่องร้องเรียน</h4></p>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <input type="text" name="complaint_to" placeholder="ร้องเรียนถึง" class="form-last-name form-control" id="complaint_to">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label class="sr-only" for="form-last-name">ประเภทเรื่องร้องเรียน</label>
-                    <select name="complaint_type" class="form-last-name form-control" id="complaint_type">
-                      <option selected="" value="">เลือกประเภทเรื่องร้องเรียน</option>
-                      <?php
-						$selectceo = "SELECT * FROM req_prob_type ORDER BY orderBy";
-						$queryselectceo = mysqli_query($con, $selectceo);
-						while ($ResultCeo = mysqli_fetch_assoc($queryselectceo)) {
-						?>
-							<option value="<?php echo $ResultCeo['id']; ?>"><?php echo $ResultCeo['describes']; ?></option>
-						<?php } ?>
-                    </select>
-                  </div>
-                </div>
-               
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <input type="text" name="complaint_subject" placeholder="หัวข้อเรื่องร้องเรียน" class="form-last-name form-control" id="complaint_subject">
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <textarea name="complaint_details" placeholder="รายละเอียดเรื่องร้องเรียน" class="form-about-yourself form-control" id="complaint_details"></textarea>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <textarea name="complaint_required" placeholder="สิ่งที่ต้องการให้แก้ไข" class="form-about-yourself form-control" id="complaint_required"></textarea>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12" style="text-align:center">
-                  <button type="submit" class="btn" id="submit"style="text-align: center; font-weight: bold;font-size:20px;color: #207dff;">บันทึก</button>
-                </div>
-              </div>
-              
-            </form>
-            <!--#########################   CLOSE FROM  ################################-->
-          </div>
-        </div>
-      </div>
-	<?php
-// define variables and set to empty values
-$nameErr = $emailErr = $genderErr = $websiteErr = "";
-$name = $email = $gender = $comment = $website = "";
+<?php
+$allowShow = $pname = $fname = $lname = $gender = "";
+$cidcode = $profession = $province = $amphoe = $district = $zipcode = "";
+$addess =  $phone = $mobile = $email = "";
+$req_to = $req_head = $req_prob_type = $req_details = $request = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["name"])) {
-    $nameErr = "Name is required";
+  if (empty($_POST["allowShow"])) {
+    $allowShow = "";
   } else {
-    $name = test_input($_POST["name"]);
-    // check if name only contains letters and whitespace
-    if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
-      $nameErr = "Only letters and white space allowed";
+    $allowShow = test_input($_POST["allowShow"]);
+    if (!preg_match('/^[0-1]+$/', $allowShow)) {
+      $allowShowErr = "พบข้อผิดพลาด!!";
+    }
+  }     
+  $allowShow =$_POST["allowShow"];
+  if (empty($_POST["pname"])) {
+    $pnameErr = "กรุณากรอกคำนำหน้าชื่อ";
+  } else {
+    $pname = test_input($_POST["pname"]);
+    if (!preg_match('/^[ก-์ ะ-ู เ-แ a-zA-Z0-9._-]+$/', $pname)) {
+      $pnameErr = "กรุณากรอกคำนำหน้าชื่ออีกครั้ง!!";
+    }
+  }
+
+  if (empty($_POST["fname"])) {
+    $fnameErr = "กรุณากรอกชื่อ";
+  } else {
+    $fname = test_input($_POST["fname"]);
+    if (!preg_match('/^[ก-์ ะ-ู เ-แ a-zA-Z0-9._-]+$/', $fname)) {
+      $fnameErr = "กรุณากรอกชื่ออีกครั้ง!!";
+    }
+  }
+
+  if (empty($_POST["lname"])) {
+    $lnameErr = "กรุณากรอกนามสกุล";
+  } else {
+    $lname = test_input($_POST["lname"]);
+    if (!preg_match('/^[ก-์ ะ-ู เ-แ a-zA-Z0-9._-]+$/', $lname)) {
+      $lnameErr = "กรุณากรอกนามสกุลอีกครั้ง!!";
     }
   }
   
-  if (empty($_POST["email"])) {
-    $emailErr = "Email is required";
-  } else {
-    $email = test_input($_POST["email"]);
-    // check if e-mail address is well-formed
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $emailErr = "Invalid email format";
-    }
-  }
-    
-  if (empty($_POST["website"])) {
-    $website = "";
-  } else {
-    $website = test_input($_POST["website"]);
-    // check if URL address syntax is valid (this regular expression also allows dashes in the URL)
-    if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {
-      $websiteErr = "Invalid URL";
-    }
-  }
-
-  if (empty($_POST["comment"])) {
-    $comment = "";
-  } else {
-    $comment = test_input($_POST["comment"]);
-  }
-
-  if (empty($_POST["gender"])) {
-    $genderErr = "Gender is required";
+  if (empty($_POST["gender"]) || test_input($_POST["gender"]) =="เพศ") {
+    $genderErr = "กรุณาเลือกเพศ";
   } else {
     $gender = test_input($_POST["gender"]);
+    if (!preg_match('/^[FM]+$/', $gender)) {
+      $genderErr = "กรุณาเลือกเพศอีกครั้ง!!";
+    }
+  }
+
+  if (empty($_POST["cidcode"])) {
+    $cidcodeErr = "กรุณากรอกเลขบัตรประชาชน";
+  } else {
+    $cidcode = test_input($_POST["cidcode"]);
+    if (!preg_match('/^[0-9]+$/', $cidcode)) {
+      $cidcodeErr = "กรุณากรอกเลขเพียงอย่างเดียว";
+    }
+  }
+  
+  if (empty($_POST["profession"])) {
+    $professionErr = "กรุณากรอกอาชีพ";
+  } else {
+    $profession = test_input($_POST["profession"]);
+    if (!preg_match('/^[ก-์ ะ-ู เ-แ a-zA-Z0-9._-]+$/', $profession)) {
+      $professionErr = "กรุณากรอกอาชีพอีกครั้ง!!";
+    }
+  }   
+
+  if (empty($_POST["province"])) {
+    $provinceErr = "กรุณาเลือกจังหวัด";
+  } else {
+    $province = test_input($_POST["province"]);
+    if (!preg_match('/^[ก-์ ะ-ู เ-แ]+$/', $province)) {
+      $provinceErr = "กรุณาเลือกจังหวัดอีกครั้ง!!";
+    }
+  }   
+
+  if (empty($_POST["amphoe"])) {
+    $amphoeErr = "กรุณาเลือกอำเภอ";
+  } else {
+    $amphoe = test_input($_POST["amphoe"]);
+    if (!preg_match('/^[ก-์ ะ-ู เ-แ]+$/', $amphoe)) {
+      $amphoeErr = "กรุณาเลือกอำเภออีกครั้ง!!";
+    }
+  } 
+
+  if (empty($_POST["district"])) {
+    $districtErr = "กรุณาเลือกตำบล";
+  } else {
+    $district = test_input($_POST["district"]);
+    if (!preg_match('/^[ก-์ ะ-ู เ-แ]+$/', $district)) {
+      $districtErr = "กรุณาเลือกตำบลอีกครั้ง!!";
+    }
+  } 
+
+  if (empty($_POST["addess"])) {
+    $addessErr = "กรุณากรอกที่อยู่";
+  } else {
+    $addess = test_input($_POST["addess"]);
+    if (!preg_match('/^[ก-์ ะ-ู เ-แ a-zA-Z0-9._-]+$/', $addess)) {
+      $addessErr = "กรุณากรอกที่อยู่อีกครั้ง!!";
+    }
+  }
+
+  if (empty($_POST["zipcode"])) {
+    $zipcodeErr = "กรุณากรอกเลขไปรษณีย์";
+  } else {
+    $zipcode = test_input($_POST["zipcode"]);
+    if (!preg_match('/^[0-9._-]+$/', $zipcode)) {
+      $zipcodeErr = "กรุณากรอกเลขไปรษณีย์อีกครั้ง!!";
+    }
+  }
+
+  if (empty($_POST["phone"]) && empty($_POST["mobile"])) {
+    $phoneErr = "กรุณากรอกเบอร์โทรศัพท์";
+    $mobileErr = "กรุณากรอกเบอร์มือถือ";
+  } else {
+
+    if (empty($_POST["phone"])) {
+      if (empty($_POST["mobile"])) {
+        $phoneErr = "กรุณากรอกเบอร์โทรศัพท์";
+      }
+    } else {
+      $phone = test_input($_POST["phone"]);
+      if (!preg_match('/^[0-9]+$/', $phone)) {
+        $phoneErr = "กรุณากรอกเลขเพียงอย่างเดียว";
+      }
+    }
+    if (empty($_POST["mobile"])) {
+      if (empty($_POST["phone"])) {
+        $mobileErr = "กรุณากรอกเบอร์โทรศัพท์";
+      }
+    } else {
+      $mobile = test_input($_POST["mobile"]);
+      if (!preg_match('/^[0-9]+$/', $mobile)) {
+        $mobileErr = "กรุณากรอกเลขเพียงอย่างเดียว";
+      }
+    }
+
+  }
+
+
+
+
+  if (empty($_POST["email"])) {
+    $emailErr = "กรุณากรอก E-mail";
+  } else {
+    $email = test_input($_POST["email"]);
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $emailErr = "กรุณากรอก E-mail อีกครั้ง!!";
+    }
+  }
+
+  if (empty($_POST["req_to"])) {
+    $req_toErr = "กรุณากรอกชื่อผู้อยากกล่าวถึง";
+  } else {
+    $req_to = test_input($_POST["req_to"]);
+    if (!preg_match('/^[ก-์ ะ-ู เ-แ a-zA-Z0-9._-]+$/', $req_to)) {
+      $req_toErr = "กรุณากรอกชื่อผู้อยากกล่าวถึงอีกครั้ง!!";
+    }
+  }
+
+  if (empty($_POST["req_prob_type"])|| test_input($_POST["gender"]) =="เลือกประเภทเรื่องร้องเรียน") {
+    $req_prob_typeErr = "กรุณาเลือกประเภทร้องเรียน";
+  } else {
+    $req_prob_type = test_input($_POST["req_prob_type"]);
+    if (!preg_match('/^[ก-์ ะ-ู เ-แ a-zA-Z0-9._-]+$/', $req_prob_type)) {
+      $req_prob_typeErr = "กรุณาเลือกประเภทร้องเรียนอีกครั้ง!!";
+    }
+  }
+
+  if (empty($_POST["req_head"])) {
+    $req_headErr = "กรุณากรอกหัวเรื่อง";
+  } else {
+    $req_head = test_input($_POST["req_head"]);
+    if (!preg_match('/^[ก-์ ะ-ู เ-แ a-zA-Z0-9._-]+$/', $req_head)) {
+      $req_headErr = "กรุณากรอกหัวเรื่องอีกครั้ง!!";
+    }
+  }
+
+  if (empty($_POST["req_details"])) {
+    $req_detailsErr = "กรุณากรอกลายละเอียด";
+  } else {
+    $req_details = test_input($_POST["req_details"]);
+    if (!preg_match('/^[ก-์ ะ-ู เ-แ a-zA-Z0-9._-]+$/', $req_details)) {
+      $req_detailsErr = "กรุณากรอกลายละเอียดอีกครั้ง!!";
+    }
+  }
+
+  if (empty($_POST["request"])) {
+    $requestErr = "กรุณากรอกอยากให้แก้อะไร";
+  } else {
+    $request = test_input($_POST["request"]);
+    if (!preg_match('/^[ก-์ ะ-ู เ-แ a-zA-Z0-9._-]+$/', $request)) {
+      $requestErr = "กรุณากรอกอยากให้แก้อะไรอีกครั้ง!!";
+    }
+  }
+
+  if (
+      $requestErr == '' &&
+      $req_detailsErr == '' &&
+      $req_headErr == '' &&
+      //($req_prob_typeErr == '') &&
+      $req_toErr == '' &&
+
+      $pnameErr == '' &&
+      $fnameErr == '' &&
+      $lnameErr == '' &&
+      $cidcodeErr == '' &&
+      ($genderErr == '') &&
+      ($mobileErr == ''||$phoneErr == '') &&
+      $allowShowErr == '' 
+      
+  ) {
+                    $sqlinsert = "INSERT INTO req_prob_user (cidcode	,pname	,fname	,lname	,gender	,profession	,province	,amphoe	,district	,address	,zipcode	,phone	,mobile	,email) 
+                    VALUE ('$cidcode','$pname','$fname','$lname','$gender','$profession','$province','$amphoe','$district','$addess','$zipcode','$phone','$mobile','$email')";
+                    $query = mysqli_query($con,$sqlinsert);
+                    $sqlinsert2 = "INSERT INTO req_prob (cidcode	,req_to	,req_head	,req_prob_type	,req_details	,request	,allowShow) 
+                    VALUE ('$cidcode','$req_to','$req_head','$req_prob_type','$req_details','$request','$allowShow')";
+                    $query2 = mysqli_query($con,$sqlinsert2);
+                    if ($query) {
+                        echo '<script>
+                            Swal.fire({
+                                icon: "success",
+                                title: "สำเร็จ",
+                                text: "แก้ไขข้อมูลสำเร็จ!",
+                                type: "success"
+                            }).then(function() {
+                                window.location = "./tableshowdata.php?page=edituser";
+                            });
+                        </script>';
+                    } else {
+                        echo "<script>Swal.fire({icon: 'error', title: 'Invalid...', text: 'ไม่สามารถแก้ไขได้', })</script>";
+                    }
   }
 }
 function test_input($data) {
@@ -340,57 +381,198 @@ function test_input($data) {
   return $data;
 }
 ?>
+<!-- -----------------------------------------------   FROM  ----------------------------------------------- -->
+<div class="modal-dialog modal-lg" id="complaints" style=" padding-top: 45px; padding-bottom: 45px; display:<?php echo ($_SERVER["REQUEST_METHOD"] == "POST")?"block":"none" ?>;"> 
+      <div class="modal-content">
+        <div class="modal-body">
+          <!--#########################   FROM  ################################-->
+          <!--#########################   FROM  ################################-->
+          <form role="form" id="form_compatient" name="form_compatient"autocomplete="off" action="" method="post" class="registration-form" uk-grid>
+            <div class="row" >  
+                <div class="col-md-12"style="text-align: right;">
+                  <span id="datetime" style="font-size:16px"></span>
+                </div>
+            </div>
+            <div class="row" style="padding-left: 15px;">
+                <h4  id="modal-register-label">ข้อมูลเกี่ยวกับผู้ร้องเรียน</h4>
+            </div>
+              <script>
+                var dt = new Date();
+                document.getElementById("datetime").innerHTML = "วันที่ " + dt.toLocaleDateString('th-TH', 
+                  {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  });
+              </script>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                <!-- <?php echo $allowShowErr==""?"":"checked"?> -->
+                  <input type="checkbox" name="allowShow" id="allowShow" value="1"<?php echo $allowShow==""?"":"checked"?>>
+                  <font color="red"> คลิกถ้าต้องการปกปิด ชื่อและข้อมูลส่วนตัว</font><br>
+                  <span class="error" style ="color:red"><?php echo $allowShowErr;?></span>
+                </div>
+              </div>
+            </div>
+            <div class="row">   
+              <div class="col-md-2">
+                <div class="form-group">
+                  <input type="text" name="pname" placeholder="คำนำหน้า" class="form-first-name form-control" id="pname" value="<?php echo $pname?>">
+                  <span class="error" style ="color:red"><?php echo $pnameErr;?></span>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="form-group">
+                  <input type="text" name="fname" placeholder="ชื่อ" class="form-first-name form-control" id="fname"value="<?php echo $fname?>">
+                  <span class="error" style ="color:red"><?php echo $fnameErr;?></span>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="form-group">
+                  <input type="text" name="lname" placeholder="นามสกุล" class="form-first-name form-control" id="lname"value="<?php echo $lname?>">
+                  <span class="error" style ="color:red"><?php echo $lnameErr;?></span>
+                </div>
+              </div>    
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <div class="form-group">
+                  <input type="text" name="cidcode" placeholder="เลขบัตรประชาชน 13 หลัก" class="form-last-name form-control" id="cidcode" value="<?php echo $cidcode?>"minlength="13"maxlength="13">
+                  <span class="error" style ="color:red"><?php echo $cidcodeErr;?></span>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <select name="gender" class="form-last-name form-control" id="gender"value="">
+                    <option selected="" value="<?php echo $gender?>"><?php echo $gender=='M'?'ชาย':($gender=='F'?'หญิง':'เพศ')?></option>
+                    <option value="M">ชาย</option>
+                    <option value="F">หญิง</option>
+                  </select>
+                  <span class="error" style ="color:red"><?php echo $genderErr;?></span>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="text" name="profession" placeholder="อาชีพ" class="form-last-name form-control" id="profession"value="<?php echo $profession?>">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <input type="text" name="addess" placeholder="ที่อยู่" class="form-last-name form-control" id="addess" value="<?php echo $addess?>">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <input type="text" name="province" placeholder="จังหวัด" class="form-control" id="province"value="<?php echo $province?>">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <input type="text" name="amphoe" placeholder="อำเภอ" class="form-control" id="amphoe" value="<?php echo $amphoe?>">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <input type="text" name="district" placeholder="ตำบล" class="form-control" id="district" value="<?php echo $district?>">
+                </div>
+              </div>
+            </div>
+              
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <input class="form-last-name form-control" id="zipcode" name="zipcode" placeholder="ไปรษณีย์" type="number" value="<?php echo $zipcode?>"maxlength="5">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
 
-<h2>PHP Form Validation Example</h2>
-<p><span class="error">* required field</span></p>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
-  Name: <input type="text" name="name" value="<?php echo $name;?>">
-  <span class="error">* <?php echo $nameErr;?></span>
-  <br><br>
-  E-mail: <input type="text" name="email" value="<?php echo $email;?>">
-  <span class="error">* <?php echo $emailErr;?></span>
-  <br><br>
-  Website: <input type="text" name="website" value="<?php echo $website;?>">
-  <span class="error"><?php echo $websiteErr;?></span>
-  <br><br>
-  Comment: <textarea name="comment" rows="5" cols="40"><?php echo $comment;?></textarea>
-  <br><br>
-  Gender:
-  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="female">Female
-  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="male") echo "checked";?> value="male">Male
-  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="other") echo "checked";?> value="other">Other  
-  <span class="error">* <?php echo $genderErr;?></span>
-  <br><br>
-  <input type="submit" name="submit" value="Submit">  
-</form>
+                  <input type="tel" name="phone" placeholder="โทรศัพท์" class="form-last-name form-control" id="phone"type="number" value="<?php echo $phone?>" minlength="9"maxlength="10">
+                  <span class="error" style ="color:red"><?php echo $phoneErr;?></span>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <input type="tel" name="mobile" placeholder="มือถือ" class="form-last-name form-control" id="mobile"type="number" value="<?php echo $mobile?>"minlength="9"maxlength="10"> 
+                  <span class="error" style ="color:red"><?php echo $mobileErr;?></span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8">
+                <div class="form-group">
+                  <input type="text" name="email" placeholder="E-Mail" class="form-last-name form-control" id="email" type="number" value="<?php echo $email?>">
+                  <label id="resultEmail"></label>
+                </div>
+              </div>
+            </div>
+            <p><h4 class="modal-title" id="modal-register-label">ข้อมูลเกี่ยวกับเรื่องร้องเรียน</h4></p>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <input type="text" name="req_to" placeholder="ร้องเรียนถึง" class="form-last-name form-control" id="req_to" value="<?php echo $req_to?>">
+                  <span class="error" style ="color:red"><?php echo $req_toErr?></span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="sr-only" for="form-last-name">ประเภทเรื่องร้องเรียน</label>
+                  <select name="req_prob_type" class="form-last-name form-control" id="req_prob_type">
+                    <option selected="" value=<?php echo $req_prob_type=="null"?"null":$req_prob_type?>><?php echo $req_prob_type=="null"?"เลือกประเภทเรื่องร้องเรียน":($req_prob_type==""?"เลือกประเภทเรื่องร้องเรียน":$req_prob_type)?></option>
+                    <?php
+                      $selectceo = "SELECT * FROM req_prob_type ORDER BY orderBy";
+                      $queryselectceo = mysqli_query($con, $selectceo);
+                      while ($ResultCeo = mysqli_fetch_assoc($queryselectceo)) {
+                      ?>
+                        <option value="<?php echo $ResultCeo['id']; ?>"><?php echo $ResultCeo['describes']; ?></option>
+                      <?php } ?>
+                  </select>
+                  <span class="error" style ="color:red"><?php echo $req_prob_typeErr;?></span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <input type="text" name="req_head" placeholder="หัวข้อเรื่องร้องเรียน" class="form-last-name form-control" id="req_head"  value="<?php echo $req_head?>">
+                  <span class="error" style ="color:red"><?php echo $req_headErr;?></span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <textarea name="req_details" placeholder="รายละเอียดเรื่องร้องเรียน" class="form-about-yourself form-control" id="req_details" value="<?php echo $req_details?>"><?php echo $req_details?></textarea>
+                  <span class="error" style ="color:red"><?php echo $req_detailsErr;?></span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <textarea name="request" placeholder="สิ่งที่ต้องการให้แก้ไข" class="form-about-yourself form-control" id="request" value="<?php echo $request?>"><?php echo $request?></textarea>
+                  <span class="error" style ="color:red"><?php echo $requestErr;?></span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12" style="text-align:center">
+                <button type="submit" class="btn" id="submit"style="text-align: center; font-weight: bold;font-size:20px;color: #207dff;">บันทึก</button>
+              </div>
+            </div>  
+          </form>
+          <!--#########################   CLOSE FROM  ################################-->
+        </div>
+      </div>
+    </div>
 
-<?php
-echo "<h2>Your Input:</h2>";
-echo $name;
-echo "<br>";
-echo $email;
-echo "<br>";
-echo $website;
-echo "<br>";
-echo $comment;
-echo "<br>";
-echo $gender;
-?>
-  
-  <!-- ------------------------------------------------------  EVENT PICTURE   ----------------------------------------------------------- -->
-
-<script type="text/javascript"> 
-
-    document.getElementById("submit").onclick = function() { 
-       
-    } 
-    document.getElementById("rounded").onclick = function() { 
-        document.getElementById("rounded").style.display = "none"; 
-    } 
-    document.getElementById("square").onclick = function() { 
-        document.getElementById("square").style.display = "none"; 
-    } 
-</script> 
 
 	<?php include "./cpawebsite/components/footer.php" ?>
 	<style>
@@ -412,7 +594,57 @@ echo $gender;
 			}
 
 		}
-	</style>
+  </style>
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.20/js/uikit.min.js"></script>
+    
+    <!-- dependencies for zip mode -->
+    <script type="text/javascript" src="./jquery.Thailand.js/dependencies/zip.js/zip.js"></script>
+    <!-- / dependencies for zip mode -->
+
+    <script type="text/javascript" src="./jquery.Thailand.js/dependencies/JQL.min.js"></script>
+    <script type="text/javascript" src="./jquery.Thailand.js/dependencies/typeahead.bundle.js"></script>
+    
+    <script type="text/javascript" src="./jquery.Thailand.js/dist/jquery.Thailand.min.js"></script>
+    
+    <script type="text/javascript">
+      
+        $.Thailand({
+            database: './jquery.Thailand.js/database/db.json', 
+
+            $district: $('#form_compatient [name="district"]'),
+            $amphoe: $('#form_compatient [name="amphoe"]'),
+            $province: $('#form_compatient [name="province"]'),
+            $zipcode: $('#form_compatient [name="zipcode"]'),
+
+            onDataFill: function(data){
+                console.info('Data Filled', data);
+            },
+
+            onLoad: function(){
+                console.info('Autocomplete is ready!');
+                $('#loader, .demo').toggle();
+            }
+        });
+
+        // watch on change
+
+        $('#form_compatient [name="district"]').change(function(){
+            console.log('ตำบล', this.value);
+        });
+        $('#form_compatient [name="amphoe"]').change(function(){
+            console.log('อำเภอ', this.value);
+        });
+        $('#form_compatient [name="province"]').change(function(){
+            console.log('จังหวัด', this.value);
+        });
+        $('#form_compatient [name="zipcode"]').change(function(){
+            console.log('รหัสไปรษณีย์', this.value);
+        });
+    </script>
+
 </body>
 
 </html>

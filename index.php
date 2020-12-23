@@ -45,6 +45,11 @@ $router->map( "GET", "/cpa_phone", function() {
   require __DIR__ . "./cpawebsite/Pages/cpa_phone.php";
 } );
 
+
+$router->map( "GET|POST", "/complaints", function() {
+  require __DIR__ . "./cpawebsite/Pages/complaints.php";
+} );
+
 $router->map( "GET|POST", "/fetch_cpa", function() {
   require __DIR__ . "./cpawebsite/Pages/fetch_cpa.php";
 } );

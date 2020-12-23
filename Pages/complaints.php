@@ -354,7 +354,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       if($offname==""){
         $offname ="N";
       }
-      echo $sqlinsert = "INSERT INTO req_prob (cidcode,pname,fname,lname,gender,profession,province,amphoe,district,address,zipcode,phone,mobile,email,req_to,req_head,req_prob_type,req_details,request,offname) 
+      $sqlinsert = "INSERT INTO req_prob (cidcode,pname,fname,lname,gender,profession,province,amphoe,district,address,zipcode,phone,mobile,email,req_to,req_head,req_prob_type,req_details,request,offname) 
       VALUE ('$cidcode' ,'$pname' ,'$fname' ,'$lname' ,'$gender' ,'$profession' ,'$province' ,'$amphoe' ,'$district' ,'$address' ,'$zipcode' ,'$phone' ,'$mobile' ,'$email' ,'$req_to' ,'$req_head' ,'$req_prob_type' ,'$req_details' ,'$request ','$offname' )";
       $query = mysqli_query($con,$sqlinsert);
       if ($query) {

@@ -17,11 +17,12 @@
 		
 		//นับจำนวนคนเข้าเว็บตาม sessionid
 		$dateNow =  date("Y-m-d");
+		$fdthismonth = date('Y-m-01');
+		$edthismonth = date('Y-m-t');
 		$sqlcounter = "SELECT count(*) as today from (SELECT * from  cpa_web_counter WHERE date_visit = '$dateNow' group by sessions_id,date_visit	)as today";
 		$querycounter = mysqli_query($con, $sqlcounter);
 
-		$sqlcounter2 = "select count(*)as thismonth from (SELECT count(*)as thismonth from  cpa_web_counter where date_visit between DATE_SUB('$dateNow',INTERVAL DAYOFMONTH('$dateNow')-1 DAY) 
-			AND LAST_DAY('$dateNow')
+		echo $sqlcounter2 = "select count(*)as thismonth from (SELECT count(*)as thismonth from  cpa_web_counter where date_visit between '$fdthismonth' AND '$edthismonth'
 			group by sessions_id,date_visit)as thismonth";
 		$querycounter2 = mysqli_query($con, $sqlcounter2);
 

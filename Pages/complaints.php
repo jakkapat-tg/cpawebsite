@@ -26,7 +26,7 @@
         ga('create', 'UA-33058582-1', 'auto', {
             'name': 'Main'
         });
-        ga('Main.send', 'event', /cpawebsite/Pages'jquery.Thailand.js', 'GitHub', 'Visit');
+        ga('Main.send', 'event', "./cpawebsite/Pagesjquery.Thailand.js", 'GitHub', 'Visit');
     </script>
 </head>
  

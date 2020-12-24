@@ -22,7 +22,7 @@
 		$sqlcounter = "SELECT count(*) as today from (SELECT * from  cpa_web_counter WHERE date_visit = '$dateNow' group by sessions_id,date_visit	)as today";
 		$querycounter = mysqli_query($con, $sqlcounter);
 
-		echo $sqlcounter2 = "select count(*)as thismonth from (SELECT count(*)as thismonth from  cpa_web_counter where date_visit between '$fdthismonth' AND '$edthismonth'
+		$sqlcounter2 = "select count(*)as thismonth from (SELECT count(*)as thismonth from  cpa_web_counter where date_visit between '$fdthismonth' AND '$edthismonth'
 			group by sessions_id,date_visit)as thismonth";
 		$querycounter2 = mysqli_query($con, $sqlcounter2);
 

@@ -1,4 +1,4 @@
 /sqlconfig
 /uploads
-*htaccess
+*.htaccess
 

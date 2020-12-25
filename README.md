@@ -9,6 +9,6 @@ cpawebsite V.3 add Altorouter <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-> ita<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-> pdffile ในโฟลเดอร์ก็จะมีสับลงไปอีก คือ pdf,price,spec<br>
 4.หากโฟลเดอร์ vender ไม่มีหรือมาไม่ครบทำให้เรียก path Routing ไม่ได้ ให้รันคำสั้ง composer  require altorouter/altorouter ใน directory cpawebsite<br>
-5.default user test user:admin password:taotest
+5.default user test user:admin password:taotest<br>
 6.หากทำครบแล้วแต่เปิดหน้าแรกเจอ error 500 ลองปรับเปลียน router ในหน้า index 
   จาก   require __DIR__ . "./cpawebsite/Pages/ชื่อไฟล์"; เป็น require "./cpawebsite/Pages/ชื่อไฟล์"; ในทุกๆอันยกเว้น อันแรกที่ require__DIR__.'./cpawebsite/vendor/autoload.php';

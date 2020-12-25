@@ -179,7 +179,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
   }
   
-  if (empty($_POST["gender"]) || test_input($_POST["gender"]) =="เพศ") {
+  if (empty($_POST["gender"]) || test_input($_POST["gender"]) =="เพศ*") {
     $genderErr = "กรุณาเลือกเพศ";
   } else {
     $gender = test_input($_POST["gender"]);
@@ -357,7 +357,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $sqlinsert = "INSERT INTO req_prob (cidcode,pname,fname,lname,gender,profession,province,amphoe,district,address,zipcode,phone,mobile,email,req_to,req_head,req_prob_type,req_details,request,offname) 
       VALUE ('$cidcode' ,'$pname' ,'$fname' ,'$lname' ,'$gender' ,'$profession' ,'$province' ,'$amphoe' ,'$district' ,'$address' ,'$zipcode' ,'$phone' ,'$mobile' ,'$email' ,'$req_to' ,'$req_head' ,'$req_prob_type' ,'$req_details' ,'$request ','$offname' )";
       $query = mysqli_query($con,$sqlinsert);
-      if ($query) {
+        if ($query) {
+          //echo "<script>alert('แจ้งข้อมูลไปยังผู้ดูแลระบบเรียบร้อย');window.location=index.php;</script>";
+          function send_line_notify($message, $token)
+            {
+              $ch = curl_init();
+              curl_setopt($ch, CURLOPT_URL, "https://notify-api.line.me/api/notify");
+              curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+              curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+              curl_setopt($ch, CURLOPT_POST, 1);
+              curl_setopt($ch, CURLOPT_POSTFIELDS, "message=$message");
+              curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+              $headers = array("Content-type: application/x-www-form-urlencoded", "Authorization: Bearer $token",);
+              curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+              curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+              $result = curl_exec($ch);
+              curl_close($ch);
+              return $result;
+            }
+
+            $message = "\r\n" .
+              'คำร้องเรียน ' .date('d-m-yy'). "\r\n" .
+              'เรื่อง :'. $_POST["req_head"] . "\r\n" .
+              'ชื่อ :' . $_POST["pname"] . " " .  $_POST["fname"] . "  " .  $_POST["lname"] . "\r\n" .
+              'สถานะ : รอดำเนินการ';
+            $token = 'LWXFDV0Ubg4tpFWJk4huG97lCHKXcnGkrrMHfH0vQfm';
+          send_line_notify($message, $token);
           echo '<script>
               Swal.fire({
                   icon: "success",
@@ -417,19 +442,19 @@ function test_input($data) {
             <div class="row">   
               <div class="col-md-2">
                 <div class="form-group">
-                  <input type="text" name="pname" placeholder="คำนำหน้า" class="form-first-name form-control" id="pname" value="<?php echo $pname?>">
+                  <input type="text" name="pname" placeholder="คำนำหน้า*" class="form-first-name form-control" id="pname" value="<?php echo $pname?>">
                   <span class="error" style ="color:red"><?php echo $pnameErr;?></span>
                 </div>
               </div>
               <div class="col-md-5">
                 <div class="form-group">
-                  <input type="text" name="fname" placeholder="ชื่อ" class="form-first-name form-control" id="fname"value="<?php echo $fname?>">
+                  <input type="text" name="fname" placeholder="ชื่อ*" class="form-first-name form-control" id="fname"value="<?php echo $fname?>">
                   <span class="error" style ="color:red"><?php echo $fnameErr;?></span>
                 </div>
               </div>
               <div class="col-md-5">
                 <div class="form-group">
-                  <input type="text" name="lname" placeholder="นามสกุล" class="form-first-name form-control" id="lname"value="<?php echo $lname?>">
+                  <input type="text" name="lname" placeholder="นามสกุล*" class="form-first-name form-control" id="lname"value="<?php echo $lname?>">
                   <span class="error" style ="color:red"><?php echo $lnameErr;?></span>
                 </div>
               </div>    
@@ -437,14 +462,14 @@ function test_input($data) {
             <div class="row">
               <div class="col-md-3">
                 <div class="form-group">
-                  <input type="text" name="cidcode" placeholder="เลขบัตรประชาชน 13 หลัก" class="form-last-name form-control" id="cidcode" value="<?php echo $cidcode?>"minlength="13"maxlength="13">
+                  <input type="text" name="cidcode" placeholder="เลขบัตรประชาชน 13 หลัก*" class="form-last-name form-control" id="cidcode" value="<?php echo $cidcode?>"minlength="13"maxlength="13">
                   <span class="error" style ="color:red"><?php echo $cidcodeErr;?></span>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
                   <select name="gender" class="form-last-name form-control" id="gender"value="">
-                    <option selected="" value="<?php echo $gender?>"><?php echo $gender=='M'?'ชาย':($gender=='F'?'หญิง':'เพศ')?></option>
+                    <option selected="" value="<?php echo $gender?>"><?php echo $gender=='M'?'ชาย':($gender=='F'?'หญิง':'เพศ*')?></option>
                     <option value="M">ชาย</option>
                     <option value="F">หญิง</option>
                   </select>
@@ -491,13 +516,13 @@ function test_input($data) {
               <div class="col-md-4">
                 <div class="form-group">
 
-                  <input type="tel" name="phone" placeholder="โทรศัพท์" class="form-last-name form-control" id="phone"type="number" value="<?php echo $phone?>" minlength="9"maxlength="10">
+                  <input type="tel" name="phone" placeholder="โทรศัพท์*" class="form-last-name form-control" id="phone"type="number" value="<?php echo $phone?>" minlength="9"maxlength="10">
                   <span class="error" style ="color:red"><?php echo $phoneErr;?></span>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
-                  <input type="tel" name="mobile" placeholder="มือถือ" class="form-last-name form-control" id="mobile"type="number" value="<?php echo $mobile?>"minlength="9"maxlength="10"> 
+                  <input type="tel" name="mobile" placeholder="มือถือ*" class="form-last-name form-control" id="mobile"type="number" value="<?php echo $mobile?>"minlength="9"maxlength="10"> 
                   <span class="error" style ="color:red"><?php echo $mobileErr;?></span>
                 </div>
               </div>
@@ -505,7 +530,7 @@ function test_input($data) {
             <div class="row">
               <div class="col-md-8">
                 <div class="form-group">
-                  <input type="text" name="email" placeholder="E-Mail" class="form-last-name form-control" id="email" type="number" value="<?php echo $email?>">
+                  <input type="email" name="email" placeholder="E-Mail" class="form-last-name form-control" id="email" type="number" value="<?php echo $email?>">
                   <label id="resultEmail"></label>
                 </div>
               </div>
@@ -514,7 +539,7 @@ function test_input($data) {
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
-                  <input type="text" name="req_to" placeholder="ร้องเรียนถึง" class="form-last-name form-control" id="req_to" value="<?php echo $req_to?>">
+                  <input type="text" name="req_to" placeholder="ร้องเรียนถึง*" class="form-last-name form-control" id="req_to" value="<?php echo $req_to?>">
                   <span class="error" style ="color:red"><?php echo $req_toErr?></span>
                 </div>
               </div>
@@ -551,7 +576,7 @@ function test_input($data) {
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
-                  <input type="text" name="req_head" placeholder="หัวข้อเรื่องร้องเรียน" class="form-last-name form-control" id="req_head"  value="<?php echo $req_head?>">
+                  <input type="text" name="req_head" placeholder="หัวข้อเรื่องร้องเรียน*" class="form-last-name form-control" id="req_head"  value="<?php echo $req_head?>">
                   <span class="error" style ="color:red"><?php echo $req_headErr;?></span>
                 </div>
               </div>
@@ -559,7 +584,7 @@ function test_input($data) {
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
-                  <textarea name="req_details" placeholder="รายละเอียดเรื่องร้องเรียน" class="form-about-yourself form-control" id="req_details" value="<?php echo $req_details?>"><?php echo $req_details?></textarea>
+                  <textarea name="req_details" placeholder="รายละเอียดเรื่องร้องเรียน*" class="form-about-yourself form-control" id="req_details" value="<?php echo $req_details?>"><?php echo $req_details?></textarea>
                   <span class="error" style ="color:red"><?php echo $req_detailsErr;?></span>
                 </div>
               </div>
@@ -567,7 +592,7 @@ function test_input($data) {
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
-                  <textarea name="request" placeholder="สิ่งที่ต้องการให้แก้ไข" class="form-about-yourself form-control" id="request" value="<?php echo $request?>"><?php echo $request?></textarea>
+                  <textarea name="request" placeholder="สิ่งที่ต้องการให้แก้ไข*" class="form-about-yourself form-control" id="request" value="<?php echo $request?>"><?php echo $request?></textarea>
                   <span class="error" style ="color:red"><?php echo $requestErr;?></span>
                 </div>
               </div>

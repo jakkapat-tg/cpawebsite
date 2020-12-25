@@ -1,3 +1,12 @@
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule . index.php [L]
+
+php_value upload_max_filesize 5M
+
+ErrorDocument 404 localhost/404
+ErrorDocument 403 localhost/403
+
+#RewriteRule .*[Jj][Pp][Gg]$|.*[Gg][Ii][Ff]$|.*[Pp][Nn][Gg]$ http://cpa.go.th/403
+
+Options -Indexes

@@ -45,13 +45,16 @@ $router->map( "GET", "/cpa_phone", function() {
   require __DIR__ . "./cpawebsite/Pages/cpa_phone.php";
 } );
 
-
 $router->map( "GET|POST", "/complaints", function() {
   require __DIR__ . "./cpawebsite/Pages/complaints.php";
 } );
 
 $router->map( "GET|POST", "/fetch_cpa", function() {
   require __DIR__ . "./cpawebsite/Pages/fetch_cpa.php";
+} );
+
+$router->map( "GET", "/403", function() {
+  require __DIR__ . "./cpawebsite/Pages/403.html";
 } );
 
 
@@ -78,6 +81,3 @@ if( is_array($match) && is_callable( $match['target'] ) ) {
   //echo "ไม่พบหน้าที่ต้องการ";
   require __DIR__ . "./cpawebsite/Pages/404.php";
 }
-
-
-?>

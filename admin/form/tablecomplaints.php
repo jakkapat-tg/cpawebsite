@@ -133,7 +133,9 @@
                                         <td><?php echo date("d/m/Y G:i \น\.", strtotime($result['req_time'])) ?> </td>
                                         <td style="text-align:center;"><?php echo $result['check_status'] == 'N' ? '<span class="ion-close-circled" style="color:red;"></span>' : '<span class="ion-checkmark-circled" style="color:green;"></span>' ?></td>
                                         <td>
-                                            <center><button class="btn btn-info" data-toggle="modal" data-target="#closejob<?php echo $result['id']; ?>">เพิ่มเติม</button></center>
+                                            <?php if ($_SESSION['status'] == '1') { ?>
+                                                <center><button class="btn btn-info" data-toggle="modal" data-target="#closejob<?php echo $result['id']; ?>">เพิ่มเติม</button></center>
+                                            <?php } ?>
                                         </td>
                                     </tr>
                                 <?php } ?>
@@ -295,7 +297,7 @@
                                         <input type="hidden" name="lname" value="<? echo $item['lname']; ?>">
                                         <input type="hidden" name="req_head" value="<? echo $item['req_head']; ?>">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
-                                        <?php if ($item['check_by'] == null and $item['check_status'] == 'N') { ?>
+                                        <?php if ($item['check_by'] == null and $item['check_status'] == 'N' and $_SESSION['status'] == '1') { ?>
                                             <button type="submit" class="btn btn-success" onclick="return confirm('แน่ใจหรือไม่')">ดำเนินการ</button>
                                         <?php } ?>
                                     </div>

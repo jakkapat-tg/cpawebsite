@@ -31,7 +31,7 @@
   </script>
 </head>
 
-<body>
+<body style="background-color: #f0f0f0;">
 
   <?php $page = "contact";
   include "./cpawebsite/components/navbar.php" ?>
@@ -134,6 +134,12 @@
     function myFunction() {
       document.getElementById("complaints").style.display = "block";
       document.getElementById("sure").style.display = "none";
+      topFunction();
+    }
+
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
     }
   </script>
 
@@ -409,7 +415,7 @@
   }
   ?>
   <!-- -----------------------------------------------   FROM  ----------------------------------------------- -->
-  <div class="modal-dialog modal-lg" id="complaints" style=" padding-top: 45px; padding-bottom: 45px; display:<?php echo ($_SERVER["REQUEST_METHOD"] == "POST") ? "block" : "none" ?>;">
+  <div class="modal-dialog modal-lg" id="complaints" style=" padding-top: 15px; padding-bottom: 15px; display:<?php echo ($_SERVER["REQUEST_METHOD"] == "POST") ? "block" : "none" ?>;">
     <div class="modal-content">
       <div class="modal-body">
         <!--#########################   FROM  ################################-->

@@ -27,9 +27,10 @@
 
     <div class="wrapper">
         <?php
+        $page = 'tablecomplaints';
+        $group = 1;
         include "../components/navbar.php";
         include "../../sqlconfig/config.php";
-
 
         $perpage = 8;
         if (isset($_GET['page'])) {
@@ -191,7 +192,7 @@
 
                                             <div class="row">
                                                 <div class="col-md-12 col-sm-12 col-xs-12 ">
-                                                    <textarea readonly class="form-about-yourself form-control" value=""><?php echo $item['req_details']; ?></textarea>
+                                                    <textarea readonly class="form-about-yourself form-control" style="background-color: white;"><?php echo $item['req_details']; ?></textarea>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -201,7 +202,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12 col-sm-12 col-xs-12 ">
-                                                    <textarea readonly class="form-about-yourself form-control" value=""><?php echo $item['request']; ?></textarea>
+                                                    <textarea readonly class="form-about-yourself form-control" style="background-color: white;"><?php echo $item['request']; ?></textarea>
                                                 </div>
                                             </div>
                                             <div class="row" style="padding-top: 10px; padding-bottom: 7px;">

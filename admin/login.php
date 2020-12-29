@@ -89,6 +89,7 @@
                 $_SESSION['fname'] = $accoutUsser['fname'];
                 $_SESSION['lname'] = $accoutUsser['lname'];
                 $_SESSION['role'] = $accoutUsser['role'];
+                $_SESSION['status'] = $accoutUsser['status'];
                 header('location:./index.php');
               } else {
                 //หากใส่รหัสผิด

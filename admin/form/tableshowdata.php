@@ -37,7 +37,7 @@
 
             if ($getpage == 'edituser') {
                 $inpage = 'ตาราง user';
-                $sqlgetfrompage = "SELECT username, md5(password)as password ,fname as ชื่อ ,lname as นามสกุล, role as สิทธิ,
+                $sqlgetfrompage = "SELECT username, md5(password) as password ,fname as ชื่อ ,lname as นามสกุล, role as สิทธิ,
                 case when gender = '1' then 'ชาย' WHEN gender = '2' then 'หญิง' end as เพศ,tel,insertdate_time as วันเวลาที่เพิ่ม,status FROM cpa_web_user";
                 $resultquery = mysqli_query($con, $sqlgetfrompage);
             } else if ($getpage == 'addgroupnews') {

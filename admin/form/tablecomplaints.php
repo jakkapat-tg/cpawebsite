@@ -20,6 +20,7 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -28,8 +29,22 @@
         <?php
         include "../components/navbar.php";
         include "../../sqlconfig/config.php";
-        $sql = "SELECT a.*,b.describes FROM req_prob a INNER JOIN req_prob_type b on a.req_prob_type = b.id ORDER BY id DESC";
-        $resultquery = mysqli_query($con, $sql);
+
+
+        $perpage = 8;
+        if (isset($_GET['page'])) {
+            $page = $_GET['page'];
+        } else {
+            $page = 1;
+        }
+        $start = ($page - 1) * $perpage;
+
+        $sql = "SELECT a.*,b.describes FROM req_prob a INNER JOIN req_prob_type b on a.req_prob_type = b.id ORDER BY check_status, id  DESC limit {$start} , {$perpage} ";  //DESC
+        $query = mysqli_query($con, $sql);
+        $sql2 = "SELECT * FROM req_prob a INNER JOIN req_prob_type b on a.req_prob_type = b.id ";
+        $query2 = mysqli_query($con, $sql2);
+        $total_record = mysqli_num_rows($query2);
+        $total_page = ceil($total_record / $perpage);
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             function send_line_notify($message, $token)
             {
@@ -107,7 +122,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php while ($result = mysqli_fetch_assoc($resultquery)) { ?>
+                                <?php while ($result = mysqli_fetch_assoc($query)) { ?>
                                     <tr data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
                                         <td style="text-align:center;"><?php echo $result['id']; ?> </td>
                                         <td><?php echo $result['pname'] . ' ' . $result['fname'] . '    ' . $result['lname']; ?> </td>
@@ -128,7 +143,7 @@
                     <!-- /.col -->
                 </div>
                 <!-- /.row -->
-                <? foreach ($resultquery as $item) { ?>
+                <? foreach ($query as $item) { ?>
                 <!--///////////////////////////////////////////// Modal close job  ///////////////////////////////////////////////////////-->
                 <div class="modal fade" id="closejob<?php echo  $item['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModal" aria-hidden="true">
                     <div class="modal-dialog">
@@ -165,6 +180,7 @@
                                             <div class="row">
                                                 <div class="col-md-12 col-sm-12 col -xs-12 ">
                                                     <span style="text-align: left;font-size:16px;color: #000000;">หัวเรื่องร้องเรียน :</span>
+                                                    <span style="text-align: left;font-size:16px;color: #000000;"><?php echo $item['req_head']; ?></span>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -175,7 +191,7 @@
 
                                             <div class="row">
                                                 <div class="col-md-12 col-sm-12 col-xs-12 ">
-                                                    <textarea class="form-about-yourself form-control" value=""><?php echo $item['req_details']; ?></textarea>
+                                                    <textarea readonly class="form-about-yourself form-control" value=""><?php echo $item['req_details']; ?></textarea>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -185,7 +201,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12 col-sm-12 col-xs-12 ">
-                                                    <textarea class="form-about-yourself form-control" value=""><?php echo $item['request']; ?></textarea>
+                                                    <textarea readonly class="form-about-yourself form-control" value=""><?php echo $item['request']; ?></textarea>
                                                 </div>
                                             </div>
                                             <div class="row" style="padding-top: 10px; padding-bottom: 7px;">
@@ -290,9 +306,32 @@
                 </div>
                 <!--//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
                 <? } ?>
+
             </div>
+
             <!-- /.container-fluid -->
         </section>
+        <div class="footer" style="position: fixed; left: 0; bottom: 0; width: 100%; text-align: center;">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 ">
+
+                    <p>
+                        <a class="btn btn-info" href="tablecomplaints.php?page=1" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+
+                        <?php for ($i = 1; $i <= $total_page; $i++) { ?>
+                            <a class="btn btn-info" href="tablecomplaints.php?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                        <?php } ?>
+
+                        <a class="btn btn-info" href="tablecomplaints.php?page=<?php echo $total_page; ?>" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->

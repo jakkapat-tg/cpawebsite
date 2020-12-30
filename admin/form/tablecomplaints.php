@@ -68,11 +68,12 @@
             $sqlinsert = "UPDATE req_prob SET check_status = 'Y' ,check_time = '$date' ,check_by = '$fullname' WHERE id = " . '\'' . $_POST['id'] . '\' AND cidcode = \'' . $_POST['cidcode'] . '\'';
             if (mysqli_query($con, $sqlinsert)) {
                 $message = "\r\n" .
-                    'คำร้องเรียน ' . date('d-m-yy') . "\r\n" .
+                    'คำร้องเรียน ' . $_POST["  req_time"] . "\r\n" .
                     'ID: ' . $_POST["id"] . "\r\n" .
                     'เรื่อง: ' . $_POST["req_head"] . "\r\n" .
                     'ชื่อ: ' . $_POST["pname"] . " " .  $_POST["fname"] . "  " .  $_POST["lname"] . "\r\n" .
-                    'สถานะ: ดำเนินการเรียบร้อย';
+                    'สถานะ: ดำเนินการเรียบร้อย' . "\r\n" .
+                    'วันที่ดำเนินการ: ' . date('d-m-yy');
                 $token = 'LWXFDV0Ubg4tpFWJk4huG97lCHKXcnGkrrMHfH0vQfm';
                 send_line_notify($message, $token);
                 echo '<script>
@@ -295,6 +296,7 @@
                                         <input type="hidden" name="pname" value="<? echo $item['pname']; ?>">
                                         <input type="hidden" name="fname" value="<? echo $item['fname']; ?>">
                                         <input type="hidden" name="lname" value="<? echo $item['lname']; ?>">
+                                        <input type="hidden" name="req_time" value="<? echo $item['req_time']; ?>">
                                         <input type="hidden" name="req_head" value="<? echo $item['req_head']; ?>">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
                                         <?php if ($item['check_by'] == null and $item['check_status'] == 'N' and $_SESSION['status'] == '1') { ?>

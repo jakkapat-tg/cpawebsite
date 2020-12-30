@@ -11,6 +11,7 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <link rel="stylesheet" href="./cpawebsite/Pages/jquery.Thailand.js/dist/jquery.Thailand.min.css">
 
+
   <script>
     (function(i, s, o, g, r, a, m) {
       i['GoogleAnalyticsObject'] = r;
@@ -29,6 +30,7 @@
     ga('Main.send', 'event', /cpawebsite/Pages
       'jquery.Thailand.js', 'GitHub', 'Visit');
   </script>
+
 </head>
 
 <body style="background-color: #f0f0f0;">
@@ -392,6 +394,7 @@
         $token = 'LWXFDV0Ubg4tpFWJk4huG97lCHKXcnGkrrMHfH0vQfm';
         send_line_notify($message, $token);
         echo '<script>
+
               Swal.fire({
                   icon: "success",
                   title: "สำเร็จ",
@@ -402,9 +405,8 @@
               });
           </script>';
       } else {
-        echo "<script>Swal.fire({icon: 'error', title: 'Invalid...', text: 'ผิดพลาด', })</script>";
+          echo "<script>Swal.fire({icon: 'error', title: 'Invalid...', text: 'ผิดพลาด', })</script>";
       }
-    }
   }
   function test_input($data)
   {
@@ -528,10 +530,12 @@
                 <span class="error" style="color:red"><?php echo $phoneErr; ?></span>
               </div>
             </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <input type="tel" name="mobile" placeholder="มือถือ*" class="form-last-name form-control" id="mobile" type="number" value="<?php echo $mobile ?>" minlength="9" maxlength="10">
-                <span class="error" style="color:red"><?php echo $mobileErr; ?></span>
+            <div class="row">
+              <div class="col-md-8">
+                <div class="form-group">
+                  <input type="email" name="email" placeholder="E-Mail" class="form-last-name form-control" id="email" type="number" value="<?php echo $email?>">
+                  <label id="resultEmail"></label>
+                </div>
               </div>
             </div>
           </div>
@@ -551,6 +555,7 @@
               <div class="form-group">
                 <input type="text" name="req_to" placeholder="ร้องเรียนถึง*" class="form-last-name form-control" id="req_to" value="<?php echo $req_to ?>">
                 <span class="error" style="color:red"><?php echo $req_toErr ?></span>
+
               </div>
             </div>
           </div>

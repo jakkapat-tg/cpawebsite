@@ -52,7 +52,7 @@
             } else if ($getpage == 'editnews') {
                 $inpage = 'ตาราง แก้ไขข่าวประชาสัมพัธ์';
                 $sqlgetfrompage = "SELECT cpa_news_id,cpa_groupnews_id as หมวด,cpa_name_news as ชื่อ,cpa_descriptions as รายละเอียด,cpa_createdatetime as วันที่เพิ่ม,
-                cpa_views as ยอดโหลด,cpa_status, cpa_pdf_path,cpa_pdf_spec_path,cpa_pdf_price_path
+                cpa_views as ยอดโหลด,cpa_status, cpa_pdf_path,cpa_pdf_spec_path,cpa_pdf_price_path,cpa_groupspecial_id as หมวดย่อย
                 FROM cpa_web_news";
                 $resultquery = mysqli_query($con, $sqlgetfrompage);
             } else if ($getpage == 'manageEvent') {
@@ -68,6 +68,10 @@
             } else if ($getpage == 'addphone') {
                 $inpage = 'ตาราง แก้ไขแถบด้านล่างเว็บไซต์';
                 $sqlgetfrompage = "SELECT * FROM phone_detail_cpa";
+                $resultquery = mysqli_query($con, $sqlgetfrompage);
+            } else if ($getpage == 'addspecialgroupnews') {
+                $inpage = 'ตาราง แก้ไขแถบด้านล่างเว็บไซต์';
+                $sqlgetfrompage = "SELECT * FROM cpa_web_groupspecial_news";
                 $resultquery = mysqli_query($con, $sqlgetfrompage);
             }else{
                 echo ' <script> window.location = "../index.php"; </script>';

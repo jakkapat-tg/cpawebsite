@@ -96,7 +96,7 @@
                 if ($_POST['edit']) {
                     $fname    = $_POST['fname'];
                     $lname    = $_POST['lname'];
-                    $gender    = $_POST['gender'];
+                    $gender   =   $getgender  ;
                     $role     = $_POST['role'];
                     $username = $_POST['username'];
                     $tel = $_POST['tel'];

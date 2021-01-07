@@ -11,7 +11,7 @@
  Target Server Version : 50643
  File Encoding         : 65001
 
- Date: 24/12/2020 09:13:18
+ Date: 07/01/2021 11:08:25
 */
 
 SET NAMES utf8mb4;
@@ -213,6 +213,34 @@ INSERT INTO `cpa_web_groupnews` VALUES (6, 'ข่าวอบรมภายใ
 INSERT INTO `cpa_web_groupnews` VALUES (7, 'test', NULL, '2020/07/25 21:26:42', 0);
 
 -- ----------------------------
+-- Table structure for cpa_web_groupspecial_news
+-- ----------------------------
+DROP TABLE IF EXISTS `cpa_web_groupspecial_news`;
+CREATE TABLE `cpa_web_groupspecial_news`  (
+  `cpa_groupspecial_id` int(11) NOT NULL,
+  `cpa_groupspecial_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `note` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `status` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  PRIMARY KEY (`cpa_groupspecial_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for cpa_web_groupspecial_news_log
+-- ----------------------------
+DROP TABLE IF EXISTS `cpa_web_groupspecial_news_log`;
+CREATE TABLE `cpa_web_groupspecial_news_log`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cpa_groupspecial_name_old` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `cpa_groupspecial_name_new` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `status_old` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `status_new` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `updatetime` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `cpa_log_id` int(11) DEFAULT NULL,
+  `updateuser` varchar(250) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
 -- Table structure for cpa_web_log_ceo
 -- ----------------------------
 DROP TABLE IF EXISTS `cpa_web_log_ceo`;
@@ -351,6 +379,7 @@ CREATE TABLE `cpa_web_news`  (
   `cpa_createdatetime` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `cpa_status` int(40) DEFAULT NULL,
   `cpa_views` int(40) DEFAULT NULL,
+  `cpa_groupspecial_id` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`cpa_news_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
@@ -409,7 +438,7 @@ CREATE TABLE `cpa_web_user`  (
 -- ----------------------------
 -- Records of cpa_web_user
 -- ----------------------------
-INSERT INTO `cpa_web_user` VALUES ('admin', '$2y$10$i5cU70iwqGEqN3u1XfopkOpufAsy1BamDTnBWWmIA7T3OTjcxRDgG', 'รัชวิทย์', 'พลชู', '1', 'admin ', '2020-07-15 10:02:26', '3148', '1');
+INSERT INTO `cpa_web_user` VALUES ('admin', '$2y$10$i5cU70iwqGEqN3u1XfopkOpufAsy1BamDTnBWWmIA7T3OTjcxRDgG', 'รัชวิทย์', 'พลชู', '1', 'admin', '2020-07-15 10:02:26', '3148', '1');
 
 -- ----------------------------
 -- Table structure for department
@@ -1401,11 +1430,26 @@ CREATE TABLE `req_prob`  (
   `req_details` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `request` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `offname` varchar(1) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT 'N',
-  `time_stamp` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP(0),
+  `req_time` datetime(0) DEFAULT NULL,
   `check_status` varchar(1) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT 'N',
   `check_time` datetime(0) DEFAULT NULL,
+  `check_by` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of req_prob
+-- ----------------------------
+INSERT INTO `req_prob` VALUES (1, '2312312312323', 'นาย', 'ทด', 'ลอง', 'M', '2123123123123', 'ปราจีนบุรี', 'กบินทร์บุรี', 'นนทรี', '', '25110', '1231231232', '1231231231', '', '123123', 'สมุมไพร ของใคร หัวใจ ของคุณ', 2, '12321232323123', '1223123123 ', 'Y', '2020-12-24 11:59:37', 'Y', '2020-12-28 12:50:17', 'รัชวิทย์ พลชู');
+INSERT INTO `req_prob` VALUES (2, '1231231231231', 'นางสาว', 'สอง', 'ลอง', 'M', '123123123123123123', 'หนองคาย', 'ท่าบ่อ', 'นาข่า', '', '43110', '2123123123', '1231231231', '', '123123123', 'แอบแซ่บบางเวลา', 5, '12312323', '123123123123 ', 'N', '2020-12-25 09:56:25', 'Y', '2020-12-28 12:51:32', 'รัชวิทย์ พลชู');
+INSERT INTO `req_prob` VALUES (3, '2132123123123', 'นาง', 'ใน', 'ชาบู', 'F', '1123', 'ปทุมธานี', 'เมืองปทุมธานี', 'บางขะแยง', '', '12000', '2231322312', '1231231231', '', '123123312', 'ชาบูอร่อย ไม่หงอยนะ', 2, '312323', '123123123312 ', 'N', '2020-12-24 12:07:35', 'Y', '2020-12-29 09:18:24', 'รัชวิทย์ พลชู');
+INSERT INTO `req_prob` VALUES (5, '1', ' sadsad', 'sdaasd', 'dsadsaads', 'M', NULL, NULL, NULL, NULL, NULL, NULL, '1023123231', '1023123231', NULL, '1023123231', '1023123231', 5, '1023123231', '1023123231', 'N', '2020-12-25 13:35:38', 'Y', '2020-12-28 11:38:50', 'รัชวิทย์ พลชู');
+INSERT INTO `req_prob` VALUES (6, '1023123231231', 'sadsad', 'sdaasd', 'dsadsaads', 'F', '', '', '', '', '', '', '1023123231', '1023123231', '', '1023123231', '1023123231231', 4, '1023123231231sadadadadadadadadadadadadadadadadadadadadadadadadadadsdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd', '1023123231231sadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadad ', 'Y', '2020-12-25 13:59:06', 'N', NULL, NULL);
+INSERT INTO `req_prob` VALUES (7, '0023123123232', '123', '12312323', '23123123', 'M', 'sadsd', '', '', '', '', '', '2312312323', '2312312323', '', '23123123', '23123123', 4, '23123123', '23123123 ', 'N', '2020-12-25 14:00:40', 'Y', '2020-12-28 11:38:20', 'รัชวิทย์ พลชู');
+INSERT INTO `req_prob` VALUES (8, '1231231321232', 'เทส', 'เทส', 'เทส', 'M', 'เทส', '', '', '', '', '', '1231231321', '1231231321', '', 'เทส', 'เทส', 3, 'เทส', 'เทส ', 'N', '2020-12-25 14:01:51', 'Y', '2020-12-28 11:34:14', 'รัชวิทย์ พลชู');
+INSERT INTO `req_prob` VALUES (9, '1231232312312', 'test', 'test', 'test', 'M', '', '', '', '', '', '', '1231232312', '1231232312', '', 'test', 'test', 2, 'test', 'test ', 'N', '2020-12-25 14:02:45', 'N', NULL, NULL);
+INSERT INTO `req_prob` VALUES (10, '1231563215645', 'test2', 'test2', 'test2', 'F', '', '', '', '', '', '', '1231563215', '1231563215', '', 'test2', 'test2', 3, 'test2', 'test2 ', 'Y', '2020-12-25 14:03:21', 'Y', '2020-12-25 16:34:16', 'รัชวิทย์ พลชู');
+INSERT INTO `req_prob` VALUES (11, '1023156156351', 'นาย', 'นาย', 'นาย', 'M', '', '', '', '', '', '', '1023156156', '1023156156', '', 'นาย', 'นาย', 4, 'นาย', 'นาย ', 'N', '2020-12-25 14:15:12', 'N', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for req_prob_type

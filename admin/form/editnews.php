@@ -47,6 +47,8 @@
         include "../../sqlconfig/config.php";
         $sqlgroup = "SELECT * FROM cpa_web_groupnews";
         $queryqroup = mysqli_query($con, $sqlgroup);
+        $sqlspecialgroup = "SELECT * FROM cpa_web_groupspecial_news";
+        $queryspqroup = mysqli_query($con, $sqlspecialgroup);
         $getid = '';
         $getid  = $_GET['pkid'];
 
@@ -54,6 +56,7 @@
             //INSERT DATA
             if (isset($_POST['submit'])) {
                 $groupnewsid =  $_POST['groupid'];
+                $groupspecialid =  $_POST['groupspecialid']; 
                 $newsname =  $_POST['newsname'];
                 $description =  $_POST['description'];
                 $createdate = date("Y-m-d H:i:s");
@@ -102,8 +105,8 @@
 
                         if ($done ||  $done2 || $done3) { //หากอัพโหลดสำเร็จให้เพิ่มข้อมูลลง DB 
                             $sqlinsertnews = "INSERT INTO cpa_web_news 
-                                (cpa_groupnews_id,cpa_name_news,cpa_descriptions,cpa_pdf_path,cpa_pdf_spec_path,cpa_pdf_price_path,cpa_create_by,cpa_createdatetime,cpa_status,cpa_views) 
-                            VALUE ('$groupnewsid', '$newsname',   '$description','$new_name',    '$new_name3',    '$new_name2',     '$insertuser'   ,'$createdate',      '1','0')";
+                                (cpa_groupnews_id,cpa_name_news,cpa_descriptions,cpa_pdf_path,cpa_pdf_spec_path,cpa_pdf_price_path,cpa_create_by,cpa_createdatetime,cpa_status,cpa_views,cpa_groupspecial_id) 
+                            VALUE ('$groupnewsid', '$newsname',   '$description','$new_name',    '$new_name3',    '$new_name2',     '$insertuser'   ,'$createdate',      '1','0','$groupspecialid')";
 
                             $Queryinsertnews = mysqli_query($con, $sqlinsertnews);
                             if ($Queryinsertnews) {
@@ -128,8 +131,8 @@
                     }
                 } else { //หากไม่อัพโหลดไฟล์ใดๆ
                     $sqlinsertnews = "INSERT INTO cpa_web_news 
-                    (cpa_groupnews_id,cpa_name_news,cpa_descriptions,   cpa_create_by,  cpa_createdatetime,cpa_status) VALUE
-                    ('$groupnewsid', '$newsname',   '$description',    '$insertuser'   ,'$createdate',      '1')";
+                    (cpa_groupnews_id,cpa_name_news,cpa_descriptions,   cpa_create_by,  cpa_createdatetime,cpa_status,cpa_groupspecial_id) VALUE
+                    ('$groupnewsid', '$newsname',   '$description',    '$insertuser'   ,'$createdate',      '1'         ,'$groupspecialid')";
 
                     $Queryinsertnews = mysqli_query($con, $sqlinsertnews);
                     if ($Queryinsertnews) {
@@ -148,6 +151,7 @@
             $querygetnew = mysqli_query($con, $sqlgetnew);
             $resultGetNews = mysqli_fetch_assoc($querygetnew);
             $getGroupnewsid= $resultGetNews['cpa_groupnews_id'];
+            $getspGroupnewsid= $resultGetNews['cpa_groupspecial_id'];
             $getNames= $resultGetNews['cpa_name_news'];
             $getDescriptions= $resultGetNews['cpa_descriptions'];
             $getPdfpath= $resultGetNews['cpa_pdf_path'];
@@ -158,6 +162,7 @@
 
             if(isset($_POST['updatedata'])){
                 $groupnewsid =  $_POST['groupid'];
+                $groupspecialid =  $_POST['groupspecialid']; 
                 $newsname =  $_POST['newsname'];
                 $description =  $_POST['description'];
                 $insertuser = $_SESSION['fname'] . ' ' . $_SESSION['lname'];
@@ -214,7 +219,8 @@
                                     $sqlUpdatefile1 = "UPDATE cpa_web_news SET cpa_groupnews_id = '$groupnewsid',
                                     cpa_name_news = '$newsname',cpa_descriptions= '$description',
                                     cpa_pdf_path = '$new_name',
-                                    cpa_status=  '$newstatus'
+                                    cpa_status=  '$newstatus',
+                                    cpa_groupspecial_id = '$groupspecialid'
                                     WHERE cpa_news_id = '$getid'";
                                     $queryupdate1 = mysqli_query($con,$sqlUpdatefile1);              
                                 }
@@ -231,7 +237,8 @@
                                     $sqlUpdatefile1 = "UPDATE cpa_web_news SET cpa_groupnews_id = '$groupnewsid',
                                     cpa_name_news = '$newsname',cpa_descriptions= '$description',
                                     cpa_pdf_price_path = '$new_name2',
-                                    cpa_status=  '$newstatus'
+                                    cpa_status=  '$newstatus',
+                                    cpa_groupspecial_id = '$groupspecialid'
                                     WHERE cpa_news_id = '$getid'";
                                     $queryupdate1 = mysqli_query($con,$sqlUpdatefile1);              
                                 }
@@ -248,7 +255,8 @@
                                     $sqlUpdatefile1 = "UPDATE cpa_web_news SET cpa_groupnews_id = '$groupnewsid',
                                     cpa_name_news = '$newsname',cpa_descriptions= '$description',
                                     cpa_pdf_spec_path = '$new_name3',
-                                    cpa_status=  '$newstatus'
+                                    cpa_status=  '$newstatus',
+                                    cpa_groupspecial_id = '$groupspecialid'
                                     WHERE cpa_news_id = '$getid'";
                                     $queryupdate1 = mysqli_query($con,$sqlUpdatefile1);              
                                 }
@@ -296,7 +304,8 @@
                         cpa_pdf_path = '$getPdfpath',
                         cpa_pdf_spec_path = '$getPdfpath2',
                         cpa_pdf_price_path = '$getPdfpath3',
-                        cpa_status = '$newstatus'
+                        cpa_status = '$newstatus',
+                        cpa_groupspecial_id = '$groupspecialid'
                       where cpa_news_id = '$getid'";
 
                      $queryUpdate = mysqli_query($con,$sqlupdatenews);
@@ -360,6 +369,20 @@
                                             ?>
                                                 <option value="<?php echo $Result['cpa_groupnews_id']; ?>" <?php if($getGroupnewsid == $Result['cpa_groupnews_id']){ echo 'selected';}?>>
                                                     <?php echo $Result['cpa_groupnews_id'] . '.' . $Result['cpa_namegroup']; ?>
+                                                </option>
+                                            <?php }    ?>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>กลุ่มรายการย่อยหากไม่มีให้เว้นว่างไว้</label>
+                                        <select class="form-control" name="groupspecialid" style="width: 100%;" >
+                                            <option selected="selected" value="" data-select2-id="27">โปรเลือก...</option>
+                                            <?php
+                                            while ($Result = mysqli_fetch_assoc($queryspqroup)) {
+                                            ?>
+                                                <option value="<?php echo $Result['cpa_groupspecial_id']; ?>" <?php if($getspGroupnewsid == $Result['cpa_groupspecial_id']){ echo 'selected';}?>>
+                                                    <?php echo $Result['cpa_groupspecial_id'] . '.' . $Result['cpa_groupspecial_name']; ?>
                                                 </option>
                                             <?php }    ?>
                                         </select>

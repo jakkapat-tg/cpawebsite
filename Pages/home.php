@@ -6,40 +6,41 @@
 	<link rel="shortcut icon" type="image/x-icdo" href="./cpawebsite/uploads/image/icon.png">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<?php include ("./cpawebsite/components/header.php");?>
+	<?php include("./cpawebsite/components/header.php"); ?>
+
 </head>
 
 <body>
 	<?php
-		$page = "index";
-		include ("./cpawebsite/components/navbar.php");
+	$page = "index";
+	include("./cpawebsite/components/navbar.php");
 
-		
-		//นับจำนวนคนเข้าเว็บตาม sessionid
-		$dateNow =  date("Y-m-d");
-		$fdthismonth = date('Y-m-01');
-		$edthismonth = date('Y-m-t');
-		$sqlcounter = "SELECT count(*) as today from (SELECT * from  cpa_web_counter WHERE date_visit = '$dateNow' group by sessions_id)as today";
-		$querycounter = mysqli_query($con, $sqlcounter);
 
-		$sqlcounter2 = "select count(*)as thismonth from (SELECT count(*)as thismonth from  cpa_web_counter where date_visit between '$fdthismonth' AND '$edthismonth'
+	//นับจำนวนคนเข้าเว็บตาม sessionid
+	$dateNow =  date("Y-m-d");
+	$fdthismonth = date('Y-m-01');
+	$edthismonth = date('Y-m-t');
+	$sqlcounter = "SELECT count(*) as today from (SELECT * from  cpa_web_counter WHERE date_visit = '$dateNow' group by sessions_id)as today";
+	$querycounter = mysqli_query($con, $sqlcounter);
+
+	$sqlcounter2 = "select count(*)as thismonth from (SELECT count(*)as thismonth from  cpa_web_counter where date_visit between '$fdthismonth' AND '$edthismonth'
 			group by sessions_id)as thismonth";
-		$querycounter2 = mysqli_query($con, $sqlcounter2);
+	$querycounter2 = mysqli_query($con, $sqlcounter2);
 
-		$sqlcounter3 = "select count(*)as allofnum from(SELECT * from  cpa_web_counter group by sessions_id)as total";
-		$querycounter3 = mysqli_query($con, $sqlcounter3);
+	$sqlcounter3 = "select count(*)as allofnum from(SELECT * from  cpa_web_counter group by sessions_id)as total";
+	$querycounter3 = mysqli_query($con, $sqlcounter3);
 
-		$todaycount = mysqli_fetch_assoc($querycounter);
-		$monthcount = mysqli_fetch_assoc($querycounter2);
-		$totalcount = mysqli_fetch_assoc($querycounter3);
+	$todaycount = mysqli_fetch_assoc($querycounter);
+	$monthcount = mysqli_fetch_assoc($querycounter2);
+	$totalcount = mysqli_fetch_assoc($querycounter3);
 
-		$sqlimgslide = "SELECT * from cpa_web_slideimg";
-		$querysqlimgslide = mysqli_query($con, $sqlimgslide);
-		$resultimg = mysqli_fetch_assoc($querysqlimgslide);
+	$sqlimgslide = "SELECT * from cpa_web_slideimg";
+	$querysqlimgslide = mysqli_query($con, $sqlimgslide);
+	$resultimg = mysqli_fetch_assoc($querysqlimgslide);
 
-		$resultimg1 = $resultimg['image1'];
-		$resultimg2 = $resultimg['image2'];
-		$resultimg3 = $resultimg['image3'];
+	$resultimg1 = $resultimg['image1'];
+	$resultimg2 = $resultimg['image2'];
+	$resultimg3 = $resultimg['image3'];
 
 	?>
 
@@ -55,13 +56,25 @@
 	<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner hero-wrap">
 			<div class="carousel-item  active">
-				<img class="slidewidth100" src="<?php if ($resultimg1 == '' || $resultimg1 == null) {	echo './cpawebsite/uploads/image/slideimg/default1.jpg';} else {echo './cpawebsite/uploads/image/slideimg/' . $resultimg1;	} ?>" alt="ไม่สามารถโหลดภาพได้">
+				<img class="slidewidth100" src="<?php if ($resultimg1 == '' || $resultimg1 == null) {
+													echo './cpawebsite/uploads/image/slideimg/default1.jpg';
+												} else {
+													echo './cpawebsite/uploads/image/slideimg/' . $resultimg1;
+												} ?>" alt="ไม่สามารถโหลดภาพได้">
 			</div>
 			<div class="carousel-item">
-				<img class="slidewidth100" src="<?php if ($resultimg2 == '' || $resultimg2 == null) {	echo './cpawebsite/uploads/image/slideimg/default2.jpg';} else {echo './cpawebsite/uploads/image/slideimg/' . $resultimg2;	} ?>" alt="ไม่สามารถโหลดภาพได้">
+				<img class="slidewidth100" src="<?php if ($resultimg2 == '' || $resultimg2 == null) {
+													echo './cpawebsite/uploads/image/slideimg/default2.jpg';
+												} else {
+													echo './cpawebsite/uploads/image/slideimg/' . $resultimg2;
+												} ?>" alt="ไม่สามารถโหลดภาพได้">
 			</div>
 			<div class="carousel-item ">
-				<img class="slidewidth100" src="<?php if ($resultimg3 == '' || $resultimg3 == null) {echo './cpawebsite/uploads/image/slideimg/default3.jpg';	} else {echo './cpawebsite/uploads/image/slideimg/' . $resultimg3;	} ?>" alt="ไม่สามารถโหลดภาพได้">
+				<img class="slidewidth100" src="<?php if ($resultimg3 == '' || $resultimg3 == null) {
+													echo './cpawebsite/uploads/image/slideimg/default3.jpg';
+												} else {
+													echo './cpawebsite/uploads/image/slideimg/' . $resultimg3;
+												} ?>" alt="ไม่สามารถโหลดภาพได้">
 			</div>
 		</div>
 		<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -78,54 +91,118 @@
 	<div class="container" style="padding-top: 25px; padding-bottom: 25px;">
 		<div class="row">
 			<?php
-               $seleltGroupNews = "select * from cpa_web_groupnews  where status = '1' order by cpa_groupnews_id";
-               $queryGroupNews = mysqli_query($con, $seleltGroupNews); 
-              // วนรอบเอาชื่อรายละอียดและเอกสารแนบ
-              while ($rgnews  = mysqli_fetch_assoc($queryGroupNews)) {
+			$seleltGroupNews = "select * from cpa_web_groupnews  where status = '1' order by cpa_groupnews_id";
+			$queryGroupNews = mysqli_query($con, $seleltGroupNews);
+			// วนรอบเอาชื่อรายละอียดและเอกสารแนบ
+			while ($rgnews  = mysqli_fetch_assoc($queryGroupNews)) {
 			?>
 
-			<div class="col-md-4 col-sm-6 col-xs-12 ">
-				<div class="alert alert-dismissible alert-theme-g ">
-					<p>
-					<i class="fa fa-<?php echo $rgnews['icon'];?>" style="color: #046099;" aria-hidden="true"></i>	&nbsp;
-						<span style="font-weight: bold;font-size:20px;color: #046099;"><?php echo $rgnews['cpa_namegroup'];?></span>
-					</p>
-				</div>
+				<div class="col-md-4 col-sm-6 col-xs-12 ">
+					<div class="alert alert-dismissible alert-theme-g ">
+						<p>
+							<i class="fa fa-<?php echo $rgnews['icon']; ?>" style="color: #046099;" aria-hidden="true"></i> &nbsp;
+							<span style="font-weight: bold;font-size:20px;color: #046099;"><?php echo $rgnews['cpa_namegroup']; ?></span>
+						</p>
+					</div>
 
-			<?php
-			   $seleltNews = "select *,DATEDIFF(cpa_createdatetime,NOW())as newpakead 
-			   from cpa_web_news  where cpa_status = '1' and cpa_groupnews_id = '".$rgnews['cpa_groupnews_id']."' order by cpa_createdatetime desc limit 3";
-               $queryNews = mysqli_query($con, $seleltNews);
-              
-              // วนรอบเอาชื่อรายละอียดและเอกสารแนบ
-              while ($ResultNews  = mysqli_fetch_assoc($queryNews)) {
-                $numofrow += 1;
-				?>
-					<p style="padding-left:15px;" class="col-font-w">
-						<?php if($ResultNews['cpa_pdf_path']!=null || $ResultNews['cpa_pdf_path']!= ''){?>
-						    <a href="./cpawebsite/uploads/pdffile/pdf/<?php echo $ResultNews['cpa_pdf_path'];?>" target="_blank" class="col-font-w">
-							<?php echo $numofrow.'. '.$ResultNews['cpa_name_news'].' ['.$ResultNews['cpa_createdatetime'].']';?> </a>
-						<?php }?>
-						<?php if($ResultNews['cpa_pdf_path']==null || $ResultNews['cpa_pdf_path']== ''){?>
-							<a href="#"><?php echo $numofrow.'. '.$ResultNews['cpa_name_news']?> 	</a>
-						<?php }  if ($ResultNews['newpakead'] >= -7) { //หากน้อยกว่า 7 วันจะเป็นหัวข้อใหม่ติดไอค่อน new
+					<?php
+					$seleltNews = "select *,DATEDIFF(cpa_createdatetime,NOW())as newpakead 
+			   from cpa_web_news  where cpa_status = '1' and cpa_groupnews_id = '" . $rgnews['cpa_groupnews_id'] . "' order by cpa_createdatetime desc limit 3";
+					$queryNews = mysqli_query($con, $seleltNews);
+
+					// วนรอบเอาชื่อรายละอียดและเอกสารแนบ
+					while ($ResultNews  = mysqli_fetch_assoc($queryNews)) {
+						$numofrow += 1;
+					?>
+						<p style="padding-left:15px;" class="col-font-w">
+							<?php if ($ResultNews['cpa_pdf_path'] != null || $ResultNews['cpa_pdf_path'] != '') { ?>
+								<a href="./cpawebsite/uploads/pdffile/pdf/<?php echo $ResultNews['cpa_pdf_path']; ?>" target="_blank" class="col-font-w">
+									<?php echo $numofrow . '. ' . $ResultNews['cpa_name_news'] . ' [' . $ResultNews['cpa_createdatetime'] . ']'; ?> </a>
+							<?php } ?>
+							<?php if ($ResultNews['cpa_pdf_path'] == null || $ResultNews['cpa_pdf_path'] == '') { ?>
+								<a href="#"><?php echo $numofrow . '. ' . $ResultNews['cpa_name_news'] ?> </a>
+							<?php }
+							if ($ResultNews['newpakead'] >= -7) { //หากน้อยกว่า 7 วันจะเป็นหัวข้อใหม่ติดไอค่อน new
 								echo '<img src="./cpawebsite/uploads/image/New_icons_23.gif" alt="">';
-							  }  
-						?>
+							}
+							?>
+						</p>
+					<?php } ?>
+
+					<p style="padding-left:15px;">
+						<a href="news?groupid=<?php echo $rgnews['cpa_groupnews_id']; ?>" style="color:#7d7d7d;">
+							อ่านเพิ่ม...
+						</a>
 					</p>
-			  <?php }?>
 
-				<p style="padding-left:15px;">
-					<a href="news?groupid=<?php echo $rgnews['cpa_groupnews_id'];?>" style="color:#7d7d7d;">
-						อ่านเพิ่ม...
-					</a>
-				</p>
-
-			</div>
-			  <?php $numofrow =0; }?>
+				</div>
+			<?php $numofrow = 0;
+			} ?>
 		</div>
 	</div>
+	<style>
+		/* .container-box {
+			width: 90%;
+			padding: 20px;
+			margin: 100px auto;
+			background: #ddd;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+		} */
 
+		.box {
+			width: 250px;
+			height: 300px;
+			background: white;
+			margin: 10px 10px 10px 10px;
+			transition: 0.75s;
+
+
+		}
+
+		.box:hover {
+			transform: scale(1.2);
+			background: #ffffff;
+			z-index: 2;
+			box-shadow: 2px 2px 2px #000;
+
+		}
+	</style>
+	<div class="container" style="padding-top: 25px; padding-bottom: 25px;">
+		<div class="row">
+
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 d-flex ftco-animate justify-content-center ">
+				<div class="box">
+					<div id="fb-root"></div>
+					<script async defer crossorigin="anonymous" src="https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v9.0&appId=1771313489788435&autoLogAppEvents=1" nonce="w9YPbtnv"></script>
+					<div class="fb-page" data-href="https://www.facebook.com/abhaibhubejhrhospital/" data-tabs="timeline" data-width="250" data-height="300" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+						<blockquote cite="https://www.facebook.com/abhaibhubejhrhospital/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/abhaibhubejhrhospital/">โรงพยาบาลเจ้าพระยาอภัยภูเบศร</a></blockquote>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 d-flex ftco-animate justify-content-center ">
+				<div class="box">
+					<div class="gallery">
+						<a target="_blank" href="./cpawebsite/uploads/pdffile/pdf/waste.pdf">
+							<img src="./cpawebsite/uploads/image/waste.png" alt="Cinque Terre" width="250" height="300">
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 d-flex ftco-animate justify-content-center ">
+				<div class="box">
+					<a href="./medicinetables">
+
+					</a>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 d-flex ftco-animate justify-content-center ">
+				<div class="box"></div>
+			</div>
+		</div>
+
+	</div>
 
 	<section class="ftco-counter" id="section-counter">
 		<div class="container">
@@ -213,34 +290,36 @@
 
 	<!-- ------------------------------------------------------  EVENT PICTURE   ----------------------------------------------------------- -->
 	<section class="ftco-section">
-		<div class="row justify-content-center pb-5 mb-3">
-			<div class="col-md-7 heading-section text-center ftco-animate fadeInUp ftco-animated">
-				<h2>ประมวลภาพกิจกรรม</h2>
+		<div class="container">
+			<div class="row justify-content-center pb-5 mb-3">
+				<div class="col-md-7 heading-section text-center ftco-animate fadeInUp ftco-animated">
+					<h2>ประมวลภาพกิจกรรม</h2>
+				</div>
 			</div>
-		</div>
-		<div class="container-fluid px-md-4">
-			<div class="row">
-				<?php
-				$selectevent = "SELECT * FROM cpa_events where cpa_event_status = '1' ORDER BY cpa_event_insert_date desc limit 8";
-				$queryEvents = mysqli_query($con, $selectevent);
-				while ($Resultevent = mysqli_fetch_assoc($queryEvents)) {
-				?>
-					<div class="col-md-3 ftco-animate">
-						<div class="work mb-4 img d-flex align-items-end" style="background-image: url(./cpawebsite/uploads/image/event/<?php echo $Resultevent['cpa_event_path']; ?>);">
-							<a href="./cpawebsite/uploads/image/event/<?php echo $Resultevent['cpa_event_path']; ?>" class="icon image-popup d-flex justify-content-center align-items-center">
-								<span class="fa fa-expand"></span>
-							</a>
-							<div class="desc w-100 px-4">
-								<div class="text w-100 mb-3">
-									<span><?php echo $Resultevent['cpa_event_detail']; ?></span>
-									<h2><a href="event-single/<?php echo $Resultevent['cpa_event_id']; ?>">
-											<?php echo $Resultevent['cpa_event_topic']; ?></a>
-									</h2>
+			<div class="container-fluid px-md-4">
+				<div class="row">
+					<?php
+					$selectevent = "SELECT * FROM cpa_events where cpa_event_status = '1' ORDER BY cpa_event_insert_date desc limit 8";
+					$queryEvents = mysqli_query($con, $selectevent);
+					while ($Resultevent = mysqli_fetch_assoc($queryEvents)) {
+					?>
+						<div class="col-md-3 ftco-animate">
+							<div class="work mb-4 img d-flex align-items-end" style="background-image: url(./cpawebsite/uploads/image/event/<?php echo $Resultevent['cpa_event_path']; ?>);">
+								<a href="./cpawebsite/uploads/image/event/<?php echo $Resultevent['cpa_event_path']; ?>" class="icon image-popup d-flex justify-content-center align-items-center">
+									<span class="fa fa-expand"></span>
+								</a>
+								<div class="desc w-100 px-4">
+									<div class="text w-100 mb-3">
+										<span><?php echo $Resultevent['cpa_event_detail']; ?></span>
+										<h2><a href="event-single/<?php echo $Resultevent['cpa_event_id']; ?>">
+												<?php echo $Resultevent['cpa_event_topic']; ?></a>
+										</h2>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				<?php } ?>
+					<?php } ?>
+				</div>
 			</div>
 		</div>
 	</section>

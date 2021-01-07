@@ -49,7 +49,8 @@
 
     /* Create an active/current "tab button" class */
     .tab button.active {
-      background-color: #ccc;
+      background-color: #207dff;
+      color: WHITE;
     }
 
     /* Style the tab content */

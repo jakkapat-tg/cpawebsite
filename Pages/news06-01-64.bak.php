@@ -37,6 +37,10 @@
 
 
   <div class="container">
+    <h2 class="mt-5 text-info">ข่าวประชาสัมพันธ์</h2>
+    <hr>
+
+
     <?php
     $getidfromuser = preg_replace("/[^\d]/i", '',$_GET['groupid']);
 
@@ -102,47 +106,29 @@
       ?>
       
         <p class="box">
-          <h2 style="color: #009668;"><?php echo $groupNews['cpa_namegroup']; ?> </h2><hr>
+          <h4 style="color: #009668;"><?php echo $groupNews['cpa_namegroup']; ?> </h4>
           <?php
           $dategroup = "SELECT  concat(LPAD(MONTH(cpa_createdatetime),2,'0'),'/',YEAR(cpa_createdatetime)+543)  as ym,
           MONTH(cpa_createdatetime) as mm,YEAR(cpa_createdatetime)as yyyy
-          ,cwn.cpa_groupspecial_id ,cwg.cpa_groupspecial_name
-          FROM cpa_web_news cwn
-          INNER JOIN cpa_web_groupspecial_news cwg on cwn.cpa_groupspecial_id = cwg.cpa_groupspecial_id and status = '1'
-          where cpa_status = '1' and cpa_groupnews_id =  '" . $groupNews['cpa_groupnews_id'] . "'
-          group by ym ,
-         	cpa_groupspecial_id
-          ORDER BY cpa_groupspecial_id,cpa_createdatetime desc";
+          FROM cpa_web_news where cpa_status = '1' and cpa_groupnews_id =  '" . $groupNews['cpa_groupnews_id'] . "'
+          group by ym ORDER BY cpa_createdatetime desc";
           $querydategroup = mysqli_query($con, $dategroup);
 
 
           // วนรอบเอาค่าเดือนปีมาแสดงเป็น head
           while ($Resultdategroup  = mysqli_fetch_assoc($querydategroup)) { 
             if($Resultdategroup['mm'] !='' ||$Resultdategroup['mm']  != null){
-              if($Resultdategroup['cpa_groupspecial_id'] !='' || $Resultdategroup['cpa_groupspecial_id'] != null) {
-                echo '<h4 style="color:#17a2b8;">'.$Resultdategroup["cpa_groupspecial_name"].'</h4><h6> เดือน '.Fullmonth($Resultdategroup['mm'] ).' '.($Resultdategroup['yyyy']+543)  . '</h6>';
-              }
-              else{
-                echo '<h4 style="color:#17a2b8;>เดือน '.Fullmonth($Resultdategroup['mm'] ).' '.($Resultdategroup['yyyy']+543)  . '</h4>';
-              }
+              echo '<h4>เดือน '.Fullmonth($Resultdategroup['mm'] ).' '.($Resultdategroup['yyyy']+543)  . '</h4>';
             }
           ?>
 
 
             <div class="col-md-11 col-md-offset-1 col-sm-11 col-sm-offset-1 col-xs-12 ml-5" style="margin-bottom:15px;">
               <?php
-                if($Resultdategroup['cpa_groupspecial_id'] !='' || $Resultdategroup['cpa_groupspecial_id'] != null) {
-                  $seleltNews = "SELECT *,DATEDIFF(cpa_createdatetime,NOW())as newpakead,concat(LPAD(MONTH(cpa_createdatetime),2,'0'),'/',YEAR(cpa_createdatetime)+543)  as ym
-                  FROM cpa_web_news where cpa_status = '1' and cpa_groupnews_id =  '" . $groupNews['cpa_groupnews_id'] . "' 
-                  and concat( LPAD( MONTH ( cpa_createdatetime ), 2, '0' ), '/', YEAR( cpa_createdatetime ) + 543 ) =  '".$Resultdategroup['ym']."'
-                  and cpa_groupspecial_id = '".$Resultdategroup['cpa_groupspecial_id']."'
-                  ORDER BY cpa_createdatetime desc";
-                }
-                else{
-                  $seleltNews = "SELECT *,DATEDIFF(cpa_createdatetime,NOW())as newpakead,concat(LPAD(MONTH(cpa_createdatetime),2,'0'),'/',YEAR(cpa_createdatetime)+543)  as ym
-                  FROM cpa_web_news where cpa_status = '1' and cpa_groupnews_id =  '" . $groupNews['cpa_groupnews_id'] . "' 
-                  and concat( LPAD( MONTH ( cpa_createdatetime ), 2, '0' ), '/', YEAR( cpa_createdatetime ) + 543 ) =  '".$Resultdategroup['ym']."' ORDER BY cpa_createdatetime desc";
-                }
+                $seleltNews = "SELECT *,DATEDIFF(cpa_createdatetime,NOW())as newpakead,concat(LPAD(MONTH(cpa_createdatetime),2,'0'),'/',YEAR(cpa_createdatetime)+543)  as ym
+                FROM cpa_web_news where cpa_status = '1' and cpa_groupnews_id =  '" . $groupNews['cpa_groupnews_id'] . "' 
+                and concat( LPAD( MONTH ( cpa_createdatetime ), 2, '0' ), '/', YEAR( cpa_createdatetime ) + 543 ) =  '".$Resultdategroup['ym']."'
+                ORDER BY cpa_createdatetime desc";
               $queryNews = mysqli_query($con, $seleltNews);
               
               // วนรอบเอาชื่อรายละอียดและเอกสารแนบ

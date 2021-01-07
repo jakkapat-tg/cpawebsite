@@ -47,7 +47,7 @@
         include "../../sqlconfig/config.php";
         $sqlgroup = "SELECT * FROM cpa_web_groupnews";
         $queryqroup = mysqli_query($con, $sqlgroup);
-        $sqlspecialgroup = "SELECT * FROM cpa_web_groupspecial_news";
+        $sqlspecialgroup = "SELECT * FROM cpa_web_groupspecial_news where status = '1'";
         $queryspqroup = mysqli_query($con, $sqlspecialgroup);
         $getid = '';
         $getid  = $_GET['pkid'];

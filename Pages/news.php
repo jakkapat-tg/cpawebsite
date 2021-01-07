@@ -104,15 +104,17 @@
         <p class="box">
           <h2 style="color: #009668;"><?php echo $groupNews['cpa_namegroup']; ?> </h2><hr>
           <?php
+
           $dategroup = "SELECT  concat(LPAD(MONTH(cpa_createdatetime),2,'0'),'/',YEAR(cpa_createdatetime)+543)  as ym,
           MONTH(cpa_createdatetime) as mm,YEAR(cpa_createdatetime)as yyyy
           ,cwn.cpa_groupspecial_id ,cwg.cpa_groupspecial_name
           FROM cpa_web_news cwn
-          INNER JOIN cpa_web_groupspecial_news cwg on cwn.cpa_groupspecial_id = cwg.cpa_groupspecial_id and status = '1'
+          left JOIN cpa_web_groupspecial_news cwg on cwn.cpa_groupspecial_id = cwg.cpa_groupspecial_id  and cwg.status = '1'
           where cpa_status = '1' and cpa_groupnews_id =  '" . $groupNews['cpa_groupnews_id'] . "'
           group by ym ,
          	cpa_groupspecial_id
           ORDER BY cpa_groupspecial_id,cpa_createdatetime desc";
+
           $querydategroup = mysqli_query($con, $dategroup);
 
 
@@ -123,7 +125,7 @@
                 echo '<h4 style="color:#17a2b8;">'.$Resultdategroup["cpa_groupspecial_name"].'</h4><h6> เดือน '.Fullmonth($Resultdategroup['mm'] ).' '.($Resultdategroup['yyyy']+543)  . '</h6>';
               }
               else{
-                echo '<h4 style="color:#17a2b8;>เดือน '.Fullmonth($Resultdategroup['mm'] ).' '.($Resultdategroup['yyyy']+543)  . '</h4>';
+                echo '<h4 style="color:#17a2b8;">เดือน '.Fullmonth($Resultdategroup['mm'] ).' '.($Resultdategroup['yyyy']+543)  . '</h4>';
               }
             }
           ?>

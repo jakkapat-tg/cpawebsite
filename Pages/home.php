@@ -193,7 +193,7 @@
 			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 d-flex ftco-animate justify-content-center ">
 				<div class="box">
 					<a href="./medicinetables">
-
+						<img src="./cpawebsite/uploads/image/medtable.png" alt="Cinque Terre" width="250" height="300">
 					</a>
 				</div>
 			</div>

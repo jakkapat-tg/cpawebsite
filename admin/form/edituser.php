@@ -51,7 +51,7 @@
                     $lname    = $_POST['lname'];
                     $gender    = $_POST['gender'];
                     $role     = $_POST['role'];
-                    $username = $_POST['username'];
+                    $username = trim($_POST['username']);
                     $tel = $_POST['tel'];
                     $datetime = date("Y/m/d H:i:s");
                     $password = $con->real_escape_string($_POST['password']);
@@ -98,7 +98,7 @@
                     $lname    = $_POST['lname'];
                     $gender   =   $getgender  ;
                     $role     = $_POST['role'];
-                    $username = $_POST['username'];
+                    $username = trim($_POST['username']);
                     $tel = $_POST['tel'];
                     $datetime = date("Y/m/d H:i:s");
                     $status    = $_POST['status'];

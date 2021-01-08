@@ -43,9 +43,11 @@
         $sql = "SELECT a.*,b.describes FROM req_prob a INNER JOIN req_prob_type b on a.req_prob_type = b.id ORDER BY check_status, id  DESC limit {$start} , {$perpage} ";  //DESC
         $query = mysqli_query($con, $sql);
         $sql2 = "SELECT * FROM req_prob a INNER JOIN req_prob_type b on a.req_prob_type = b.id ";
+        // แบ่งหน้า
         $query2 = mysqli_query($con, $sql2);
         $total_record = mysqli_num_rows($query2);
         $total_page = ceil($total_record / $perpage);
+        // แบ่งหน้า
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             function send_line_notify($message, $token)
             {
@@ -68,11 +70,12 @@
             $sqlinsert = "UPDATE req_prob SET check_status = 'Y' ,check_time = '$date' ,check_by = '$fullname' WHERE id = " . '\'' . $_POST['id'] . '\' AND cidcode = \'' . $_POST['cidcode'] . '\'';
             if (mysqli_query($con, $sqlinsert)) {
                 $message = "\r\n" .
-                    'คำร้องเรียน ' . date('d-m-yy') . "\r\n" .
+                    'คำร้องเรียน ' . $_POST["req_time"] . "\r\n" .
                     'ID: ' . $_POST["id"] . "\r\n" .
                     'เรื่อง: ' . $_POST["req_head"] . "\r\n" .
                     'ชื่อ: ' . $_POST["pname"] . " " .  $_POST["fname"] . "  " .  $_POST["lname"] . "\r\n" .
-                    'สถานะ: ดำเนินการเรียบร้อย';
+                    'สถานะ: ดำเนินการเรียบร้อย' . "\r\n" .
+                    'วันที่ดำเนินการ: ' . date('d-m-Y H:i น.');
                 $token = 'LWXFDV0Ubg4tpFWJk4huG97lCHKXcnGkrrMHfH0vQfm';
                 send_line_notify($message, $token);
                 echo '<script>
@@ -165,7 +168,7 @@
                                             <div class="row">
                                                 <div class="col-md-12 col-sm-12 col-xs-12 ">
                                                     <span style="text-align: left;font-size:16px;color: #000000;">วันเวลาร้องเรียน :</span>
-                                                    <span style="text-align: left;font-size:16px;color: #000000;"><?php echo $item['time_stamp']; ?></span>
+                                                    <span style="text-align: left;font-size:16px;color: #000000;"><?php echo date_format(date_create($item['req_time']), "d/m/Y H:i"); ?></span>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -272,7 +275,7 @@
                                             <div class="row">
                                                 <div class="col-md-12 col-sm-12 col-xs-12 ">
                                                     <span style="text-align: left;font-size:16px;color: #000000;">สถานะ :</span>
-                                                    <span style="text-align: left;font-size:16px;color: <?php echo $item['check_by'] != null ? 'green' : 'red' ?>;"><?php echo $item['check_by'] != null ? 'ดำเนินการแล้ว' : 'ยังไม่ดำเนินการแก้ไข' ?></span>
+                                                    <span style="text-align: left;font-size:16px;color: <?php echo $item['check_by'] != null ? 'green' : 'red' ?>;"><?php echo $item['check_by'] != null ? 'ดำเนินการแล้ว | ' . date_format(date_create($item['check_time']), "d/m/Y H:i") : 'ยังไม่ดำเนินการแก้ไข' ?></span>
                                                 </div>
                                             </div>
                                             <?php if ($item['check_by'] != null) { ?>
@@ -295,6 +298,7 @@
                                         <input type="hidden" name="pname" value="<? echo $item['pname']; ?>">
                                         <input type="hidden" name="fname" value="<? echo $item['fname']; ?>">
                                         <input type="hidden" name="lname" value="<? echo $item['lname']; ?>">
+                                        <input type="hidden" name="req_time" value="<? echo $item['req_time']; ?>">
                                         <input type="hidden" name="req_head" value="<? echo $item['req_head']; ?>">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
                                         <?php if ($item['check_by'] == null and $item['check_status'] == 'N' and $_SESSION['status'] == '1') { ?>

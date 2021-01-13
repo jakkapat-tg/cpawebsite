@@ -1,7 +1,4 @@
 <?php
-
-use ReCaptcha\RequestMethod\Post;
-
 include "./redirect.php" ?>
 <!DOCTYPE html>
 <html>

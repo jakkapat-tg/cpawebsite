@@ -11,7 +11,7 @@
  Target Server Version : 50643
  File Encoding         : 65001
 
- Date: 07/01/2021 11:08:25
+ Date: 14/01/2021 12:05:30
 */
 
 SET NAMES utf8mb4;
@@ -439,6 +439,7 @@ CREATE TABLE `cpa_web_user`  (
 -- Records of cpa_web_user
 -- ----------------------------
 INSERT INTO `cpa_web_user` VALUES ('admin', '$2y$10$i5cU70iwqGEqN3u1XfopkOpufAsy1BamDTnBWWmIA7T3OTjcxRDgG', 'รัชวิทย์', 'พลชู', '1', 'admin', '2020-07-15 10:02:26', '3148', '1');
+INSERT INTO `cpa_web_user` VALUES ('cpa00471', '$2y$10$UhqIsi7ZdiKzy/jljh72dOcwEbDMbQSBr/lz.AkZkV7gj6hCbZwlK', 'ภกญ.สุธีวรรณ', 'โหตกษาปน์กุล', '2', 'admin', '2021-01-08 11:33:11', '3309900143991', '1');
 
 -- ----------------------------
 -- Table structure for department
@@ -1525,10 +1526,10 @@ INSERT INTO `subworkdepartment` VALUES (37, 'จิตเวช', 5);
 INSERT INTO `subworkdepartment` VALUES (38, 'คลินิก DAY CARD', 5);
 INSERT INTO `subworkdepartment` VALUES (39, 'คลินิกเบาหวาน', 5);
 INSERT INTO `subworkdepartment` VALUES (40, 'คลินิกวัณโรค', 5);
-INSERT INTO `subworkdepartment` VALUES (41, 'คลินิกการแพทย์แผนไทย', 5);
-INSERT INTO `subworkdepartment` VALUES (42, 'อบสมุนไพร นวด กดจุด', 5);
-INSERT INTO `subworkdepartment` VALUES (43, 'ฝังเข็ม', 5);
-INSERT INTO `subworkdepartment` VALUES (44, 'นอกเวลา', 5);
+INSERT INTO `subworkdepartment` VALUES (41, 'คลินิกการแพทย์แผนไทย', 0);
+INSERT INTO `subworkdepartment` VALUES (42, 'อบสมุนไพร นวด กดจุด', 7);
+INSERT INTO `subworkdepartment` VALUES (43, 'ฝังเข็ม', 7);
+INSERT INTO `subworkdepartment` VALUES (44, 'นอกเวลา', 7);
 INSERT INTO `subworkdepartment` VALUES (45, 'คลินิกนมแม่', 2);
 INSERT INTO `subworkdepartment` VALUES (46, 'อายุรกรรมระบบประสาท  (พญ.วรรณพร เอี่ยมวรวุฒิกุล)', 6);
 INSERT INTO `subworkdepartment` VALUES (47, 'อายุรกรรมโรคหัวใจ (พญ.ปาลิดา พึ่งผล\r\n)', 6);
@@ -1544,6 +1545,257 @@ INSERT INTO `subworkdepartment` VALUES (56, 'อายุรกรรมทั�
 INSERT INTO `subworkdepartment` VALUES (57, 'อายุรกรรมระบบประสาท (พญ.วรรณพร เอี่ยมวรวุฒิกุล)', 6);
 INSERT INTO `subworkdepartment` VALUES (58, 'อายุรกรรมโรคหัวใจ (เฉพาะศุกร์ที่1ของเดือน) (พญ.ปาลิดา พึ่งผล\r\n)', 6);
 INSERT INTO `subworkdepartment` VALUES (59, 'อายุรกรรมโรคติดเชื้อ (เฉพาะศุกร์ที่3ของเดือน) (พญ.สุเบญจา พิณสาย)\r\n', 6);
+
+-- ----------------------------
+-- Table structure for tb_department
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_department`;
+CREATE TABLE `tb_department`  (
+  `id` int(11) NOT NULL,
+  `description` text CHARACTER SET utf8 COLLATE utf8_general_ci,
+  `en_description` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tb_department
+-- ----------------------------
+INSERT INTO `tb_department` VALUES (1, 'แผนกอายุรกรรม', 'medicine');
+INSERT INTO `tb_department` VALUES (2, 'แผนกสูติ-นรีวเชกรรม', 'obstetrics');
+INSERT INTO `tb_department` VALUES (3, 'แผนกกุมารเวชกรรม', 'pediatrics');
+INSERT INTO `tb_department` VALUES (4, 'แผนกศัลยกรรม', 'surgery');
+INSERT INTO `tb_department` VALUES (5, 'แผนกโรคต่างๆ', 'diseases');
+INSERT INTO `tb_department` VALUES (6, 'คลินิก SMC นอกเวลา', 'other');
+INSERT INTO `tb_department` VALUES (7, 'แผนกแพทย์แผนไทย', 'thaitraditional');
+
+-- ----------------------------
+-- Table structure for tb_department_date
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_department_date`;
+CREATE TABLE `tb_department_date`  (
+  `id` int(3) NOT NULL AUTO_INCREMENT,
+  `date` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tb_department_date
+-- ----------------------------
+INSERT INTO `tb_department_date` VALUES (1, 'จันทร์');
+INSERT INTO `tb_department_date` VALUES (2, 'จันทร์ - พฤหัสบดี');
+INSERT INTO `tb_department_date` VALUES (3, 'จันทร์ - ศุกร์');
+INSERT INTO `tb_department_date` VALUES (4, 'จันทร์ , พุธ');
+INSERT INTO `tb_department_date` VALUES (5, 'จันทร์ , พุธ , ศุกร์');
+INSERT INTO `tb_department_date` VALUES (6, 'จันทร์ , อังคาร , พฤหัสบดี');
+INSERT INTO `tb_department_date` VALUES (7, 'อังคาร');
+INSERT INTO `tb_department_date` VALUES (8, 'อังคาร , พฤหัสบดี');
+INSERT INTO `tb_department_date` VALUES (9, 'พุธ');
+INSERT INTO `tb_department_date` VALUES (10, 'พฤหัสบดี');
+INSERT INTO `tb_department_date` VALUES (11, 'ศุกร์');
+INSERT INTO `tb_department_date` VALUES (12, 'เสาร์');
+INSERT INTO `tb_department_date` VALUES (13, 'อาทิตย์');
+INSERT INTO `tb_department_date` VALUES (14, 'ทุกวัน');
+INSERT INTO `tb_department_date` VALUES (15, 'จันทร์ , อังคาร , พุธ');
+
+-- ----------------------------
+-- Table structure for tb_department_detail
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_department_detail`;
+CREATE TABLE `tb_department_detail`  (
+  `id` int(3) NOT NULL AUTO_INCREMENT,
+  `detail` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tb_department_detail
+-- ----------------------------
+INSERT INTO `tb_department_detail` VALUES (1, 'ที่ 2 , 4 ของเดือน');
+INSERT INTO `tb_department_detail` VALUES (2, 'ที่ 1 , 3 ของเดือน');
+INSERT INTO `tb_department_detail` VALUES (3, 'ที่ 1 ของเดือน');
+INSERT INTO `tb_department_detail` VALUES (4, 'ที่ 3 ของเดือน');
+INSERT INTO `tb_department_detail` VALUES (5, '(นอกเวลา)');
+INSERT INTO `tb_department_detail` VALUES (6, '(ยกเว้นวันหยุดราชการ)');
+INSERT INTO `tb_department_detail` VALUES (7, '-');
+
+-- ----------------------------
+-- Table structure for tb_department_event
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_department_event`;
+CREATE TABLE `tb_department_event`  (
+  `id` int(3) NOT NULL AUTO_INCREMENT,
+  `department` varchar(3) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `department_sub` varchar(3) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `department_date` varchar(3) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `department_detail` varchar(3) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `department_time` varchar(3) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `order_by` int(3) DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 65 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tb_department_event
+-- ----------------------------
+INSERT INTO `tb_department_event` VALUES (1, '1', '1', '3', '7', '2', 1);
+INSERT INTO `tb_department_event` VALUES (2, '1', '2', '1', '5', '8', 2);
+INSERT INTO `tb_department_event` VALUES (3, '1', '2', '7', '7', '3', 3);
+INSERT INTO `tb_department_event` VALUES (4, '1', '2', '10', '7', '6', 4);
+INSERT INTO `tb_department_event` VALUES (5, '1', '3', '4', '7', '3', 5);
+INSERT INTO `tb_department_event` VALUES (6, '1', '3', '9', '7', '9', 6);
+INSERT INTO `tb_department_event` VALUES (7, '1', '3', '10', '7', '5', 7);
+INSERT INTO `tb_department_event` VALUES (8, '1', '4', '7', '7', '2', 8);
+INSERT INTO `tb_department_event` VALUES (9, '1', '5', '7', '7', '7', 9);
+INSERT INTO `tb_department_event` VALUES (10, '1', '5', '6', '5', '10', 10);
+INSERT INTO `tb_department_event` VALUES (11, '1', '6', '9', '3', '2', 11);
+INSERT INTO `tb_department_event` VALUES (12, '1', '7', '1', '7', '6', 12);
+INSERT INTO `tb_department_event` VALUES (13, '2', '9', ' 3', ' 7', '2', 1);
+INSERT INTO `tb_department_event` VALUES (14, '2', '10', '3', '7', '2', 2);
+INSERT INTO `tb_department_event` VALUES (15, '2', '11', '3', '7', '2', 3);
+INSERT INTO `tb_department_event` VALUES (16, '2', '12', '3', '7', '2', 4);
+INSERT INTO `tb_department_event` VALUES (17, '2', '13', '1', '1', '7', 5);
+INSERT INTO `tb_department_event` VALUES (18, '2', '14', '9', '1', '7', 6);
+INSERT INTO `tb_department_event` VALUES (19, '2', '15', '10', '2', '5', 7);
+INSERT INTO `tb_department_event` VALUES (20, '2', '16', '10', '2', '2', 8);
+INSERT INTO `tb_department_event` VALUES (21, '2', '45', '3', '7', '2', 9);
+INSERT INTO `tb_department_event` VALUES (22, '3', '17', '3', '7', '2', 1);
+INSERT INTO `tb_department_event` VALUES (23, '3', '18', '11', '7', '2', 2);
+INSERT INTO `tb_department_event` VALUES (24, '3', '19', '1', '7', '2', 3);
+INSERT INTO `tb_department_event` VALUES (25, '3', '20', '7', '7', '2', 4);
+INSERT INTO `tb_department_event` VALUES (26, '3', '21', '7', '2', '2', 5);
+INSERT INTO `tb_department_event` VALUES (27, '3', '22', '9', '1', '2', 6);
+INSERT INTO `tb_department_event` VALUES (28, '4', '23', '3', '7', '2', 1);
+INSERT INTO `tb_department_event` VALUES (29, '4', '24', '3', '7', '2', 2);
+INSERT INTO `tb_department_event` VALUES (30, '4', '25', '1', '7', '2', 3);
+INSERT INTO `tb_department_event` VALUES (31, '4', '26', '11', '7', '2', 4);
+INSERT INTO `tb_department_event` VALUES (32, '4', '27', '9', '7', '2', 5);
+INSERT INTO `tb_department_event` VALUES (33, '5', '28', '3', '7', '2', 1);
+INSERT INTO `tb_department_event` VALUES (34, '5', '29', '3', '7', '7', 2);
+INSERT INTO `tb_department_event` VALUES (35, '5', '30', '3', '7', '7', 3);
+INSERT INTO `tb_department_event` VALUES (36, '5', '31', '3', '7', '2', 4);
+INSERT INTO `tb_department_event` VALUES (37, '5', '32', '5', '7', '2', 5);
+INSERT INTO `tb_department_event` VALUES (38, '5', '33', '3', '7', '2', 6);
+INSERT INTO `tb_department_event` VALUES (39, '5', '34', '3', '6', '1', 7);
+INSERT INTO `tb_department_event` VALUES (40, '5', '34', '3', '6', '10', 8);
+INSERT INTO `tb_department_event` VALUES (41, '5', '35', '2', '7', '2', 9);
+INSERT INTO `tb_department_event` VALUES (42, '5', '36', '2', '7', '2', 10);
+INSERT INTO `tb_department_event` VALUES (43, '5', '37', '15', '7', '2', 11);
+INSERT INTO `tb_department_event` VALUES (44, '5', '38', '9', '7', '2', 12);
+INSERT INTO `tb_department_event` VALUES (45, '5', '39', '10', '7', '2', 13);
+INSERT INTO `tb_department_event` VALUES (46, '5', '40', '11', '7', '2', 14);
+INSERT INTO `tb_department_event` VALUES (47, '6', '46', '1', '7', '8', 1);
+INSERT INTO `tb_department_event` VALUES (48, '6', '47', '1', '7', '8', 2);
+INSERT INTO `tb_department_event` VALUES (49, '6', '48', '1', '7', '8', 3);
+INSERT INTO `tb_department_event` VALUES (50, '6', '49', '7', '7', '8', 4);
+INSERT INTO `tb_department_event` VALUES (51, '6', '50', '7', '7', '8', 5);
+INSERT INTO `tb_department_event` VALUES (52, '6', '51', '7', '7', '8', 6);
+INSERT INTO `tb_department_event` VALUES (53, '6', '52', '9', '7', '8', 7);
+INSERT INTO `tb_department_event` VALUES (54, '6', '53', '9', '7', '8', 8);
+INSERT INTO `tb_department_event` VALUES (55, '6', '54', '9', '7', '8', 9);
+INSERT INTO `tb_department_event` VALUES (56, '6', '55', '10', '7', '8', 10);
+INSERT INTO `tb_department_event` VALUES (57, '6', '56', '10', '7', '8', 11);
+INSERT INTO `tb_department_event` VALUES (58, '6', '57', '11', '7', '8', 12);
+INSERT INTO `tb_department_event` VALUES (59, '6', '58', '11', '7', '8', 13);
+INSERT INTO `tb_department_event` VALUES (60, '6', '59', '11', '7', '8', 14);
+INSERT INTO `tb_department_event` VALUES (61, '7', '42', '14', '7', '4', 1);
+INSERT INTO `tb_department_event` VALUES (62, '7', '43', '8', '7', '4', 2);
+INSERT INTO `tb_department_event` VALUES (63, '7', '44', '8', '7', '10', 3);
+
+-- ----------------------------
+-- Table structure for tb_department_sub
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_department_sub`;
+CREATE TABLE `tb_department_sub`  (
+  `id` int(3) NOT NULL AUTO_INCREMENT,
+  `description_sub` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `en_description_sub` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 61 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tb_department_sub
+-- ----------------------------
+INSERT INTO `tb_department_sub` VALUES (1, 'อายุรกรรมทั่วไป', NULL);
+INSERT INTO `tb_department_sub` VALUES (2, 'คลินิกประสาทวิทยา', NULL);
+INSERT INTO `tb_department_sub` VALUES (3, 'คลินิกโรคไต', NULL);
+INSERT INTO `tb_department_sub` VALUES (4, 'คลินิกโรคปอด', NULL);
+INSERT INTO `tb_department_sub` VALUES (5, 'คลินิกโรคความดันโลหิตสูง', NULL);
+INSERT INTO `tb_department_sub` VALUES (6, 'คลินิกอายุรกรรมโรคข้อ', NULL);
+INSERT INTO `tb_department_sub` VALUES (7, 'คลินิกเต้านม', NULL);
+INSERT INTO `tb_department_sub` VALUES (8, 'คลีนิกผิวหนัง', NULL);
+INSERT INTO `tb_department_sub` VALUES (9, 'สูติ-นรีเวชกรรมทั่วไป', NULL);
+INSERT INTO `tb_department_sub` VALUES (10, 'ฝากครรภ์', NULL);
+INSERT INTO `tb_department_sub` VALUES (11, 'ตรวจหลังคลอด', NULL);
+INSERT INTO `tb_department_sub` VALUES (12, 'วางแผนครอบครัว', NULL);
+INSERT INTO `tb_department_sub` VALUES (13, 'คลินิกมีบุตรยาก', NULL);
+INSERT INTO `tb_department_sub` VALUES (14, 'คลินิกกามโรค', NULL);
+INSERT INTO `tb_department_sub` VALUES (15, 'คลินิกวัยทอง (หญิง)', NULL);
+INSERT INTO `tb_department_sub` VALUES (16, 'คลินิกวัยทอง (ชาย)', NULL);
+INSERT INTO `tb_department_sub` VALUES (17, 'ตรวจโรคเด็กทั่วไป', NULL);
+INSERT INTO `tb_department_sub` VALUES (18, 'คลินิกโรคเลือด', NULL);
+INSERT INTO `tb_department_sub` VALUES (19, 'คลินิกพัฒนาการเด็ก', NULL);
+INSERT INTO `tb_department_sub` VALUES (20, 'ตรวจสุขภาพเด็กดี (ฉีดวัคซีน)', NULL);
+INSERT INTO `tb_department_sub` VALUES (21, 'คลินิกเด็กแรกคลอด', NULL);
+INSERT INTO `tb_department_sub` VALUES (22, 'คลินิกโรคปอดและภูมิแพ้,โรคไต', NULL);
+INSERT INTO `tb_department_sub` VALUES (23, 'ศัลยกรรมทั่วไป', NULL);
+INSERT INTO `tb_department_sub` VALUES (24, 'ศัลยกรรมกระดูก', NULL);
+INSERT INTO `tb_department_sub` VALUES (25, 'ศัลยกรรมระบบทางเดินปัสสาวะ', NULL);
+INSERT INTO `tb_department_sub` VALUES (26, 'ศัลยระบบสมอง', NULL);
+INSERT INTO `tb_department_sub` VALUES (27, 'ศัลยกรรมตกแต่ง', NULL);
+INSERT INTO `tb_department_sub` VALUES (28, 'ฟัน', NULL);
+INSERT INTO `tb_department_sub` VALUES (29, 'คลินิกยาเสพติด,อดบุหรี่,อดสุรา', NULL);
+INSERT INTO `tb_department_sub` VALUES (30, 'คลินิกคลายเครียด', NULL);
+INSERT INTO `tb_department_sub` VALUES (31, 'คลินิกนิรนาม', NULL);
+INSERT INTO `tb_department_sub` VALUES (32, 'เวชกรรมฟื้นฟู', NULL);
+INSERT INTO `tb_department_sub` VALUES (33, 'กายภาพบำบัด', NULL);
+INSERT INTO `tb_department_sub` VALUES (34, 'ตรวจโรคทั่วไป', NULL);
+INSERT INTO `tb_department_sub` VALUES (35, 'ตา', NULL);
+INSERT INTO `tb_department_sub` VALUES (36, 'หู คอ จมูก', NULL);
+INSERT INTO `tb_department_sub` VALUES (37, 'จิตเวช', NULL);
+INSERT INTO `tb_department_sub` VALUES (38, 'คลินิก DAY CARD', NULL);
+INSERT INTO `tb_department_sub` VALUES (39, 'คลินิกเบาหวาน', NULL);
+INSERT INTO `tb_department_sub` VALUES (40, 'คลินิกวัณโรค', NULL);
+INSERT INTO `tb_department_sub` VALUES (41, 'คลินิกการแพทย์แผนไทย', NULL);
+INSERT INTO `tb_department_sub` VALUES (42, 'อบสมุนไพร นวด กดจุด', NULL);
+INSERT INTO `tb_department_sub` VALUES (43, 'ฝังเข็ม', NULL);
+INSERT INTO `tb_department_sub` VALUES (44, 'นอกเวลา', NULL);
+INSERT INTO `tb_department_sub` VALUES (45, 'คลินิกนมแม่', NULL);
+INSERT INTO `tb_department_sub` VALUES (46, 'อายุรกรรมระบบประสาท  (พญ.วรรณพร เอี่ยมวรวุฒิกุล)', NULL);
+INSERT INTO `tb_department_sub` VALUES (47, 'อายุรกรรมโรคหัวใจ (พญ.ปาลิดา พึ่งผล\r\n)', NULL);
+INSERT INTO `tb_department_sub` VALUES (48, 'กุมารเวชกรรมทั่วไป (พญ.พัชรินทร์ เกียรติกังวาฬไกล)', NULL);
+INSERT INTO `tb_department_sub` VALUES (49, 'อายุรกรรมโรคติดเชื้อ (พญ.สุเบญจา พิณสาย\r\n)', NULL);
+INSERT INTO `tb_department_sub` VALUES (50, 'อายุรกรรมทั่วไป (พญ.รังสิมา รังสีธรรมปัญญา)', NULL);
+INSERT INTO `tb_department_sub` VALUES (51, 'กุมารเวชกรรมทั่วไป (พญ.ดลยา เอกวิชกุล)', NULL);
+INSERT INTO `tb_department_sub` VALUES (52, 'อายุรกรรมโรคไต (นพ.วรพจน์ เตรียมตระการผล\r\n)', NULL);
+INSERT INTO `tb_department_sub` VALUES (53, 'อายุรกรรมโรคเลือด (พญ.สิรภัทร รุ่งวิทยาธิวัฒน์)', NULL);
+INSERT INTO `tb_department_sub` VALUES (54, 'กุมารเวชกรรมทั่วไป (พญ.ดลยา เอกวิชกุล)', NULL);
+INSERT INTO `tb_department_sub` VALUES (55, 'อายุรกรรมโรคระบบทางเดินอาหาร (พญ.วิจิตรา คงคา)', NULL);
+INSERT INTO `tb_department_sub` VALUES (56, 'อายุรกรรมทั่วไป (พญ.ปวีณา กนกพจนานนท์)', NULL);
+INSERT INTO `tb_department_sub` VALUES (57, 'อายุรกรรมระบบประสาท (พญ.วรรณพร เอี่ยมวรวุฒิกุล)', NULL);
+INSERT INTO `tb_department_sub` VALUES (58, 'อายุรกรรมโรคหัวใจ (เฉพาะศุกร์ที่1ของเดือน) (พญ.ปาลิดา พึ่งผล\r\n)', NULL);
+INSERT INTO `tb_department_sub` VALUES (59, 'อายุรกรรมโรคติดเชื้อ (เฉพาะศุกร์ที่3ของเดือน) (พญ.สุเบญจา พิณสาย)\r\n', NULL);
+
+-- ----------------------------
+-- Table structure for tb_department_time
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_department_time`;
+CREATE TABLE `tb_department_time`  (
+  `id` int(3) NOT NULL AUTO_INCREMENT,
+  `time` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tb_department_time
+-- ----------------------------
+INSERT INTO `tb_department_time` VALUES (1, '07.30 - 08.30 น.');
+INSERT INTO `tb_department_time` VALUES (2, '08.30 - 12.00 น.');
+INSERT INTO `tb_department_time` VALUES (3, '09.00 - 11.00 น.');
+INSERT INTO `tb_department_time` VALUES (4, '09.00 - 15.00 น.');
+INSERT INTO `tb_department_time` VALUES (5, '10.00 - 12.00 น.');
+INSERT INTO `tb_department_time` VALUES (6, '13.00 - 15.00 น.');
+INSERT INTO `tb_department_time` VALUES (7, '13.00 - 16.30 น.');
+INSERT INTO `tb_department_time` VALUES (8, '16.00 - 20.00 น.');
+INSERT INTO `tb_department_time` VALUES (9, '16.30 - 20.00 น.');
+INSERT INTO `tb_department_time` VALUES (10, '16.30 - 20.30 น.');
 
 -- ----------------------------
 -- Table structure for workdepartment
@@ -1564,6 +1816,7 @@ INSERT INTO `workdepartment` VALUES (3, 'แผนกกุมารเวชก
 INSERT INTO `workdepartment` VALUES (4, 'แผนกศัลยกรรม', 'surgery');
 INSERT INTO `workdepartment` VALUES (5, 'แผนกโรคต่างๆ', 'diseases');
 INSERT INTO `workdepartment` VALUES (6, 'คลินิก SMC นอกเวลา', 'other');
+INSERT INTO `workdepartment` VALUES (7, 'แผนกแพทย์แผนไทย', 'thaitraditional');
 
 -- ----------------------------
 -- Table structure for workdetail

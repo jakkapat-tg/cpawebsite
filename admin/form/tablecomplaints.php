@@ -136,11 +136,11 @@
                                         <td><?php echo $result['req_head'] ?> </td>
                                         <td><?php echo date("d/m/Y G:i \น\.", strtotime($result['req_time'])) ?> </td>
                                         <td style="text-align:center;"><?php echo $result['check_status'] == 'N' ? '<span class="ion-close-circled" style="color:red;"></span>' : '<span class="ion-checkmark-circled" style="color:green;"></span>' ?></td>
-                                        <td>
-                                            <?php if ($_SESSION['status'] == '1') { ?>
+                                        <?php if ($_SESSION['status'] == '1') { ?>
+                                            <td>
                                                 <center><button class="btn btn-info" data-toggle="modal" data-target="#closejob<?php echo $result['id']; ?>">เพิ่มเติม</button></center>
-                                            <?php } ?>
-                                        </td>
+                                            </td>
+                                        <?php } ?>
                                     </tr>
                                 <?php } ?>
                             <tbody>
@@ -198,7 +198,7 @@
 
                                             <div class="row">
                                                 <div class="col-md-12 col-sm-12 col-xs-12 ">
-                                                    <textarea readonly class="form-about-yourself form-control" style="background-color: white;"><?php echo $item['req_details']; ?></textarea>
+                                                    <textarea readonly class="form-about-yourself form-control" rows="6" style="background-color: white;"><?php echo $item['req_details']; ?></textarea>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -208,7 +208,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12 col-sm-12 col-xs-12 ">
-                                                    <textarea readonly class="form-about-yourself form-control" style="background-color: white;"><?php echo $item['request']; ?></textarea>
+                                                    <textarea readonly class="form-about-yourself form-control"  rows="6"  style="background-color: white;"><?php echo $item['request']; ?></textarea>
                                                 </div>
                                             </div>
                                             <div class="row" style="padding-top: 10px; padding-bottom: 7px;">

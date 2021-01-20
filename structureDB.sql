@@ -11,7 +11,7 @@
  Target Server Version : 50643
  File Encoding         : 65001
 
- Date: 14/01/2021 12:05:30
+ Date: 19/01/2021 16:09:15
 */
 
 SET NAMES utf8mb4;
@@ -1474,6 +1474,26 @@ INSERT INTO `req_prob_type` VALUES (4, 'ข้อเสนอแนะ ข้อ
 INSERT INTO `req_prob_type` VALUES (5, 'ร้องทุกข์', 4, 'Y');
 
 -- ----------------------------
+-- Table structure for search
+-- ----------------------------
+DROP TABLE IF EXISTS `search`;
+CREATE TABLE `search`  (
+  `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `Name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of search
+-- ----------------------------
+INSERT INTO `search` VALUES (1, 'David Copperfield');
+INSERT INTO `search` VALUES (2, 'Ricky Ponting');
+INSERT INTO `search` VALUES (3, 'Cristiano Ronaldo');
+INSERT INTO `search` VALUES (4, 'Lionel Messi');
+INSERT INTO `search` VALUES (5, 'Shane Watson');
+INSERT INTO `search` VALUES (6, '4564');
+
+-- ----------------------------
 -- Table structure for subworkdepartment
 -- ----------------------------
 DROP TABLE IF EXISTS `subworkdepartment`;
@@ -1551,21 +1571,24 @@ INSERT INTO `subworkdepartment` VALUES (59, 'อายุรกรรมโร�
 -- ----------------------------
 DROP TABLE IF EXISTS `tb_department`;
 CREATE TABLE `tb_department`  (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `description` text CHARACTER SET utf8 COLLATE utf8_general_ci,
-  `en_description` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+  `en_description` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `status` varchar(1) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT 'Y',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tb_department
 -- ----------------------------
-INSERT INTO `tb_department` VALUES (1, 'แผนกอายุรกรรม', 'medicine');
-INSERT INTO `tb_department` VALUES (2, 'แผนกสูติ-นรีวเชกรรม', 'obstetrics');
-INSERT INTO `tb_department` VALUES (3, 'แผนกกุมารเวชกรรม', 'pediatrics');
-INSERT INTO `tb_department` VALUES (4, 'แผนกศัลยกรรม', 'surgery');
-INSERT INTO `tb_department` VALUES (5, 'แผนกโรคต่างๆ', 'diseases');
-INSERT INTO `tb_department` VALUES (6, 'คลินิก SMC นอกเวลา', 'other');
-INSERT INTO `tb_department` VALUES (7, 'แผนกแพทย์แผนไทย', 'thaitraditional');
+INSERT INTO `tb_department` VALUES (1, 'แผนกอายุรกรรม', 'medicine', 'Y');
+INSERT INTO `tb_department` VALUES (2, 'แผนกสูติ-นรีวเชกรรม', 'obstetrics', 'Y');
+INSERT INTO `tb_department` VALUES (3, 'แผนกกุมารเวชกรรม', 'pediatrics', 'Y');
+INSERT INTO `tb_department` VALUES (4, 'แผนกศัลยกรรม', 'surgery', 'Y');
+INSERT INTO `tb_department` VALUES (5, 'แผนกโรคต่างๆ', 'diseases', 'Y');
+INSERT INTO `tb_department` VALUES (6, 'คลินิก SMC นอกเวลา', 'other', 'Y');
+INSERT INTO `tb_department` VALUES (7, 'แผนกแพทย์แผนไทย', 'thaitraditional', 'Y');
+INSERT INTO `tb_department` VALUES (8, 'ทดลองเพิ่มแผนกแก้ไข', 'testAddDepEdit', 'N');
 
 -- ----------------------------
 -- Table structure for tb_department_date
@@ -1630,7 +1653,7 @@ CREATE TABLE `tb_department_event`  (
   `department_time` varchar(3) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `order_by` int(3) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 65 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 70 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tb_department_event
@@ -1697,7 +1720,10 @@ INSERT INTO `tb_department_event` VALUES (59, '6', '58', '11', '7', '8', 13);
 INSERT INTO `tb_department_event` VALUES (60, '6', '59', '11', '7', '8', 14);
 INSERT INTO `tb_department_event` VALUES (61, '7', '42', '14', '7', '4', 1);
 INSERT INTO `tb_department_event` VALUES (62, '7', '43', '8', '7', '4', 2);
-INSERT INTO `tb_department_event` VALUES (63, '7', '44', '8', '7', '10', 3);
+INSERT INTO `tb_department_event` VALUES (63, '7', '43', '8', '7', '10', 3);
+INSERT INTO `tb_department_event` VALUES (65, '7', '61', '12', '1', '7', 4);
+INSERT INTO `tb_department_event` VALUES (68, '8', '33', '14', '1', '8', 1);
+INSERT INTO `tb_department_event` VALUES (69, '8', '64', '14', '5', '4', 2);
 
 -- ----------------------------
 -- Table structure for tb_department_sub
@@ -1708,7 +1734,7 @@ CREATE TABLE `tb_department_sub`  (
   `description_sub` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `en_description_sub` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 61 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 65 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tb_department_sub
@@ -1756,7 +1782,7 @@ INSERT INTO `tb_department_sub` VALUES (40, 'คลินิกวัณโร�
 INSERT INTO `tb_department_sub` VALUES (41, 'คลินิกการแพทย์แผนไทย', NULL);
 INSERT INTO `tb_department_sub` VALUES (42, 'อบสมุนไพร นวด กดจุด', NULL);
 INSERT INTO `tb_department_sub` VALUES (43, 'ฝังเข็ม', NULL);
-INSERT INTO `tb_department_sub` VALUES (44, 'นอกเวลา', NULL);
+INSERT INTO `tb_department_sub` VALUES (44, NULL, NULL);
 INSERT INTO `tb_department_sub` VALUES (45, 'คลินิกนมแม่', NULL);
 INSERT INTO `tb_department_sub` VALUES (46, 'อายุรกรรมระบบประสาท  (พญ.วรรณพร เอี่ยมวรวุฒิกุล)', NULL);
 INSERT INTO `tb_department_sub` VALUES (47, 'อายุรกรรมโรคหัวใจ (พญ.ปาลิดา พึ่งผล\r\n)', NULL);
@@ -1772,6 +1798,10 @@ INSERT INTO `tb_department_sub` VALUES (56, 'อายุรกรรมทั�
 INSERT INTO `tb_department_sub` VALUES (57, 'อายุรกรรมระบบประสาท (พญ.วรรณพร เอี่ยมวรวุฒิกุล)', NULL);
 INSERT INTO `tb_department_sub` VALUES (58, 'อายุรกรรมโรคหัวใจ (เฉพาะศุกร์ที่1ของเดือน) (พญ.ปาลิดา พึ่งผล\r\n)', NULL);
 INSERT INTO `tb_department_sub` VALUES (59, 'อายุรกรรมโรคติดเชื้อ (เฉพาะศุกร์ที่3ของเดือน) (พญ.สุเบญจา พิณสาย)\r\n', NULL);
+INSERT INTO `tb_department_sub` VALUES (61, 'ทดลองเพิ่มเข็มเสาร์ ที่ 2 4 13.00-16.30', NULL);
+INSERT INTO `tb_department_sub` VALUES (62, 'ทดลองเพิ่มรายการ ทุกวัน นอกเวลา 10.00-12.00', NULL);
+INSERT INTO `tb_department_sub` VALUES (63, 'ทดลองวันศุก', NULL);
+INSERT INTO `tb_department_sub` VALUES (64, 'ชื่ออันใหม่ไม่มีในระบบ', NULL);
 
 -- ----------------------------
 -- Table structure for tb_department_time

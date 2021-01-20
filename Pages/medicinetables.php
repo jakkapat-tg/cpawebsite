@@ -81,7 +81,7 @@
     <div class="row">
       <div class="tab">
         <?php
-        $sel_col = "SELECT * FROM workdepartment";
+        $sel_col = "SELECT * FROM tb_department WHERE status = 'Y'";
         $querysel_col = mysqli_query($con, $sel_col);
         $defaultOpen = 'id="defaultOpen"';
         while ($ResultCeo = mysqli_fetch_assoc($querysel_col)) {
@@ -95,12 +95,10 @@
       </div>
 
       <?php
-      $sel_col = "SELECT * FROM workdepartment";
+      $sel_col = "SELECT * FROM tb_department WHERE status = 'Y'";
       $querysel_col = mysqli_query($con, $sel_col);
-      $defaultOpen = 'id="defaultOpen"';
       while ($ResultCeo_col = mysqli_fetch_assoc($querysel_col)) {
       ?>
-
         <div id="<?php echo $ResultCeo_col['id']; ?>" class="tabcontent">
           <div class="table-responsive">
             <table class="table table-striped ">
@@ -113,18 +111,33 @@
               </thead>
               <tbody>
                 <?php
-                $sel = "SELECT *,sub.description as des FROM workdetail wt LEFT JOIN subworkdepartment sub ON wt.subwork_id = sub.id INNER JOIN workdepartment wm ON sub.workdepart_id = wm.id";
+                $sel = "SELECT  e.id as tb_e_id,
+                                b.id as tb_id,
+                                b.description as td_dep,
+                                c.description_sub as td_sub,
+                                d.date as td_day,
+                                e.detail as td_detail,
+                                f.time as td_time,
+                                a.order_by
+                        FROM tb_department_event a 
+                        LEFT JOIN tb_department b ON a.department = b.id
+                        LEFT JOIN tb_department_sub c ON a.department_sub = c.id
+                        LEFT JOIN tb_department_date d ON a.department_date = d.id
+                        LEFT JOIN tb_department_detail e ON a.department_detail = e.id
+                        LEFT JOIN tb_department_time f ON a.department_time = f.id
+                        ORDER BY  b.id,a.order_by";
                 $querysel = mysqli_query($con, $sel);
                 $tmp_name = '';
                 while ($ResultCeo = mysqli_fetch_assoc($querysel)) {
-                  if ($ResultCeo['id'] == $ResultCeo_col['id']) {
+                  if ($ResultCeo['tb_id'] == $ResultCeo_col['id']) {
+                    $ResultCeo['td_sub'] = str_replace(")", ")</span>", str_replace("(", "<span style=\"color:#0b5e2c\">(", $ResultCeo['td_sub']));
                 ?><tr>
-                      <td><?php echo $ResultCeo['des'] != $tmp_name ? $ResultCeo['des'] : ''; ?></td>
-                      <td><?php echo $ResultCeo['day']; ?></td>
-                      <td><?php echo $ResultCeo['time']; ?></td>
+                      <td><?php echo $ResultCeo['td_sub'] != $tmp_name ? $ResultCeo['td_sub'] : ''; ?></td>
+                      <td><?php echo $ResultCeo['td_day'] . ' ' . ($ResultCeo['tb_e_id'] == '7' ? '' : $ResultCeo['td_detail']); ?></td>
+                      <td><?php echo $ResultCeo['td_time']; ?></td>
                     </tr>
                 <?php
-                    $tmp_name = $ResultCeo['des'];
+                    $tmp_name = $ResultCeo['td_sub'];
                   }
                 }
                 ?>

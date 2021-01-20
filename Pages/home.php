@@ -169,9 +169,8 @@
 
 		}
 	</style>
-	<div class="container" style="padding-top: 25px; padding-bottom: 25px;">
+	<div class="container" style="padding-top: 25px; padding-bottom: 105px;">
 		<div class="row">
-
 			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 d-flex ftco-animate justify-content-center ">
 				<div class="box">
 					<div id="fb-root"></div>
@@ -198,7 +197,11 @@
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 d-flex ftco-animate justify-content-center ">
-				<div class="box"></div>
+				<div class="box">
+					<a href="http://1.179.170.83:8888/">
+						<img src="./cpawebsite/uploads/image/QRcovid.png" alt="Cinque Terre" width="250" height="300">
+					</a>
+				</div>
 			</div>
 		</div>
 

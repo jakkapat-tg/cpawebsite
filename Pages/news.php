@@ -121,7 +121,7 @@
           // วนรอบเอาค่าเดือนปีมาแสดงเป็น head
           while ($Resultdategroup  = mysqli_fetch_assoc($querydategroup)) { 
             if($Resultdategroup['mm'] !='' ||$Resultdategroup['mm']  != null){
-              if($Resultdategroup['cpa_groupspecial_id'] !='' || $Resultdategroup['cpa_groupspecial_id'] != null) {
+              if($Resultdategroup['cpa_groupspecial_id'] =='1') {
                 echo '<h4 style="color:#17a2b8;">'.$Resultdategroup["cpa_groupspecial_name"].'</h4><h6> เดือน '.Fullmonth($Resultdategroup['mm'] ).' '.($Resultdategroup['yyyy']+543)  . '</h6>';
               }
               else{

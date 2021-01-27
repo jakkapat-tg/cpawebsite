@@ -50,7 +50,8 @@
 				width: 100%;
 				height: 100%;
 			}
-			.hero-wrap{
+
+			.hero-wrap {
 				height: 250px;
 			}
 		}
@@ -58,19 +59,16 @@
 
 
 	<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-	<!-- <div class="carousel-inner hero-wrap"> -->
+		<!-- <div class="carousel-inner hero-wrap"> -->
 		<div class="carousel-inner hero-wrap">
 			<div class="carousel-item  active">
-				<img class="slidewidth100" src="<?php if ($resultimg1 == '' || $resultimg1 == null) {	echo './cpawebsite/uploads/image/slideimg/default1.jpg';
-				} else {	echo './cpawebsite/uploads/image/slideimg/' . $resultimg1;} ?>" alt="ไม่สามารถโหลดภาพได้">
+				<img class="slidewidth100" src="<?php if ($resultimg1 == '' || $resultimg1 == null) {	echo './cpawebsite/uploads/image/slideimg/default1.jpg';} else {echo './cpawebsite/uploads/image/slideimg/' . $resultimg1;	} ?>" alt="ไม่สามารถโหลดภาพได้">
 			</div>
 			<div class="carousel-item">
-				<img class="slidewidth100" src="<?php if ($resultimg2 == '' || $resultimg2 == null) {	echo './cpawebsite/uploads/image/slideimg/default2.jpg';
-				} else {echo './cpawebsite/uploads/image/slideimg/' . $resultimg2;} ?>" alt="ไม่สามารถโหลดภาพได้">
+				<img class="slidewidth100" src="<?php if ($resultimg2 == '' || $resultimg2 == null) {	echo './cpawebsite/uploads/image/slideimg/default2.jpg';	} else {	echo './cpawebsite/uploads/image/slideimg/' . $resultimg2;	} ?>" alt="ไม่สามารถโหลดภาพได้">
 			</div>
 			<div class="carousel-item ">
-				<img class="slidewidth100" src="<?php if ($resultimg3 == '' || $resultimg3 == null) {	echo './cpawebsite/uploads/image/slideimg/default3.jpg';
-				} else {echo './cpawebsite/uploads/image/slideimg/' . $resultimg3;} ?>" alt="ไม่สามารถโหลดภาพได้">
+				<img class="slidewidth100" src="<?php if ($resultimg3 == '' || $resultimg3 == null) {echo './cpawebsite/uploads/image/slideimg/default3.jpg';} else {echo './cpawebsite/uploads/image/slideimg/' . $resultimg3;	} ?>" alt="ไม่สามารถโหลดภาพได้">
 			</div>
 		</div>
 		<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -82,10 +80,15 @@
 			<span class="sr-only">Next</span>
 		</a>
 	</div>
-
-
 	<div class="container" style="padding-top: 25px; padding-bottom: 25px;">
 		<div class="row">
+			<h5 class="_dp-ilb has-text-blue-primary _ttf-cptl _fs-3-md -animated-underline _tal-ct _tal-l-md fs-4 -show-line">บริการของเรา</h5>
+		</div>
+		<div class="row">
+			<button >1</button><button>1</button><button>1</button><button>1</button><button>1</button>
+		</div>
+
+		<div class="row mt-5">
 			<?php
 			$seleltGroupNews = "select * from cpa_web_groupnews  where status = '1' order by cpa_groupnews_id";
 			$queryGroupNews = mysqli_query($con, $seleltGroupNews);
@@ -102,8 +105,7 @@
 					</div>
 
 					<?php
-					$seleltNews = "select *,DATEDIFF(cpa_createdatetime,NOW())as newpakead 
-			   from cpa_web_news  where cpa_status = '1' and cpa_groupnews_id = '" . $rgnews['cpa_groupnews_id'] . "' order by cpa_createdatetime desc limit 3";
+					$seleltNews = "select *,DATEDIFF(cpa_createdatetime,NOW())as newpakead    from cpa_web_news  where cpa_status = '1' and cpa_groupnews_id = '" . $rgnews['cpa_groupnews_id'] . "' order by cpa_createdatetime desc limit 3";
 					$queryNews = mysqli_query($con, $seleltNews);
 
 					// วนรอบเอาชื่อรายละอียดและเอกสารแนบ
@@ -136,25 +138,14 @@
 			} ?>
 		</div>
 	</div>
-	<style>
-		/* .container-box {
-			width: 90%;
-			padding: 20px;
-			margin: 100px auto;
-			background: #ddd;
-			display: flex;
-			flex-direction: row;
-			justify-content: center;
-		} */
 
+	<style>
 		.box {
 			width: 250px;
 			height: 300px;
 			background: white;
 			margin: 10px 10px 10px 10px;
 			transition: 0.75s;
-
-
 		}
 
 		.box:hover {

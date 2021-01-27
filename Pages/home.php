@@ -45,36 +45,32 @@
 	?>
 
 	<style>
-		@media screen and (min-width: 720px) {
+		@media screen and (min-width: 340px) and (max-width: 768px) {
 			.slidewidth100 {
 				width: 100%;
+				height: 100%;
+			}
+			.hero-wrap{
+				height: 250px;
 			}
 		}
 	</style>
 
 
 	<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+	<!-- <div class="carousel-inner hero-wrap"> -->
 		<div class="carousel-inner hero-wrap">
 			<div class="carousel-item  active">
-				<img class="slidewidth100" src="<?php if ($resultimg1 == '' || $resultimg1 == null) {
-													echo './cpawebsite/uploads/image/slideimg/default1.jpg';
-												} else {
-													echo './cpawebsite/uploads/image/slideimg/' . $resultimg1;
-												} ?>" alt="ไม่สามารถโหลดภาพได้">
+				<img class="slidewidth100" src="<?php if ($resultimg1 == '' || $resultimg1 == null) {	echo './cpawebsite/uploads/image/slideimg/default1.jpg';
+				} else {	echo './cpawebsite/uploads/image/slideimg/' . $resultimg1;} ?>" alt="ไม่สามารถโหลดภาพได้">
 			</div>
 			<div class="carousel-item">
-				<img class="slidewidth100" src="<?php if ($resultimg2 == '' || $resultimg2 == null) {
-													echo './cpawebsite/uploads/image/slideimg/default2.jpg';
-												} else {
-													echo './cpawebsite/uploads/image/slideimg/' . $resultimg2;
-												} ?>" alt="ไม่สามารถโหลดภาพได้">
+				<img class="slidewidth100" src="<?php if ($resultimg2 == '' || $resultimg2 == null) {	echo './cpawebsite/uploads/image/slideimg/default2.jpg';
+				} else {echo './cpawebsite/uploads/image/slideimg/' . $resultimg2;} ?>" alt="ไม่สามารถโหลดภาพได้">
 			</div>
 			<div class="carousel-item ">
-				<img class="slidewidth100" src="<?php if ($resultimg3 == '' || $resultimg3 == null) {
-													echo './cpawebsite/uploads/image/slideimg/default3.jpg';
-												} else {
-													echo './cpawebsite/uploads/image/slideimg/' . $resultimg3;
-												} ?>" alt="ไม่สามารถโหลดภาพได้">
+				<img class="slidewidth100" src="<?php if ($resultimg3 == '' || $resultimg3 == null) {	echo './cpawebsite/uploads/image/slideimg/default3.jpg';
+				} else {echo './cpawebsite/uploads/image/slideimg/' . $resultimg3;} ?>" alt="ไม่สามารถโหลดภาพได้">
 			</div>
 		</div>
 		<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

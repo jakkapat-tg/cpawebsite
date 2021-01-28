@@ -29,45 +29,50 @@
     //echo "ThaiCreate.Com Time now : " . DateThai($strDate);
     ?>
 
-    <style> 
+    <style>
         #myBtn {
-        display: none;
-        position: fixed;
-        bottom: 20px;
-        right: 30px;
-        z-index: 99;
-        font-size: 18px;
-        border: none;
-        outline: none;
-        background-color: red;
-        color: white;
-        cursor: pointer;
-        padding: 15px;
-        border-radius: 4px;
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: red;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 4px;
         }
+
         #myBtn:hover {
-        background-color: #555;
+            background-color: #555;
         }
     </style>
 
     <section class="ftco-section bg-light">
         <div class="container">
             <div class="content-wrapper">
+
                 <div class="row">
                     <div class="col-md-12 grid-margin">
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
-                                <h4 class="font-weight-bold mb-3 text-danger"  title="สร้างเมื่อวันที่ 1 ธันวาคม 2562 
-                                | ปรับปรุงครั้งที่ 1 วันที่  6 มีนาคม 2563  
-                                | ปรับปรุงครั้งที่ 2 วันที่  9 มีนาคม 2563
-                                | ปรับปรุงครั้งที่ 3 วันที่ 10 มีนาคม 2563
-                                | ปรับปรุงครั้งที่ 4 วันที่ 13 มีนาคม 2563
-                                | ปรับปรุงครั้งที่ 5 วันที่ 26 สิงหาคม 2563
-                                ">ITA 2563</h4>
+                                <img src="./cpawebsite/uploads/image/ITALogo1.png" alt="ไม่สามารถโหลดรูปภาพได้" style="display: block;max-width: 100px;height: auto;" />
+                                <h3 style="color:#006738;border-bottom:2px #2dc997 solid;padding-bottom:10px;">โรงพยาบาลเจ้าพระยาอภัยภูเบศร</h3>
+
+                                <nav class="nav nav-pills flex-column flex-sm-row">
+                                    <a class="flex-sm-fill text-sm-center nav-link" aria-current="page" href="#">2564</a>
+                                    <a class="flex-sm-fill text-sm-center nav-link active" href="#">2563</a>
+                                </nav>
+                                
                             </div>
                         </div>
                     </div>
                 </div>
+
+                
                 <?php
                 $sqlita_eb = "SELECT * FROM ita_eb ";
                 $querysqlita_eb = mysqli_query($con, $sqlita_eb);
@@ -77,7 +82,7 @@
                     <div class="col-md-12 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
-                                <p class="card-title mb-0 text-info"><?php echo $topic_ita['ita_eb_code'] . ' ' . $topic_ita['ita_eb_name']; ?></p>
+                                <p class="card-title mb-0 text-info"><?php echo '<strong>' . $topic_ita['ita_eb_code'] . '</strong> : ' . $topic_ita['ita_eb_name']; ?></p>
                                 <div class="table-responsive">
                                     <table class="table table-hover">
                                         <tbody>
@@ -107,26 +112,28 @@
 
     <?php include "./cpawebsite/components/footer.php" ?>
     <script>
-//Get the button
-var mybutton = document.getElementById("myBtn");
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
 
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {
+            scrollFunction()
+        };
 
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
-}
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
 
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
-</script>
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
 
 
 

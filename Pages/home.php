@@ -103,12 +103,12 @@
 			</thead>
 			<tr >	
 				<td><button class="btn btn-outline-light" style="border:0px"><i class='fas fa-mortar-pestle' style='font-size:30px ;color:#207dff'></i></button></td>
-				<td><button class="btn btn-outline-light" style="border:0px" ><i class='far fa-heart' style='font-size:30px ;color:#207dff'></i></button> </th>
-				<td><button class="btn btn-outline-light" style="border:0px" ><i class='fas fa-crutch' style='font-size:30px ;color:#207dff'></i></button> </td>
+				<td><button class="btn btn-outline-light" style="border:0px"><i class='far fa-heart' style='font-size:30px ;color:#207dff'></i></button> </td>
+				<td><button class="btn btn-outline-light" style="border:0px"><i class='fas fa-crutch' style='font-size:30px ;color:#207dff'></i></button> </td>
 				<td><button class="btn btn-outline-light" style="border:0px"><i class='fas fa-brain' style='font-size:30px ;color:#207dff'></i>  </button></td>
 				<td><button class="btn btn-outline-light" style="border:0px"><i class='fas fa-ambulance' style='font-size:30px ;color:#207dff'></i></button></td>
-				<td><button class="btn btn-outline-light" style="border:0px" ><i class='fas fa-first-aid' style='font-size:30px ;color:#207dff'></i></button>  </td>
-				<td><button class="btn btn-outline-light" style="border:0px" ><i class='fas fa-diagnoses' style='font-size:30px ;color:#207dff'></i></button> </td>	
+				<td><button class="btn btn-outline-light" style="border:0px"><i class='fas fa-first-aid' style='font-size:30px ;color:#207dff'></i></button> </td>
+				<td><button class="btn btn-outline-light" style="border:0px"><i class='fas fa-diagnoses' style='font-size:30px ;color:#207dff'></i></button></td>	
 				<td><button class="btn btn-outline-light" style="border:0px"><i class='fas fa-tooth' style='font-size:30px ;color:#207dff'></i></button> </td>  
 				<td><button class="btn btn-outline-secondary" style="border:0px">อื่นๆ</button></td>
 			</tr>

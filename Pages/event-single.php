@@ -81,7 +81,8 @@
   <!-- NAV -->
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-      <a class="navbar-brand" href="/">โรงพยาบาล <span>เจ้าพระยาอภัยภูเบศร </span></a>
+      <a href="../"><img src="../cpawebsite/uploads/image/apay.png"  alt="Cinque Terre" height="70"></a> 
+      <!-- <a class="navbar-brand" href="./">โรงพยาบาล <span style="font-size: 84%;">เจ้าพระยาอภัยภูเบศร </span></a> -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="fa fa-bars"></span> Menu
       </button>

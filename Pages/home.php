@@ -14,8 +14,6 @@
 	<?php
 	$page = "index";
 	include("./cpawebsite/components/navbar.php");
-
-
 	//นับจำนวนคนเข้าเว็บตาม sessionid
 	$dateNow =  date("Y-m-d");
 	$fdthismonth = date('Y-m-01');
@@ -41,7 +39,6 @@
 	$resultimg1 = $resultimg['image1'];
 	$resultimg2 = $resultimg['image2'];
 	$resultimg3 = $resultimg['image3'];
-
 	?>
 
 	<style>
@@ -50,7 +47,6 @@
 				width: 100%;
 				height: 100%;
 			}
-
 			.hero-wrap {
 				height: 250px;
 			}
@@ -80,13 +76,48 @@
 			<span class="sr-only">Next</span>
 		</a>
 	</div>
-	<div class="container" style="padding-top: 25px; padding-bottom: 25px;">
-		<div class="row">
-			<h5 class="_dp-ilb has-text-blue-primary _ttf-cptl _fs-3-md -animated-underline _tal-ct _tal-l-md fs-4 -show-line">บริการของเรา</h5>
+
+
+
+
+
+
+	<div class="container" style="padding-top: 15px; padding-bottom: 25px; ">
+		<div class="row mb-1">
+			<h2 style='  text-transform: capitalize;color: #002d73;line-height: 125%;font-weight: bold; margin-left:15px;'>บริการของเรา</h2>
 		</div>
-		<div class="row">
-			<button >1</button><button>1</button><button>1</button><button>1</button><button>1</button>
+		<div class="table-responsive">
+			<table class="table text-center" >
+			<thead>
+				<tr>
+				<th scope="col" class="text-nowrap">แพทย์แผนไทย</th>
+				<th scope="col" class="text-nowrap">หัวใจ</th>
+				<th scope="col" class="text-nowrap">ข้อและกระดูก</th>
+				<th scope="col" class="text-nowrap">สมอง</th>
+				<th scope="col" class="text-nowrap">ฉุกเฉิน</th>
+				<th scope="col" class="text-nowrap">ตรวจสุขภาพ</th>
+				<th scope="col" class="text-nowrap">การผ่าตัด</th>
+				<th scope="col" class="text-nowrap">ทันตกรรม</th>
+				<th scope="col" class="text-nowrap">อื่นๆ</th>
+				</tr>
+			</thead>
+			<tr >	
+				<td><button class="btn btn-outline-light" style="border:0px"><i class='fas fa-mortar-pestle' style='font-size:30px ;color:#207dff'></i></button></td>
+				<td><button class="btn btn-outline-light" style="border:0px" ><i class='far fa-heart' style='font-size:30px ;color:#207dff'></i></button> </th>
+				<td><button class="btn btn-outline-light" style="border:0px" ><i class='fas fa-crutch' style='font-size:30px ;color:#207dff'></i></button> </td>
+				<td><button class="btn btn-outline-light" style="border:0px"><i class='fas fa-brain' style='font-size:30px ;color:#207dff'></i>  </button></td>
+				<td><button class="btn btn-outline-light" style="border:0px"><i class='fas fa-ambulance' style='font-size:30px ;color:#207dff'></i></button></td>
+				<td><button class="btn btn-outline-light" style="border:0px" ><i class='fas fa-first-aid' style='font-size:30px ;color:#207dff'></i></button>  </td>
+				<td><button class="btn btn-outline-light" style="border:0px" ><i class='fas fa-diagnoses' style='font-size:30px ;color:#207dff'></i></button> </td>	
+				<td><button class="btn btn-outline-light" style="border:0px"><i class='fas fa-tooth' style='font-size:30px ;color:#207dff'></i></button> </td>  
+				<td><button class="btn btn-outline-secondary" style="border:0px">อื่นๆ</button></td>
+			</tr>
+			</table>
 		</div>
+
+
+		
+
 
 		<div class="row mt-5">
 			<?php

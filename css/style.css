@@ -8369,7 +8369,7 @@ h1, h2, h3, h4, h5,
   background-position: top center;
   position: relative;
   overflow: hidden;
-  height: 700px; }
+  height: 600px; }
   @media (max-width: 1199.98px) {
     .hero-wrap {
       background-position: center center !important; } }

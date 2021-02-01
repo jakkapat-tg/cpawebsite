@@ -78,6 +78,10 @@
                 $inpage = 'ตาราง แก้ไขแถบด้านล่างเว็บไซต์';
                 $sqlgetfrompage = "SELECT * FROM ita_eb";
                 $resultquery = mysqli_query($con, $sqlgetfrompage);
+            } else if ($getpage == 'additadetail') {
+                $inpage = 'ตาราง แก้ไขแถบด้านล่างเว็บไซต์';
+                $sqlgetfrompage = "SELECT * FROM ita_detail";
+                $resultquery = mysqli_query($con, $sqlgetfrompage);    
             } else {
                 echo ' <script> window.location = "../index.php"; </script>';
             }

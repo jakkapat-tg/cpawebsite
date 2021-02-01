@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>EDIT ITA</title>
+    <title>Admin CPA | Edit group ITA</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -37,11 +37,11 @@
 <body class="hold-transition sidebar-mini">
 
     <div class="wrapper">
-        <?php $page = 'addgroupita';
+        <?php 
+        $page = 'addgroupita';
         $group = 2;
         include "../components/navbar.php";
         include "../../sqlconfig/config.php";
-
         ?>
 
         <?php
@@ -141,9 +141,10 @@
                                                             <option value="<?php echo  date('Y')+543+1;  ?>" <?php if($getebyear == (date('Y')+543+1)) {echo " selected";} ?>>  <?php echo (date('Y')+543+1);?></option>
                                                             <option value="<?php echo  date('Y')+543;    ?>" <?php if($getebyear == (date('Y')+543)) {echo " selected";} ?>> <?php echo (date('Y')+543);?></option>
                                                             <option value="<?php echo  date('Y')+543-1 ; ?>" <?php if($getebyear == (date('Y')+543-1)) {echo " selected";} ?>> <?php echo (date('Y')+543-1);?></option>
-                                                            <?php if (($getebyear != '') && ( ($getebyear != date('Y')+543+1 )) || ($getebyear != date('Y')+543) || ($getebyear != date('Y')+543-1) )  { ?>
-                                                            <option value="<?php echo $getebyear;?>"><?php echo $getebyear;?></option>
-                                                            <?php } ?>
+                                                            <?php if ( ($getebyear != '') &&  ( $getebyear != strval(date('Y')+543))  && ($getebyear != strval(date('Y')+543+1))  && ($getebyear != strval(date('Y')+543-1)))  { 
+                                                             echo "<option  value='$getebyear' selected> $getebyear </option>";
+                                                            } ?>
+                                        
                                                     </select>
                                                 </div>
                                             </div>

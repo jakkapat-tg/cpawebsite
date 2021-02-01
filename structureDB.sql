@@ -11,7 +11,7 @@
  Target Server Version : 50643
  File Encoding         : 65001
 
- Date: 19/01/2021 16:09:15
+ Date: 01/02/2021 20:58:21
 */
 
 SET NAMES utf8mb4;
@@ -64,6 +64,92 @@ CREATE TABLE `cpa_events`  (
   `cpa_event_pic6` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`cpa_event_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for cpa_icon
+-- ----------------------------
+DROP TABLE IF EXISTS `cpa_icon`;
+CREATE TABLE `cpa_icon`  (
+  `id` int(3) NOT NULL AUTO_INCREMENT,
+  `icon_class` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `icon_code` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 72 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of cpa_icon
+-- ----------------------------
+INSERT INTO `cpa_icon` VALUES (1, 'fas fa-allergies', '&#xf461');
+INSERT INTO `cpa_icon` VALUES (2, 'fas fa-ambulance', '&#xf0f9');
+INSERT INTO `cpa_icon` VALUES (3, 'fas fa-band-aid', '&#xf462');
+INSERT INTO `cpa_icon` VALUES (4, 'fas fa-biohazard', '&#xf780');
+INSERT INTO `cpa_icon` VALUES (5, 'fas fa-bone', '&#xf5d7');
+INSERT INTO `cpa_icon` VALUES (6, 'fas fa-bong', '&#xf55c');
+INSERT INTO `cpa_icon` VALUES (7, 'fas fa-book-medical', '&#xf7e6');
+INSERT INTO `cpa_icon` VALUES (8, 'fas fa-brain', '&#xf5dc');
+INSERT INTO `cpa_icon` VALUES (9, 'fas fa-briefcase-medical', '&#xf469');
+INSERT INTO `cpa_icon` VALUES (10, 'fas fa-burn', '&#xf46a');
+INSERT INTO `cpa_icon` VALUES (11, 'fas fa-cannabis', '&#xf55f');
+INSERT INTO `cpa_icon` VALUES (12, 'fas fa-capsules', '&#xf46b');
+INSERT INTO `cpa_icon` VALUES (13, 'fas fa-clinic-medical', '&#xf7f2');
+INSERT INTO `cpa_icon` VALUES (14, 'fas fa-comment-medical', '&#xf7f5');
+INSERT INTO `cpa_icon` VALUES (15, 'fas fa-crutch', '&#xf7f7');
+INSERT INTO `cpa_icon` VALUES (16, 'fas fa-diagnoses', '&#xf470');
+INSERT INTO `cpa_icon` VALUES (17, 'fas fa-dna', '&#xf471');
+INSERT INTO `cpa_icon` VALUES (18, 'fas fa-file-medical', '&#xf477');
+INSERT INTO `cpa_icon` VALUES (19, 'fas fa-file-medical-alt', '&#xf478');
+INSERT INTO `cpa_icon` VALUES (20, 'fas fa-file-prescription', '&#xf572');
+INSERT INTO `cpa_icon` VALUES (21, 'fas fa-first-aid', '&#xf479');
+INSERT INTO `cpa_icon` VALUES (22, 'fas fa-hand-holding-medical', '&#xf95c');
+INSERT INTO `cpa_icon` VALUES (23, 'fas fa-head-side-cough', '&#xf961');
+INSERT INTO `cpa_icon` VALUES (24, 'fas fa-head-side-cough-slash', '&#xf962');
+INSERT INTO `cpa_icon` VALUES (25, 'fas fa-head-side-mask', '&#xf963');
+INSERT INTO `cpa_icon` VALUES (26, 'fas fa-head-side-virus', '&#xf964');
+INSERT INTO `cpa_icon` VALUES (27, 'fas fa-heart', '&#xf004');
+INSERT INTO `cpa_icon` VALUES (28, 'far fa-heart', '&#xf004');
+INSERT INTO `cpa_icon` VALUES (29, 'fas fa-heartbeat', '&#xf21e');
+INSERT INTO `cpa_icon` VALUES (30, 'fas fa-hospital', '&#xf0f8');
+INSERT INTO `cpa_icon` VALUES (31, 'far fa-hospital', '&#xf0f8');
+INSERT INTO `cpa_icon` VALUES (32, 'fas fa-hospital-alt', '&#xf47d');
+INSERT INTO `cpa_icon` VALUES (33, 'fas fa-hospital-symbol', '&#xf47e');
+INSERT INTO `cpa_icon` VALUES (34, 'fas fa-id-card-alt', '&#xf47f');
+INSERT INTO `cpa_icon` VALUES (35, 'fas fa-joint', '&#xf595');
+INSERT INTO `cpa_icon` VALUES (36, 'fas fa-laptop-medical', '&#xf812');
+INSERT INTO `cpa_icon` VALUES (37, 'fas fa-lungs-virus', '&#xf967');
+INSERT INTO `cpa_icon` VALUES (38, 'fas fa-microscope', '&#xf610');
+INSERT INTO `cpa_icon` VALUES (39, 'fas fa-mortar-pestle', '&#xf5a7');
+INSERT INTO `cpa_icon` VALUES (40, 'fas fa-notes-medical', '&#xf481');
+INSERT INTO `cpa_icon` VALUES (41, 'fas fa-pager', '&#xf815');
+INSERT INTO `cpa_icon` VALUES (42, 'fas fa-pills', '&#xf484');
+INSERT INTO `cpa_icon` VALUES (43, 'fas fa-plus', '&#xf067');
+INSERT INTO `cpa_icon` VALUES (44, 'fas fa-poop', '&#xf619');
+INSERT INTO `cpa_icon` VALUES (45, 'fas fa-prescription', '&#xf5b1');
+INSERT INTO `cpa_icon` VALUES (46, 'fas fa-prescription-bottle', '&#xf485');
+INSERT INTO `cpa_icon` VALUES (47, 'fas fa-prescription-bottle-alt', '&#xf486');
+INSERT INTO `cpa_icon` VALUES (48, 'fas fa-procedures', '&#xf487');
+INSERT INTO `cpa_icon` VALUES (49, 'fas fa-pump-medical', '&#xf96a');
+INSERT INTO `cpa_icon` VALUES (50, 'fas fa-radiation', '&#xf7b9');
+INSERT INTO `cpa_icon` VALUES (51, 'fas fa-radiation-alt', '&#xf7ba');
+INSERT INTO `cpa_icon` VALUES (52, 'fas fa-shield-virus', '&#xf96c');
+INSERT INTO `cpa_icon` VALUES (53, 'fas fa-smoking', '&#xf48d');
+INSERT INTO `cpa_icon` VALUES (54, 'fas fa-smoking-ban', '&#xf54d');
+INSERT INTO `cpa_icon` VALUES (55, 'fas fa-star-of-life', '&#xf621');
+INSERT INTO `cpa_icon` VALUES (56, 'fas fa-stethoscope', '&#xf0f1');
+INSERT INTO `cpa_icon` VALUES (57, 'fas fa-syringe', '&#xf48e');
+INSERT INTO `cpa_icon` VALUES (58, 'fas fa-tablets', '&#xf490');
+INSERT INTO `cpa_icon` VALUES (59, 'fas fa-teeth', '&#xf62e');
+INSERT INTO `cpa_icon` VALUES (60, 'fas fa-teeth-open', '&#xf62f');
+INSERT INTO `cpa_icon` VALUES (61, 'fas fa-thermometer', '&#xf491');
+INSERT INTO `cpa_icon` VALUES (62, 'fas fa-tooth', '&#xf5c9');
+INSERT INTO `cpa_icon` VALUES (63, 'fas fa-user-md', '&#xf0f0');
+INSERT INTO `cpa_icon` VALUES (64, 'fas fa-user-nurse', '&#xf82f');
+INSERT INTO `cpa_icon` VALUES (65, 'fas fa-vial', '&#xf492');
+INSERT INTO `cpa_icon` VALUES (66, 'fas fa-vials', '&#xf493');
+INSERT INTO `cpa_icon` VALUES (67, 'fas fa-virus', '&#xf974');
+INSERT INTO `cpa_icon` VALUES (68, 'fas fa-virus-slash', '&#xf975');
+INSERT INTO `cpa_icon` VALUES (69, 'fas fa-viruses', '&#xf976');
+INSERT INTO `cpa_icon` VALUES (70, 'fas fa-weight', '&#xf496');
+INSERT INTO `cpa_icon` VALUES (71, 'fas fa-x-ray', '&#xf497');
 
 -- ----------------------------
 -- Table structure for cpa_navbar
@@ -466,7 +552,7 @@ CREATE TABLE `ita_detail`  (
   `ita_update` datetime(0) DEFAULT NULL,
   `ita_userupdate` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`ita_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 142 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 143 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of ita_detail
@@ -610,46 +696,51 @@ INSERT INTO `ita_detail` VALUES (138, '2', '26', '26.2 กระบวนกา�
 INSERT INTO `ita_detail` VALUES (139, '3', '26', '26.3 ภาพถ่ายหน่วยประชาสัมพันธ์และจุดบริการให้บริการข้อมูลข่าวสารแก่ประชาชน', NULL, '26_3.pdf', NULL, '1', '2020-03-13 09:57:24', 'admin');
 INSERT INTO `ita_detail` VALUES (140, '4', '26', '26.4 ขั้นตอนการดำเนินการขอประวัติการรักษาพยาบาลของผู้ป่วย', NULL, '26_4.pdf', NULL, '1', '2020-03-13 09:57:24', 'admin');
 INSERT INTO `ita_detail` VALUES (141, '5', '26', '26.5 แบบฟอร์มการขอเผยแพร่ข้อมูลผ่านเว็บไซต์ของโรงพยาบาลเจ้าพระยาอภัยภูเบศร EB26', NULL, '26_5.pdf', NULL, '1', '2020-03-13 09:57:24', 'admin');
+INSERT INTO `ita_detail` VALUES (142, '991', '2', 'test1', NULL, 'ITA-EB-2-20210201-2d3fcdb51287ce3db0d902d4860b12e3.pdf', NULL, '0', '2021-02-01 20:53:15', 'admin');
 
 -- ----------------------------
 -- Table structure for ita_eb
 -- ----------------------------
 DROP TABLE IF EXISTS `ita_eb`;
 CREATE TABLE `ita_eb`  (
-  `ita_eb_id` int(255) DEFAULT NULL,
-  `ita_eb_code` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `ita_eb_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+  `ita_eb_id` int(255) NOT NULL AUTO_INCREMENT,
+  `ita_eb_code` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `ita_eb_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `ita_eb_year` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `status` int(5) DEFAULT NULL,
+  PRIMARY KEY (`ita_eb_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 28 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of ita_eb
 -- ----------------------------
-INSERT INTO `ita_eb` VALUES (1, 'EB 1 ', 'หน่วยงานมีการวิเคราะห์ผลการจัดซื้อจัดจ้างประจำปี');
-INSERT INTO `ita_eb` VALUES (2, 'EB 2', 'หน่วยงานมีการกำหนดมาตรการ กลไก หรือการวางระบบในการดำเนินการเพื่อส่งเสริมความโปร่งใสในการจัดซื้อ');
-INSERT INTO `ita_eb` VALUES (3, 'EB 3', 'หน่วยงานมีการเผยแพร่แผนการจัดซื้อจัดจ้างประจำปี');
-INSERT INTO `ita_eb` VALUES (4, 'EB 4', 'หน่วยงานมีการเผยแพร่บันทึกรายละเอียดวิธีการ และขั้นตอนการจัดซื้อจัดจ้างอย่างเป็นระบบ');
-INSERT INTO `ita_eb` VALUES (5, 'EB 5', 'หน่วยงานของท่านเปิดโอกาสให้ผู้มีส่วนได้ส่วนเสียมีโอกาสเข้ามามีส่วนร่วมในการดำเนินงานอย่างไร');
-INSERT INTO `ita_eb` VALUES (6, 'EB 6', 'ผู้มีส่วนได้ส่วนเสียเข้ามามีส่วนร่วมในการจัดทำแผนงาน/โครงการ ตามภารกิจหลักของหน่วยงานหรือไม่\r\n\r\n');
-INSERT INTO `ita_eb` VALUES (7, 'EB 7', 'ผู้มีส่วนได้ส่วนเสียเข้ามามีส่วนร่วมในการดำเนินการโครงการตามภารกิจหลักของหน่วยงานหรือไม่');
-INSERT INTO `ita_eb` VALUES (8, 'EB 8', 'หน่วยงานมีการกำหนดมาตรการ กลไก หรือการวางระบบในการเผยแพร่ข้อมูลต่อสาธารณผ่านเว็บไซต์ของหน่วยงาน');
-INSERT INTO `ita_eb` VALUES (9, 'EB 9', 'หน่วยงานมีการเปิดเผยข้อมูลข่าวสารที่เป็นปัจจุบัน');
-INSERT INTO `ita_eb` VALUES (10, 'EB 10', 'หน่วยงานมีการเผยแพร่แผนปฏิบัติราชการประจำปี');
-INSERT INTO `ita_eb` VALUES (11, 'EB 11', 'หน่วยงานมีการเผยแพร่รายงานการประเมินผลการปฏิบัติงานตามแผนปฏิบัติราชการประจำปี');
-INSERT INTO `ita_eb` VALUES (12, 'EB 12', 'หน่วยงานมีการเผยแพร่การกำกับติดตามการดำเนินงานตามแผนปฏิบัติราชการประจำปี');
-INSERT INTO `ita_eb` VALUES (13, 'EB 13', 'หน่วยงานมีการกำหนดมาตรการ กลไก หรือการวางระบบในการบริหารผลการปฏิบัติงานฯ');
-INSERT INTO `ita_eb` VALUES (14, 'EB 14', 'หน่วยงานมีการรายงานการประเมินผลเกี่ยวกับการประเมินผลการปฏิบัติราชการประจำปีของบุคลากรฯ');
-INSERT INTO `ita_eb` VALUES (15, 'EB 15', 'หน่วยงานมีการเผยแพร่เจตจำนงสุจริตของผู้บริหารต่อสาธารณชน');
-INSERT INTO `ita_eb` VALUES (16, 'EB 16', 'หน่วยงานมีการกำหนดมาตรการ กลไก หรือการวางระบบในการจัดการเรื่องร้องเรียนของหน่วยงาน');
-INSERT INTO `ita_eb` VALUES (17, 'EB 17', 'หน่วยงานมีการกำหนดมาตรการ กลไก หรือการวางระบบในการป้องกันการรับสินบน');
-INSERT INTO `ita_eb` VALUES (18, 'EB 18', 'หน่วยงานมีการเสริมสร้างวัฒนธรรมและค่านิยมสุจริตและการต่อต้านการทุจริตในหน่วยงาน');
-INSERT INTO `ita_eb` VALUES (19, 'EB 19', 'หน่วยงานมีการรวมกลุ่มของเจ้าหน้าที่เพื่อการบริหารงานที่โปร่งใสหรือไม่ฯ');
-INSERT INTO `ita_eb` VALUES (20, 'EB 20', 'หน่วยงานมีการวิเคราะห์ความเสี่ยงเกี่ยวกับผลประโยชน์ทับซ้อนในหน่วยงาน');
-INSERT INTO `ita_eb` VALUES (21, 'EB 21', 'หน่วยงานมีการจัดการความเสี่ยงเกี่ยวกับผลประโยชน์ทับซ้อน โดยการกำหนดมาตรการ กลไกฯ');
-INSERT INTO `ita_eb` VALUES (22, 'EB 22', 'หน่วยงานมีการประชุม หรืออบรม/สัมนา หรือแลกเปลี่ยนความรู้ภายในหน่วยงานฯ');
-INSERT INTO `ita_eb` VALUES (23, 'EB 23', 'หน่วยงานมีการจัดทำแผนป้องกันและปราบปรามการทุจริตหรือแผนที่เกี่ยวข้อง');
-INSERT INTO `ita_eb` VALUES (24, 'EB 24', 'หน่วยงานมีการกำกับติดตามการดำเนินงานตามแผนป้องกันและปราบปรามการทุจริตหรือแผนที่เกี่ยวข้อง');
-INSERT INTO `ita_eb` VALUES (25, 'EB 25', 'หน่วยงานมีการกำหนดมาตรการ กลไก หรือการวางระบบในการตรวจสอบการปฏิบัติงานของเจ้าหน้าที่ฯ');
-INSERT INTO `ita_eb` VALUES (26, 'EB 26', 'หน่วยงานมีการเผยแพร่กระบวนการอำนวยความสะดวก หรือการให้บริการประชาชนด้วยการแสดงขั้นตอน ฯ');
+INSERT INTO `ita_eb` VALUES (1, 'EB 1 ', 'หน่วยงานมีการวิเคราะห์ผลการจัดซื้อจัดจ้างประจำปี', '2563', 1);
+INSERT INTO `ita_eb` VALUES (2, 'EB 2', 'หน่วยงานมีการกำหนดมาตรการ กลไก หรือการวางระบบในการดำเนินการเพื่อส่งเสริมความโปร่งใสในการจัดซื้อ', '2563', 1);
+INSERT INTO `ita_eb` VALUES (3, 'EB 3', 'หน่วยงานมีการเผยแพร่แผนการจัดซื้อจัดจ้างประจำปี', '2563', 1);
+INSERT INTO `ita_eb` VALUES (4, 'EB 4', 'หน่วยงานมีการเผยแพร่บันทึกรายละเอียดวิธีการ และขั้นตอนการจัดซื้อจัดจ้างอย่างเป็นระบบ', '2563', 1);
+INSERT INTO `ita_eb` VALUES (5, 'EB 5', 'หน่วยงานของท่านเปิดโอกาสให้ผู้มีส่วนได้ส่วนเสียมีโอกาสเข้ามามีส่วนร่วมในการดำเนินงานอย่างไร', '2563', 1);
+INSERT INTO `ita_eb` VALUES (6, 'EB 6', 'ผู้มีส่วนได้ส่วนเสียเข้ามามีส่วนร่วมในการจัดทำแผนงาน/โครงการ ตามภารกิจหลักของหน่วยงานหรือไม่\r\n\r\n', '2563', 1);
+INSERT INTO `ita_eb` VALUES (7, 'EB 7', 'ผู้มีส่วนได้ส่วนเสียเข้ามามีส่วนร่วมในการดำเนินการโครงการตามภารกิจหลักของหน่วยงานหรือไม่', '2563', 1);
+INSERT INTO `ita_eb` VALUES (8, 'EB 8', 'หน่วยงานมีการกำหนดมาตรการ กลไก หรือการวางระบบในการเผยแพร่ข้อมูลต่อสาธารณผ่านเว็บไซต์ของหน่วยงาน', '2563', 1);
+INSERT INTO `ita_eb` VALUES (9, 'EB 9', 'หน่วยงานมีการเปิดเผยข้อมูลข่าวสารที่เป็นปัจจุบัน', '2563', 1);
+INSERT INTO `ita_eb` VALUES (10, 'EB 10', 'หน่วยงานมีการเผยแพร่แผนปฏิบัติราชการประจำปี', '2563', 1);
+INSERT INTO `ita_eb` VALUES (11, 'EB 11', 'หน่วยงานมีการเผยแพร่รายงานการประเมินผลการปฏิบัติงานตามแผนปฏิบัติราชการประจำปี', '2563', 1);
+INSERT INTO `ita_eb` VALUES (12, 'EB 12', 'หน่วยงานมีการเผยแพร่การกำกับติดตามการดำเนินงานตามแผนปฏิบัติราชการประจำปี', '2563', 1);
+INSERT INTO `ita_eb` VALUES (13, 'EB 13', 'หน่วยงานมีการกำหนดมาตรการ กลไก หรือการวางระบบในการบริหารผลการปฏิบัติงานฯ', '2563', 1);
+INSERT INTO `ita_eb` VALUES (14, 'EB 14', 'หน่วยงานมีการรายงานการประเมินผลเกี่ยวกับการประเมินผลการปฏิบัติราชการประจำปีของบุคลากรฯ', '2563', 1);
+INSERT INTO `ita_eb` VALUES (15, 'EB 15', 'หน่วยงานมีการเผยแพร่เจตจำนงสุจริตของผู้บริหารต่อสาธารณชน', '2563', 1);
+INSERT INTO `ita_eb` VALUES (16, 'EB 16', 'หน่วยงานมีการกำหนดมาตรการ กลไก หรือการวางระบบในการจัดการเรื่องร้องเรียนของหน่วยงาน', '2563', 1);
+INSERT INTO `ita_eb` VALUES (17, 'EB 17', 'หน่วยงานมีการกำหนดมาตรการ กลไก หรือการวางระบบในการป้องกันการรับสินบน', '2563', 1);
+INSERT INTO `ita_eb` VALUES (18, 'EB 18', 'หน่วยงานมีการเสริมสร้างวัฒนธรรมและค่านิยมสุจริตและการต่อต้านการทุจริตในหน่วยงาน', '2563', 1);
+INSERT INTO `ita_eb` VALUES (19, 'EB 19', 'หน่วยงานมีการรวมกลุ่มของเจ้าหน้าที่เพื่อการบริหารงานที่โปร่งใสหรือไม่ฯ', '2563', 1);
+INSERT INTO `ita_eb` VALUES (20, 'EB 20', 'หน่วยงานมีการวิเคราะห์ความเสี่ยงเกี่ยวกับผลประโยชน์ทับซ้อนในหน่วยงาน', '2563', 1);
+INSERT INTO `ita_eb` VALUES (21, 'EB 21', 'หน่วยงานมีการจัดการความเสี่ยงเกี่ยวกับผลประโยชน์ทับซ้อน โดยการกำหนดมาตรการ กลไกฯ', '2563', 1);
+INSERT INTO `ita_eb` VALUES (22, 'EB 22', 'หน่วยงานมีการประชุม หรืออบรม/สัมนา หรือแลกเปลี่ยนความรู้ภายในหน่วยงานฯ', '2563', 1);
+INSERT INTO `ita_eb` VALUES (23, 'EB 23', 'หน่วยงานมีการจัดทำแผนป้องกันและปราบปรามการทุจริตหรือแผนที่เกี่ยวข้อง', '2563', 1);
+INSERT INTO `ita_eb` VALUES (24, 'EB 24', 'หน่วยงานมีการกำกับติดตามการดำเนินงานตามแผนป้องกันและปราบปรามการทุจริตหรือแผนที่เกี่ยวข้อง', '2563', 1);
+INSERT INTO `ita_eb` VALUES (25, 'EB 25', 'หน่วยงานมีการกำหนดมาตรการ กลไก หรือการวางระบบในการตรวจสอบการปฏิบัติงานของเจ้าหน้าที่ฯ', '2563', 1);
+INSERT INTO `ita_eb` VALUES (26, 'EB 26', 'หน่วยงานมีการเผยแพร่กระบวนการอำนวยความสะดวก หรือการให้บริการประชาชนด้วยการแสดงขั้นตอน ฯ', '2563', 1);
+INSERT INTO `ita_eb` VALUES (27, 'eb test1', 'test', '2564', 0);
 
 -- ----------------------------
 -- Table structure for news
@@ -1436,21 +1527,7 @@ CREATE TABLE `req_prob`  (
   `check_time` datetime(0) DEFAULT NULL,
   `check_by` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of req_prob
--- ----------------------------
-INSERT INTO `req_prob` VALUES (1, '2312312312323', 'นาย', 'ทด', 'ลอง', 'M', '2123123123123', 'ปราจีนบุรี', 'กบินทร์บุรี', 'นนทรี', '', '25110', '1231231232', '1231231231', '', '123123', 'สมุมไพร ของใคร หัวใจ ของคุณ', 2, '12321232323123', '1223123123 ', 'Y', '2020-12-24 11:59:37', 'Y', '2020-12-28 12:50:17', 'รัชวิทย์ พลชู');
-INSERT INTO `req_prob` VALUES (2, '1231231231231', 'นางสาว', 'สอง', 'ลอง', 'M', '123123123123123123', 'หนองคาย', 'ท่าบ่อ', 'นาข่า', '', '43110', '2123123123', '1231231231', '', '123123123', 'แอบแซ่บบางเวลา', 5, '12312323', '123123123123 ', 'N', '2020-12-25 09:56:25', 'Y', '2020-12-28 12:51:32', 'รัชวิทย์ พลชู');
-INSERT INTO `req_prob` VALUES (3, '2132123123123', 'นาง', 'ใน', 'ชาบู', 'F', '1123', 'ปทุมธานี', 'เมืองปทุมธานี', 'บางขะแยง', '', '12000', '2231322312', '1231231231', '', '123123312', 'ชาบูอร่อย ไม่หงอยนะ', 2, '312323', '123123123312 ', 'N', '2020-12-24 12:07:35', 'Y', '2020-12-29 09:18:24', 'รัชวิทย์ พลชู');
-INSERT INTO `req_prob` VALUES (5, '1', ' sadsad', 'sdaasd', 'dsadsaads', 'M', NULL, NULL, NULL, NULL, NULL, NULL, '1023123231', '1023123231', NULL, '1023123231', '1023123231', 5, '1023123231', '1023123231', 'N', '2020-12-25 13:35:38', 'Y', '2020-12-28 11:38:50', 'รัชวิทย์ พลชู');
-INSERT INTO `req_prob` VALUES (6, '1023123231231', 'sadsad', 'sdaasd', 'dsadsaads', 'F', '', '', '', '', '', '', '1023123231', '1023123231', '', '1023123231', '1023123231231', 4, '1023123231231sadadadadadadadadadadadadadadadadadadadadadadadadadadsdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd', '1023123231231sadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadad ', 'Y', '2020-12-25 13:59:06', 'N', NULL, NULL);
-INSERT INTO `req_prob` VALUES (7, '0023123123232', '123', '12312323', '23123123', 'M', 'sadsd', '', '', '', '', '', '2312312323', '2312312323', '', '23123123', '23123123', 4, '23123123', '23123123 ', 'N', '2020-12-25 14:00:40', 'Y', '2020-12-28 11:38:20', 'รัชวิทย์ พลชู');
-INSERT INTO `req_prob` VALUES (8, '1231231321232', 'เทส', 'เทส', 'เทส', 'M', 'เทส', '', '', '', '', '', '1231231321', '1231231321', '', 'เทส', 'เทส', 3, 'เทส', 'เทส ', 'N', '2020-12-25 14:01:51', 'Y', '2020-12-28 11:34:14', 'รัชวิทย์ พลชู');
-INSERT INTO `req_prob` VALUES (9, '1231232312312', 'test', 'test', 'test', 'M', '', '', '', '', '', '', '1231232312', '1231232312', '', 'test', 'test', 2, 'test', 'test ', 'N', '2020-12-25 14:02:45', 'N', NULL, NULL);
-INSERT INTO `req_prob` VALUES (10, '1231563215645', 'test2', 'test2', 'test2', 'F', '', '', '', '', '', '', '1231563215', '1231563215', '', 'test2', 'test2', 3, 'test2', 'test2 ', 'Y', '2020-12-25 14:03:21', 'Y', '2020-12-25 16:34:16', 'รัชวิทย์ พลชู');
-INSERT INTO `req_prob` VALUES (11, '1023156156351', 'นาย', 'นาย', 'นาย', 'M', '', '', '', '', '', '', '1023156156', '1023156156', '', 'นาย', 'นาย', 4, 'นาย', 'นาย ', 'N', '2020-12-25 14:15:12', 'N', NULL, NULL);
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for req_prob_type
@@ -1472,26 +1549,6 @@ INSERT INTO `req_prob_type` VALUES (2, 'ร้องเรียนเจ้า�
 INSERT INTO `req_prob_type` VALUES (3, 'ร้องเรียนการให้บริการ', 2, 'Y');
 INSERT INTO `req_prob_type` VALUES (4, 'ข้อเสนอแนะ ข้อคิดเห็น และคำชมเชย', 3, 'Y');
 INSERT INTO `req_prob_type` VALUES (5, 'ร้องทุกข์', 4, 'Y');
-
--- ----------------------------
--- Table structure for search
--- ----------------------------
-DROP TABLE IF EXISTS `search`;
-CREATE TABLE `search`  (
-  `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `Name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of search
--- ----------------------------
-INSERT INTO `search` VALUES (1, 'David Copperfield');
-INSERT INTO `search` VALUES (2, 'Ricky Ponting');
-INSERT INTO `search` VALUES (3, 'Cristiano Ronaldo');
-INSERT INTO `search` VALUES (4, 'Lionel Messi');
-INSERT INTO `search` VALUES (5, 'Shane Watson');
-INSERT INTO `search` VALUES (6, '4564');
 
 -- ----------------------------
 -- Table structure for subworkdepartment
@@ -1575,20 +1632,23 @@ CREATE TABLE `tb_department`  (
   `description` text CHARACTER SET utf8 COLLATE utf8_general_ci,
   `en_description` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `status` varchar(1) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT 'Y',
+  `detail` text CHARACTER SET utf8 COLLATE utf8_general_ci,
+  `icon_id` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `icon_color` varchar(7) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tb_department
 -- ----------------------------
-INSERT INTO `tb_department` VALUES (1, 'แผนกอายุรกรรม', 'medicine', 'Y');
-INSERT INTO `tb_department` VALUES (2, 'แผนกสูติ-นรีวเชกรรม', 'obstetrics', 'Y');
-INSERT INTO `tb_department` VALUES (3, 'แผนกกุมารเวชกรรม', 'pediatrics', 'Y');
-INSERT INTO `tb_department` VALUES (4, 'แผนกศัลยกรรม', 'surgery', 'Y');
-INSERT INTO `tb_department` VALUES (5, 'แผนกโรคต่างๆ', 'diseases', 'Y');
-INSERT INTO `tb_department` VALUES (6, 'คลินิก SMC นอกเวลา', 'other', 'Y');
-INSERT INTO `tb_department` VALUES (7, 'แผนกแพทย์แผนไทย', 'thaitraditional', 'Y');
-INSERT INTO `tb_department` VALUES (8, 'ทดลองเพิ่มแผนกแก้ไข', 'testAddDepEdit', 'N');
+INSERT INTO `tb_department` VALUES (1, 'แผนกอายุรกรรม', 'medicine', 'Y', 'ทดลอง22', '5', '#24cad6');
+INSERT INTO `tb_department` VALUES (2, 'แผนกสูติ-นรีวเชกรรม', 'obstetrics', 'Y', 'Test', '7', '#1ac79f');
+INSERT INTO `tb_department` VALUES (3, 'แผนกกุมารเวชกรรม', 'pediatrics', 'Y', 'ทดลอง', '40', '#1ac79f');
+INSERT INTO `tb_department` VALUES (4, 'แผนกศัลยกรรม', 'surgery', 'Y', 'Test', '52', '#1ac79f');
+INSERT INTO `tb_department` VALUES (5, 'แผนกอายุรกรรม', 'medicine', 'Y', 'ทดลอง', '63', '#1ac79f');
+INSERT INTO `tb_department` VALUES (6, 'คลินิก SMC นอกเวลา', 'other', 'Y', 'Test', '22', '#1ac79f');
+INSERT INTO `tb_department` VALUES (7, 'แผนกแพทย์แผนไทย', 'thaitraditional', 'Y', 'ทดลอง', '11', '#1ac79f');
+INSERT INTO `tb_department` VALUES (8, 'ทดลองเพิ่มแผนก', 'testAddDep2', 'N', 'Test', '12', '#c71a1a');
 
 -- ----------------------------
 -- Table structure for tb_department_date
@@ -1653,7 +1713,7 @@ CREATE TABLE `tb_department_event`  (
   `department_time` varchar(3) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `order_by` int(3) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 70 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 71 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tb_department_event
@@ -1670,7 +1730,7 @@ INSERT INTO `tb_department_event` VALUES (9, '1', '5', '7', '7', '7', 9);
 INSERT INTO `tb_department_event` VALUES (10, '1', '5', '6', '5', '10', 10);
 INSERT INTO `tb_department_event` VALUES (11, '1', '6', '9', '3', '2', 11);
 INSERT INTO `tb_department_event` VALUES (12, '1', '7', '1', '7', '6', 12);
-INSERT INTO `tb_department_event` VALUES (13, '2', '9', ' 3', ' 7', '2', 1);
+INSERT INTO `tb_department_event` VALUES (13, '2', '9', '3', '7', '2', 1);
 INSERT INTO `tb_department_event` VALUES (14, '2', '10', '3', '7', '2', 2);
 INSERT INTO `tb_department_event` VALUES (15, '2', '11', '3', '7', '2', 3);
 INSERT INTO `tb_department_event` VALUES (16, '2', '12', '3', '7', '2', 4);
@@ -1716,14 +1776,14 @@ INSERT INTO `tb_department_event` VALUES (55, '6', '54', '9', '7', '8', 9);
 INSERT INTO `tb_department_event` VALUES (56, '6', '55', '10', '7', '8', 10);
 INSERT INTO `tb_department_event` VALUES (57, '6', '56', '10', '7', '8', 11);
 INSERT INTO `tb_department_event` VALUES (58, '6', '57', '11', '7', '8', 12);
-INSERT INTO `tb_department_event` VALUES (59, '6', '58', '11', '7', '8', 13);
-INSERT INTO `tb_department_event` VALUES (60, '6', '59', '11', '7', '8', 14);
+INSERT INTO `tb_department_event` VALUES (59, '6', '58', '11', '3', '8', 13);
+INSERT INTO `tb_department_event` VALUES (60, '6', '59', '11', '4', '8', 14);
 INSERT INTO `tb_department_event` VALUES (61, '7', '42', '14', '7', '4', 1);
 INSERT INTO `tb_department_event` VALUES (62, '7', '43', '8', '7', '4', 2);
 INSERT INTO `tb_department_event` VALUES (63, '7', '43', '8', '7', '10', 3);
 INSERT INTO `tb_department_event` VALUES (65, '7', '61', '12', '1', '7', 4);
 INSERT INTO `tb_department_event` VALUES (68, '8', '33', '14', '1', '8', 1);
-INSERT INTO `tb_department_event` VALUES (69, '8', '64', '14', '5', '4', 2);
+INSERT INTO `tb_department_event` VALUES (70, '8', '48', '7', '4', '1', 2);
 
 -- ----------------------------
 -- Table structure for tb_department_sub
@@ -1733,75 +1793,78 @@ CREATE TABLE `tb_department_sub`  (
   `id` int(3) NOT NULL AUTO_INCREMENT,
   `description_sub` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `en_description_sub` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `content` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `word` text CHARACTER SET utf8 COLLATE utf8_general_ci,
+  `img` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 65 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tb_department_sub
 -- ----------------------------
-INSERT INTO `tb_department_sub` VALUES (1, 'อายุรกรรมทั่วไป', NULL);
-INSERT INTO `tb_department_sub` VALUES (2, 'คลินิกประสาทวิทยา', NULL);
-INSERT INTO `tb_department_sub` VALUES (3, 'คลินิกโรคไต', NULL);
-INSERT INTO `tb_department_sub` VALUES (4, 'คลินิกโรคปอด', NULL);
-INSERT INTO `tb_department_sub` VALUES (5, 'คลินิกโรคความดันโลหิตสูง', NULL);
-INSERT INTO `tb_department_sub` VALUES (6, 'คลินิกอายุรกรรมโรคข้อ', NULL);
-INSERT INTO `tb_department_sub` VALUES (7, 'คลินิกเต้านม', NULL);
-INSERT INTO `tb_department_sub` VALUES (8, 'คลีนิกผิวหนัง', NULL);
-INSERT INTO `tb_department_sub` VALUES (9, 'สูติ-นรีเวชกรรมทั่วไป', NULL);
-INSERT INTO `tb_department_sub` VALUES (10, 'ฝากครรภ์', NULL);
-INSERT INTO `tb_department_sub` VALUES (11, 'ตรวจหลังคลอด', NULL);
-INSERT INTO `tb_department_sub` VALUES (12, 'วางแผนครอบครัว', NULL);
-INSERT INTO `tb_department_sub` VALUES (13, 'คลินิกมีบุตรยาก', NULL);
-INSERT INTO `tb_department_sub` VALUES (14, 'คลินิกกามโรค', NULL);
-INSERT INTO `tb_department_sub` VALUES (15, 'คลินิกวัยทอง (หญิง)', NULL);
-INSERT INTO `tb_department_sub` VALUES (16, 'คลินิกวัยทอง (ชาย)', NULL);
-INSERT INTO `tb_department_sub` VALUES (17, 'ตรวจโรคเด็กทั่วไป', NULL);
-INSERT INTO `tb_department_sub` VALUES (18, 'คลินิกโรคเลือด', NULL);
-INSERT INTO `tb_department_sub` VALUES (19, 'คลินิกพัฒนาการเด็ก', NULL);
-INSERT INTO `tb_department_sub` VALUES (20, 'ตรวจสุขภาพเด็กดี (ฉีดวัคซีน)', NULL);
-INSERT INTO `tb_department_sub` VALUES (21, 'คลินิกเด็กแรกคลอด', NULL);
-INSERT INTO `tb_department_sub` VALUES (22, 'คลินิกโรคปอดและภูมิแพ้,โรคไต', NULL);
-INSERT INTO `tb_department_sub` VALUES (23, 'ศัลยกรรมทั่วไป', NULL);
-INSERT INTO `tb_department_sub` VALUES (24, 'ศัลยกรรมกระดูก', NULL);
-INSERT INTO `tb_department_sub` VALUES (25, 'ศัลยกรรมระบบทางเดินปัสสาวะ', NULL);
-INSERT INTO `tb_department_sub` VALUES (26, 'ศัลยระบบสมอง', NULL);
-INSERT INTO `tb_department_sub` VALUES (27, 'ศัลยกรรมตกแต่ง', NULL);
-INSERT INTO `tb_department_sub` VALUES (28, 'ฟัน', NULL);
-INSERT INTO `tb_department_sub` VALUES (29, 'คลินิกยาเสพติด,อดบุหรี่,อดสุรา', NULL);
-INSERT INTO `tb_department_sub` VALUES (30, 'คลินิกคลายเครียด', NULL);
-INSERT INTO `tb_department_sub` VALUES (31, 'คลินิกนิรนาม', NULL);
-INSERT INTO `tb_department_sub` VALUES (32, 'เวชกรรมฟื้นฟู', NULL);
-INSERT INTO `tb_department_sub` VALUES (33, 'กายภาพบำบัด', NULL);
-INSERT INTO `tb_department_sub` VALUES (34, 'ตรวจโรคทั่วไป', NULL);
-INSERT INTO `tb_department_sub` VALUES (35, 'ตา', NULL);
-INSERT INTO `tb_department_sub` VALUES (36, 'หู คอ จมูก', NULL);
-INSERT INTO `tb_department_sub` VALUES (37, 'จิตเวช', NULL);
-INSERT INTO `tb_department_sub` VALUES (38, 'คลินิก DAY CARD', NULL);
-INSERT INTO `tb_department_sub` VALUES (39, 'คลินิกเบาหวาน', NULL);
-INSERT INTO `tb_department_sub` VALUES (40, 'คลินิกวัณโรค', NULL);
-INSERT INTO `tb_department_sub` VALUES (41, 'คลินิกการแพทย์แผนไทย', NULL);
-INSERT INTO `tb_department_sub` VALUES (42, 'อบสมุนไพร นวด กดจุด', NULL);
-INSERT INTO `tb_department_sub` VALUES (43, 'ฝังเข็ม', NULL);
-INSERT INTO `tb_department_sub` VALUES (44, NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (45, 'คลินิกนมแม่', NULL);
-INSERT INTO `tb_department_sub` VALUES (46, 'อายุรกรรมระบบประสาท  (พญ.วรรณพร เอี่ยมวรวุฒิกุล)', NULL);
-INSERT INTO `tb_department_sub` VALUES (47, 'อายุรกรรมโรคหัวใจ (พญ.ปาลิดา พึ่งผล\r\n)', NULL);
-INSERT INTO `tb_department_sub` VALUES (48, 'กุมารเวชกรรมทั่วไป (พญ.พัชรินทร์ เกียรติกังวาฬไกล)', NULL);
-INSERT INTO `tb_department_sub` VALUES (49, 'อายุรกรรมโรคติดเชื้อ (พญ.สุเบญจา พิณสาย\r\n)', NULL);
-INSERT INTO `tb_department_sub` VALUES (50, 'อายุรกรรมทั่วไป (พญ.รังสิมา รังสีธรรมปัญญา)', NULL);
-INSERT INTO `tb_department_sub` VALUES (51, 'กุมารเวชกรรมทั่วไป (พญ.ดลยา เอกวิชกุล)', NULL);
-INSERT INTO `tb_department_sub` VALUES (52, 'อายุรกรรมโรคไต (นพ.วรพจน์ เตรียมตระการผล\r\n)', NULL);
-INSERT INTO `tb_department_sub` VALUES (53, 'อายุรกรรมโรคเลือด (พญ.สิรภัทร รุ่งวิทยาธิวัฒน์)', NULL);
-INSERT INTO `tb_department_sub` VALUES (54, 'กุมารเวชกรรมทั่วไป (พญ.ดลยา เอกวิชกุล)', NULL);
-INSERT INTO `tb_department_sub` VALUES (55, 'อายุรกรรมโรคระบบทางเดินอาหาร (พญ.วิจิตรา คงคา)', NULL);
-INSERT INTO `tb_department_sub` VALUES (56, 'อายุรกรรมทั่วไป (พญ.ปวีณา กนกพจนานนท์)', NULL);
-INSERT INTO `tb_department_sub` VALUES (57, 'อายุรกรรมระบบประสาท (พญ.วรรณพร เอี่ยมวรวุฒิกุล)', NULL);
-INSERT INTO `tb_department_sub` VALUES (58, 'อายุรกรรมโรคหัวใจ (เฉพาะศุกร์ที่1ของเดือน) (พญ.ปาลิดา พึ่งผล\r\n)', NULL);
-INSERT INTO `tb_department_sub` VALUES (59, 'อายุรกรรมโรคติดเชื้อ (เฉพาะศุกร์ที่3ของเดือน) (พญ.สุเบญจา พิณสาย)\r\n', NULL);
-INSERT INTO `tb_department_sub` VALUES (61, 'ทดลองเพิ่มเข็มเสาร์ ที่ 2 4 13.00-16.30', NULL);
-INSERT INTO `tb_department_sub` VALUES (62, 'ทดลองเพิ่มรายการ ทุกวัน นอกเวลา 10.00-12.00', NULL);
-INSERT INTO `tb_department_sub` VALUES (63, 'ทดลองวันศุก', NULL);
-INSERT INTO `tb_department_sub` VALUES (64, 'ชื่ออันใหม่ไม่มีในระบบ', NULL);
+INSERT INTO `tb_department_sub` VALUES (1, 'อายุรกรรมทั่วไป', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (2, 'คลินิกประสาทวิทยา', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (3, 'คลินิกโรคไต', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (4, 'คลินิกโรคปอด', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (5, 'คลินิกโรคความดันโลหิตสูง', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (6, 'คลินิกอายุรกรรมโรคข้อ', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (7, 'คลินิกเต้านม', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (8, 'คลีนิกผิวหนัง', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (9, 'สูติ-นรีเวชกรรมทั่วไป', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (10, 'ฝากครรภ์', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (11, 'ตรวจหลังคลอด', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (12, 'วางแผนครอบครัว', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (13, 'คลินิกมีบุตรยาก', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (14, 'คลินิกกามโรค', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (15, 'คลินิกวัยทอง (หญิง)', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (16, 'คลินิกวัยทอง (ชาย)', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (17, 'ตรวจโรคเด็กทั่วไป', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (18, 'คลินิกโรคเลือด', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (19, 'คลินิกพัฒนาการเด็ก', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (20, 'ตรวจสุขภาพเด็กดี (ฉีดวัคซีน)', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (21, 'คลินิกเด็กแรกคลอด', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (22, 'คลินิกโรคปอด,ภูมิแพ้และโรคไต', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (23, 'ศัลยกรรมทั่วไป', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (24, 'ศัลยกรรมกระดูก', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (25, 'ศัลยกรรมระบบทางเดินปัสสาวะ', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (26, 'ศัลยระบบสมอง', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (27, 'ศัลยกรรมตกแต่ง', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (28, 'ฟัน', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (29, 'คลินิกยาเสพติด,อดบุหรี่,อดสุรา', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (30, 'คลินิกคลายเครียด', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (31, 'คลินิกนิรนาม', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (32, 'เวชกรรมฟื้นฟู', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (33, 'กายภาพบำบัด', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (34, 'ตรวจโรคทั่วไป', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (35, 'ตา', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (36, 'หู คอ จมูก', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (37, 'จิตเวช', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (38, 'คลินิก DAY CARD', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (39, 'คลินิกเบาหวาน', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (40, 'คลินิกวัณโรค', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (41, 'คลินิกการแพทย์แผนไทย', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (42, 'อบสมุนไพร นวด กดจุด', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (43, 'ฝังเข็ม', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (44, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (45, 'คลินิกนมแม่', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (46, 'อายุรกรรมระบบประสาท (พญ.วรรณพร เอี่ยมวรวุฒิกุล)', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (47, 'อายุรกรรมโรคหัวใจ (พญ.ปาลิดา พึ่งผล\r\n)', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (48, 'กุมารเวชกรรมทั่วไป (พญ.พัชรินทร์ เกียรติกังวาฬไกล)', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (49, 'อายุรกรรมโรคติดเชื้อ (พญ.สุเบญจา พิณสาย\r\n)', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (50, 'อายุรกรรมทั่วไป (พญ.รังสิมา รังสีธรรมปัญญา)', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (51, 'กุมารเวชกรรมทั่วไป (พญ.ดลยา เอกวิชกุล)', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (52, 'อายุรกรรมโรคไต (นพ.วรพจน์ เตรียมตระการผล\r\n)', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (53, 'อายุรกรรมโรคเลือด (พญ.สิรภัทร รุ่งวิทยาธิวัฒน์)', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (54, 'กุมารเวชกรรมทั่วไป (พญ.ดลยา เอกวิชกุล)', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (55, 'อายุรกรรมโรคระบบทางเดินอาหาร (พญ.วิจิตรา คงคา)', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (56, 'อายุรกรรมทั่วไป (พญ.ปวีณา กนกพจนานนท์)', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (57, 'อายุรกรรมระบบประสาท (พญ.วรรณพร เอี่ยมวรวุฒิกุล)', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (58, 'อายุรกรรมโรคหัวใจ (พญ.ปาลิดา พึ่งผล)', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (59, 'อายุรกรรมโรคติดเชื้อ (พญ.สุเบญจา พิณสาย)', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (61, 'ทดลองเพิ่มเข็มเสาร์ ที่ 2 4 13.00-16.30', NULL, 'XXXXXXX', 'การรักษาด้านการแพทย์แผนไทยประยุกต์ จะรวบรวมและประมวลข้อมูลตามแนวคิดและทฤษฎีการแพทย์แผนไทยว่าด้วยเรื่องธาตุ เช่น คัมภีร์โรคนิทาน คัมภีร์สมุฏฐานวินิจฉัย คัมภีร์ธาตุวิภังค์ คัมภีร์ธาตุวิวรณ์ คัมภีร์วิสุทธิมรรค ซึ่งกล่าวไว้ว่าร่างกายมนุษย์ประกอบขึ้นจากกองธาตุทั้ง 4 ได้แก่ ธาตุดิน ธาตุน้ำ ธาตุลมและธาตุไฟ โดยมนุษย์แต่ละคนจะมีส่วนประกอบธาตุต่างๆที่ไม่เหมือนกัน แต่จะมีธาตุใดธาตุหนึ่งเป็นใหญ่ เรียกว่าธาตุเจ้าเรือน ของคนๆนั้น  แต่ธาตุเจ้าเรือนซึ่งมีมาแต่เกิดจะมีการเปลี่ยนแปลงได้ตามกาลเวลา ปัจจัยที่มีอิทธิพลให้เกิดการเปลี่ยนแปลง ได้แก่ อายุ ฤดูกาล กาลเวลา ถิ่นที่อยู่และมูลเหตุการเกิด โรคที่เกิดจากพฤติกรรม หากเกิดความไม่สมดุลของธาตุที่เป็นองค์ประกอบขึ้นเมื่อใด ก็จะเกิดโรคหรือความเจ็บป่วยขึ้น เมื่อแพทย์แผนไทยประยุกต์ให้การวินิจฉัยโรคแล้ว จะวางแผนการบำบัดรักษาด้วยศาสตร์การแพทย์แผนไทยให้ผู้ป่วย ซึ่งประกอบด้วยวิธีการดังนี้\r\n\r\nการใช้ยาสมุนไพร อาจเป็นการปรุงยาสำหรับผู้ป่วยแต่ละราย เช่น ยาต้มหรือจ่ายยาสำเร็จรูปที่ผลิตไว้ในรูปแบบต่างๆ เช่น ยาลูกกลอน ยาเม็ด ยาแคปซูล เป็นต้น\r\nการใช้หัตถการ/วิถีทางการแพทย์แผนไทย เช่น การนวด การประคบสมุนไพร การอบไอน้ำสมุนไพร การทับหม้อเกลือ การนั่งถ่าน การพอกผิว เป็นต้น\r\nการให้คำแนะนำในเรื่องต่างๆที่เกี่ยวข้องกับการเจ็บป่วยและการส่งสริมสุขภาพ เช่น การปฏิบัติตัว การบริหารร่างกาย การรับประทานอาหาร การปรับพฤติกรรม เป็นต้น\r\nกลุ่มอาการที่สามารถรักษาด้วยการแพทย์แผนไทยประยุกต์ ได้แก่\r\n\r\nกลุ่มการปวดบริเวณต่างๆ เช่น ปวดศีรษะ คอแข็งตึง ปวดต้นคอ,คอตกหมอน ปวดสะบัก/บ่า,ปวดไหล่,หัวไหล่ติด ปวดแขน,ข้อศอก,ข้อมือ,ข้อนิ้วมือ,ปวดหลัง,ปวดสะโพก,ปวดขา,ปวดเข่า,เข่าบวม,เหน็บชา,ตะคริวน่อง,ปวดเมื่อยกล้ามเนื้อจาการเล่นกีฬา,กล้ามเนื้ออ่อนแรง,กล้ามเนื้อเกร็ง,ปวดข้อเท้า/ส้นเท้า,ข้อเท้าแพลง\r\nท้องผูก,นอนไม่หลับ,ไข้หวัด,คัดจมูก, หอบหืด,ภูมิแพ้ \r\nอัมพฤกษ์ ,อัมพาต\r\nสตรีหลังคลอดน้ำคาวปลาไม่เดิน, คัดตึงเต้านม,น้ำนมไหลน้อย เป็นต้น', 'img1-20210127110708.jpg');
+INSERT INTO `tb_department_sub` VALUES (62, 'ทดลองเพิ่มรายการ ทุกวัน นอกเวลา 10.00-12.00', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (63, 'ทดลองวันศุก', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (64, 'ชื่ออันใหม่ไม่มีในระบบ', NULL, 'XXXXXXX', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for tb_department_time
@@ -1811,7 +1874,7 @@ CREATE TABLE `tb_department_time`  (
   `id` int(3) NOT NULL AUTO_INCREMENT,
   `time` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tb_department_time

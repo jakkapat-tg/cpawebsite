@@ -141,6 +141,12 @@
                                    <p>เพิ่ม/แก้ไข หัวข้อใหญ่ ITA </p>
                                </a>
                            </li>
+                           <li class="nav-item">
+                               <a href="/cpawebsite/admin/form/additadetail.php" class="nav-link <?php if ($page == 'additadetail') { echo 'active';  } ?>">
+                                   <i class="far fa-circle nav-icon"></i>
+                                   <p>เพิ่ม/แก้ไข หัวข้อย่อย ITA </p>
+                               </a>
+                           </li>
                        </ul>
                    </li>
        </nav>

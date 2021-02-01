@@ -63,8 +63,21 @@
                                 <h3 style="color:#006738;border-bottom:2px #2dc997 solid;padding-bottom:10px;">โรงพยาบาลเจ้าพระยาอภัยภูเบศร</h3>
 
                                 <nav class="nav nav-pills flex-column flex-sm-row">
-                                    <a class="flex-sm-fill text-sm-center nav-link" aria-current="page" href="#">2564</a>
-                                    <a class="flex-sm-fill text-sm-center nav-link active" href="#">2563</a>
+                                <?php
+                                    $ebyear = 0;
+                                    if(isset($_GET['year'])){
+                                        $ebyear = preg_replace("/[^0-9\d]/i",'',$_GET['year']);//ลบตัวอักษรอื่นๆใน url ที่ไม่ใช่ตัวเลข
+                                    }
+                                    $selectyear = "SELECT ita_eb_year FROM ita_eb where status = '1' group by ita_eb_year order by ita_eb_year desc";
+                                    $queryselectyear= mysqli_query($con, $selectyear);
+                                    while ($yeareb  = mysqli_fetch_assoc($queryselectyear)) {
+                                        if(!isset($_GET['year'])){
+                                            if(number_format($ebyear) < number_format($yeareb["ita_eb_year"])){  $ebyear = $yeareb["ita_eb_year"];}//ตั้งค่าdefault เป็นปีล่าสุด
+                                        }
+                                       
+                                ?>
+                                    <a class="flex-sm-fill text-sm-center nav-link <?php if($yeareb["ita_eb_year"] == $ebyear){echo "active";} ?>"  aria-current="page" href="./ita?year=<?php echo $yeareb["ita_eb_year"];?>"><?php echo $yeareb["ita_eb_year"];?></a>;
+                                <?php }?>
                                 </nav>
                                 
                             </div>
@@ -74,10 +87,9 @@
 
                 
                 <?php
-                $sqlita_eb = "SELECT * FROM ita_eb ";
+                $sqlita_eb = "SELECT * FROM ita_eb where status = '1' AND  ita_eb_year = '$ebyear'";
                 $querysqlita_eb = mysqli_query($con, $sqlita_eb);
                 while ($topic_ita  = mysqli_fetch_assoc($querysqlita_eb)) {
-
                 ?>
                     <div class="col-md-12 grid-margin stretch-card">
                         <div class="card">

@@ -34,7 +34,7 @@
             include "../../sqlconfig/config.php";
             $getpage = $_GET['page'];
             $inpage = '';
-           
+
 
             if ($getpage == 'edituser') {
                 $inpage = 'ตาราง user';
@@ -74,7 +74,11 @@
                 $inpage = 'ตาราง แก้ไขแถบด้านล่างเว็บไซต์';
                 $sqlgetfrompage = "SELECT * FROM cpa_web_groupspecial_news";
                 $resultquery = mysqli_query($con, $sqlgetfrompage);
-            }else{
+            } else if ($getpage == 'addgroupita') {
+                $inpage = 'ตาราง แก้ไขแถบด้านล่างเว็บไซต์';
+                $sqlgetfrompage = "SELECT * FROM ita_eb";
+                $resultquery = mysqli_query($con, $sqlgetfrompage);
+            } else {
                 echo ' <script> window.location = "../index.php"; </script>';
             }
             ?>
@@ -113,21 +117,20 @@
                                                     $colObj = mysqli_fetch_field_direct($resultquery, $i);
                                                     $col = $colObj->name;
                                                     if ($i == 0) {
-                                                        echo 
+                                                        echo
                                                         '<td>
-                                                            <a class="btn btn-info" href="./'.$getpage.'.php?pkid='.$row_result[$col].' ">
-                                                             <i class="fa fa-edit ">แก้ไข</i></a>&nbsp;&nbsp;&nbsp;' . $row_result[$col] . 
-                                                        '</td>';
+                                                            <a class="btn btn-info" href="./' . $getpage . '.php?pkid=' . $row_result[$col] . ' ">
+                                                             <i class="fa fa-edit ">แก้ไข</i></a>&nbsp;&nbsp;&nbsp;' . $row_result[$col] .
+                                                            '</td>';
                                                     }
                                                     if ($i > 0) {
                                                         echo '<td>' . $row_result[$col] . '</td>';
                                                     }
-                                                    
                                                 }
                                                 echo '</tr>';
                                             }
                                             ?>
-                                         
+
                                         </tbody>
                                     </table>
                                 </div>

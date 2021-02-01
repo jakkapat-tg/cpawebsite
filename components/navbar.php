@@ -20,14 +20,14 @@ include "./cpawebsite/Pages/stampviewer.php";
 		<div class="row">
 			<div class="col-md-6 d-flex align-items-center">
 				<p class="mb-0 phone pl-md-2">
-					<a href="#" class="mr-2"><span class="fa fa-phone mr-1"></span>โทร 037-211-088 037-211-088 แฟกซ์ 037-211-243 037-211-243 </a>
+					<a href="#" class="mr-2"><span class="fa fa-phone mr-1"></span>โทร 037-211-088 037-211-088 แฟกซ์ 037-211-243</a>
 				</p>
 			</div>
 			<div class="col-md-6 d-flex justify-content-md-end">
 				<div class="social-media">
 					<p class="mb-0 d-flex">
-						<a href="https://www.facebook.com/abhaibhubejhrhospital/" target="_blank" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
-						<a href="./cpawebsite/admin/login.php" target="_blank" class="d-flex align-items-center justify-content-center"><span class="fa fa-sing-in"><i class="fa fa-sign-in" aria-hidden="true"></i></span></a>
+						<a href="https://www.facebook.com/abhaibhubejhrhospital/" target="_blank" class="d-flex align-items-center justify-content-center"><span class="fab fa-facebook-f"></span></a>
+						<a href="./cpawebsite/admin/login.php" target="_blank" class="d-flex align-items-center justify-content-center"><span class=""><i class="fas fa-sign-in-alt" aria-hidden="true"></i></span></a>
 					</p>
 				</div>
 			</div>

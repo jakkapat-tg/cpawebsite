@@ -47,6 +47,7 @@
 				width: 100%;
 				height: 100%;
 			}
+
 			.hero-wrap {
 				height: 250px;
 			}
@@ -58,13 +59,25 @@
 		<!-- <div class="carousel-inner hero-wrap"> -->
 		<div class="carousel-inner hero-wrap">
 			<div class="carousel-item  active">
-				<img class="slidewidth100" src="<?php if ($resultimg1 == '' || $resultimg1 == null) {	echo './cpawebsite/uploads/image/slideimg/default1.jpg';} else {echo './cpawebsite/uploads/image/slideimg/' . $resultimg1;	} ?>" alt="ไม่สามารถโหลดภาพได้">
+				<img class="slidewidth100" src="<?php if ($resultimg1 == '' || $resultimg1 == null) {
+													echo './cpawebsite/uploads/image/slideimg/default1.jpg';
+												} else {
+													echo './cpawebsite/uploads/image/slideimg/' . $resultimg1;
+												} ?>" alt="ไม่สามารถโหลดภาพได้">
 			</div>
 			<div class="carousel-item">
-				<img class="slidewidth100" src="<?php if ($resultimg2 == '' || $resultimg2 == null) {	echo './cpawebsite/uploads/image/slideimg/default2.jpg';	} else {	echo './cpawebsite/uploads/image/slideimg/' . $resultimg2;	} ?>" alt="ไม่สามารถโหลดภาพได้">
+				<img class="slidewidth100" src="<?php if ($resultimg2 == '' || $resultimg2 == null) {
+													echo './cpawebsite/uploads/image/slideimg/default2.jpg';
+												} else {
+													echo './cpawebsite/uploads/image/slideimg/' . $resultimg2;
+												} ?>" alt="ไม่สามารถโหลดภาพได้">
 			</div>
 			<div class="carousel-item ">
-				<img class="slidewidth100" src="<?php if ($resultimg3 == '' || $resultimg3 == null) {echo './cpawebsite/uploads/image/slideimg/default3.jpg';} else {echo './cpawebsite/uploads/image/slideimg/' . $resultimg3;	} ?>" alt="ไม่สามารถโหลดภาพได้">
+				<img class="slidewidth100" src="<?php if ($resultimg3 == '' || $resultimg3 == null) {
+													echo './cpawebsite/uploads/image/slideimg/default3.jpg';
+												} else {
+													echo './cpawebsite/uploads/image/slideimg/' . $resultimg3;
+												} ?>" alt="ไม่สามารถโหลดภาพได้">
 			</div>
 		</div>
 		<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -87,36 +100,35 @@
 			<h2 style='  text-transform: capitalize;color: #002d73;line-height: 125%;font-weight: bold; margin-left:15px;'>บริการของเรา</h2>
 		</div>
 		<div class="table-responsive">
-			<table class="table text-center" >
-			<thead>
+			<table class="table text-center">
+				<thead>
+					<tr>
+						<th scope="col" class="text-nowrap">แพทย์แผนไทย</th>
+						<th scope="col" class="text-nowrap">หัวใจ</th>
+						<th scope="col" class="text-nowrap">ข้อและกระดูก</th>
+						<th scope="col" class="text-nowrap">สมอง</th>
+						<th scope="col" class="text-nowrap">ฉุกเฉิน</th>
+						<th scope="col" class="text-nowrap">ตรวจสุขภาพ</th>
+						<th scope="col" class="text-nowrap">การผ่าตัด</th>
+						<th scope="col" class="text-nowrap">ทันตกรรม</th>
+						<th scope="col" class="text-nowrap">อื่นๆ</th>
+					</tr>
+				</thead>
 				<tr>
-				<th scope="col" class="text-nowrap">แพทย์แผนไทย</th>
-				<th scope="col" class="text-nowrap">หัวใจ</th>
-				<th scope="col" class="text-nowrap">ข้อและกระดูก</th>
-				<th scope="col" class="text-nowrap">สมอง</th>
-				<th scope="col" class="text-nowrap">ฉุกเฉิน</th>
-				<th scope="col" class="text-nowrap">ตรวจสุขภาพ</th>
-				<th scope="col" class="text-nowrap">การผ่าตัด</th>
-				<th scope="col" class="text-nowrap">ทันตกรรม</th>
-				<th scope="col" class="text-nowrap">อื่นๆ</th>
+					<td><button class="btn btn-outline-light" style="border:0px"><i class='fas fa-mortar-pestle' style='font-size:30px ;color:#207dff'></i></button></td>
+					<td><button class="btn btn-outline-light" style="border:0px"><i class='far fa-heart' style='font-size:30px ;color:#207dff'></i></button> </td>
+					<td><button class="btn btn-outline-light" style="border:0px"><i class='fas fa-crutch' style='font-size:30px ;color:#207dff'></i></button> </td>
+					<td><button class="btn btn-outline-light" style="border:0px"><i class='fas fa-brain' style='font-size:30px ;color:#207dff'></i> </button></td>
+					<td><button class="btn btn-outline-light" style="border:0px"><i class='fas fa-ambulance' style='font-size:30px ;color:#207dff'></i></button></td>
+					<td><button class="btn btn-outline-light" style="border:0px"><i class='fas fa-first-aid' style='font-size:30px ;color:#207dff'></i></button> </td>
+					<td><button class="btn btn-outline-light" style="border:0px"><i class='fas fa-diagnoses' style='font-size:30px ;color:#207dff'></i></button></td>
+					<td><button class="btn btn-outline-light" style="border:0px"><i class='fas fa-tooth' style='font-size:30px ;color:#207dff'></i></button> </td>
+					<td><button class="btn btn-outline-secondary" style="border:0px">อื่นๆ</button></td>
 				</tr>
-			</thead>
-			<tr >	
-				<td><button class="btn btn-outline-light" style="border:0px"><i class='fas fa-mortar-pestle' style='font-size:30px ;color:#207dff'></i></button></td>
-				<td><button class="btn btn-outline-light" style="border:0px"><i class='far fa-heart' style='font-size:30px ;color:#207dff'></i></button> </td>
-				<td><button class="btn btn-outline-light" style="border:0px"><i class='fas fa-crutch' style='font-size:30px ;color:#207dff'></i></button> </td>
-				<td><button class="btn btn-outline-light" style="border:0px"><i class='fas fa-brain' style='font-size:30px ;color:#207dff'></i>  </button></td>
-				<td><button class="btn btn-outline-light" style="border:0px"><i class='fas fa-ambulance' style='font-size:30px ;color:#207dff'></i></button></td>
-				<td><button class="btn btn-outline-light" style="border:0px"><i class='fas fa-first-aid' style='font-size:30px ;color:#207dff'></i></button> </td>
-				<td><button class="btn btn-outline-light" style="border:0px"><i class='fas fa-diagnoses' style='font-size:30px ;color:#207dff'></i></button></td>	
-				<td><button class="btn btn-outline-light" style="border:0px"><i class='fas fa-tooth' style='font-size:30px ;color:#207dff'></i></button> </td>  
-				<td><button class="btn btn-outline-secondary" style="border:0px">อื่นๆ</button></td>
-			</tr>
 			</table>
 		</div>
 
 
-		
 
 
 		<div class="row mt-5">
@@ -327,7 +339,7 @@
 						<div class="col-md-3 ftco-animate">
 							<div class="work mb-4 img d-flex align-items-end" style="background-image: url(./cpawebsite/uploads/image/event/<?php echo $Resultevent['cpa_event_path']; ?>);">
 								<a href="./cpawebsite/uploads/image/event/<?php echo $Resultevent['cpa_event_path']; ?>" class="icon image-popup d-flex justify-content-center align-items-center">
-									<span class="fa fa-expand"></span>
+									<span class="fas fa-expand"></span>
 								</a>
 								<div class="desc w-100 px-4">
 									<div class="text w-100 mb-3">

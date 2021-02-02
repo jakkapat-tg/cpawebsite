@@ -123,6 +123,10 @@
                             } else {
                                 echo "<script>Swal.fire({icon: 'error', title: 'Invalid...', text: 'Insert Fail โปรดลองใหม่อีกครั้ง', })</script>";
                             }
+                        } else {
+                            echo "<script>Swal.fire({icon: 'error', title: 'ไม่สามารถอัพโหลดไฟล์ได้...', text: 'โปรดลองใหม่อีกครั้งหรือแจ้งadmin', }).then(function() {
+                                window.location = './editnews.php';
+                            });</script>";
                         }
                     } else {
                         echo "<script>Swal.fire({icon: 'error', title: 'Invalid...', text: 'โปรเลือกไฟล์ที่เป็น pdf', }).then(function() {
@@ -280,6 +284,8 @@
                             } else {
                                 echo "<script>Swal.fire({icon: 'error', title: 'Invalid...', text: 'Update ผิดพลาดโปรดลองใหม่อีกครั้ง', })</script>";
                             }
+                        }else {
+                            echo "<script>Swal.fire({icon: 'error', title: 'ไม่สามารถอัพโหลดไฟล์ได้...', text: 'โปรดลองใหม่อีกครั้งหรือติดต่อ admin', })</script>";
                         }
 
                     }

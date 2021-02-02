@@ -323,7 +323,7 @@
 
 	<!-- ------------------------------------------------------  EVENT PICTURE   ----------------------------------------------------------- -->
 	<section class="ftco-section">
-		<div class="container">
+		<!-- <div class="container"> -->
 			<div class="row justify-content-center pb-5 mb-3">
 				<div class="col-md-7 heading-section text-center ftco-animate fadeInUp ftco-animated">
 					<h2>ประมวลภาพกิจกรรม</h2>
@@ -354,7 +354,7 @@
 					<?php } ?>
 				</div>
 			</div>
-		</div>
+		<!-- </div> -->
 	</section>
 
 	<!-- ------------------------------------------------------  EVENT PICTURE   ----------------------------------------------------------- -->

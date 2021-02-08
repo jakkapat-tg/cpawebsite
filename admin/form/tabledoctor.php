@@ -32,6 +32,7 @@
 
     <link href="https://raw.githack.com/ttskch/select2-bootstrap4-theme/master/dist/select2-bootstrap4.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script> <!-- Icon  -->
     <style>
         * {
             box-sizing: border-box
@@ -107,12 +108,12 @@
             if (!$con) {
                 die('Could not connect');
             }
-            if ($_POST["status"] == "update") {
+            if ($_POST["status"] == "update") { //แก้ไข description_sub ใน tb_department_sub
                 $sqlUpdate = "UPDATE tb_department_event SET department_date = '" . $_POST["td_day"] . "', department_detail = '" . $_POST["td_detail"] . "', department_time = '" . $_POST["td_time"] . "' WHERE id = '" . $_POST["id"] . "'";
                 mysqli_query($con, $sqlUpdate);
-                $sqlUpdateSub = "UPDATE tb_department_sub SET description_sub = '" . $_POST["sub"] . "' WHERE id = '" . $_POST["sub_id"] . "'";
+                $sqlUpdateSub = "UPDATE tb_department_sub SET description_sub = '" . $_POST["sub"] . "', content = '" . $_POST["content"] . "' WHERE id = '" . $_POST["sub_id"] . "'";
                 mysqli_query($con, $sqlUpdateSub);
-            } else if ($_POST["status"] == "add") {
+            } else if ($_POST["status"] == "add") { // เพิ่ม description_sub ใน tb_department_sub
                 if (!mysqli_num_rows(mysqli_query($con, "SELECT * FROM tb_department_sub WHERE id = '" . $_POST["add_sub" . $_POST["id"]] . "'")) > 0) {
                     $sqlIns_sub = "INSERT INTO tb_department_sub (description_sub) VALUES ('" . $_POST["add_sub" . $_POST["id"]] . "')";
                     mysqli_query($con, $sqlIns_sub);
@@ -127,80 +128,84 @@
                 $sqlIns_event = "INSERT INTO tb_department_event (department,department_sub,department_date,department_detail,department_time,order_by)
                 VALUES ('" . $_POST["id"] . "','" . $sql1 . "'  ,'" . $_POST["td_day"] . "','" . $_POST["td_detail"] . "','" . $_POST["td_time"] . "','" . $sql2 . "')";
                 mysqli_query($con, $sqlIns_event);
-            } else if ($_POST["status"] == "del") {
+            } else if ($_POST["status"] == "del") { // ลบข้อมูลในตาราง
                 mysqli_query($con, "DELETE FROM tb_department_event WHERE `id` = '" . $_POST["id"] . "'");
-            } else if ($_POST["status"] == "add_dep") {
+            } else if ($_POST["status"] == "add_dep") { //เพิ่มแผนก
                 mysqli_query($con, "INSERT INTO tb_department (description,en_description) VALUES ('" . $_POST["sub"] . "','" . $_POST["sub_en"] . "')");
-            } else if ($_POST["status"] == "status") {
+            } else if ($_POST["status"] == "status") { //ปิดการใช้งาน แผนก
                 mysqli_query($con, "UPDATE tb_department SET `status` = '" . $_POST["status_dep"] . "' WHERE `id` = '" . $_POST["id"] . "'");
-            } else if ($_POST["status"] == "edit_dep") {
-                mysqli_query($con, "UPDATE tb_department SET description = '" . $_POST["sub_dep"] . "', en_description = '" . $_POST["sub_en_dep"] . "' WHERE id = '" . $_POST["id"] . "'");
+            } else if ($_POST["status"] == "edit_dep") { //แก้ไขชื่อแผนก
+                mysqli_query($con, "UPDATE tb_department SET description = '" . $_POST["sub_dep"] . "', en_description = '" . $_POST["sub_en_dep"] . "', icon_id = '" . $_POST["icon_id_select"] . "', icon_color = '" . $_POST["colorpicker"] . "', detail = '" . $_POST["detail"] . "' WHERE id = '" . $_POST["id"] . "'");
             }
-            //echo '<script>window.location = "./tabledoctor.php";</script>';
+            echo '<script>window.location = "./tabledoctor.php";</script>';
         }
 
         ?>
         <section class="content">
-
-            <div class="container" style="padding-bottom: 265px;">
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12 ">
-                        <p style="text-align: center;">
-                            <span style="font-weight: bold;font-size:28px;color: #046099;">ตารางตรวจแพทย์</span>
-                        </p>
+            <center>
+                <div class="container" style="padding-bottom: 265px; margin:1px;">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12 ">
+                            <p style="text-align: center;">
+                                <span style="font-weight: bold;font-size:28px;color: #046099;">ข้อมูลบริการและตารางตรวจแพทย์</span>
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="tab">
+                    <div class="row">
+                        <div class="tab">
+                            <?php
+                            $sel_col = "SELECT *,dep.id as dep_id FROM tb_department dep LEFT JOIN cpa_icon icon ON dep.icon_id = icon.id";
+                            $querysel_col = mysqli_query($con, $sel_col);
+                            $defaultOpen = 'id="defaultOpen"';
+                            while ($ResultCeo = mysqli_fetch_assoc($querysel_col)) {
+                            ?>
+                                <button class="tablinks" <?php echo $ResultCeo['status'] == 'Y' ? '' : 'style = "background-color: #aaabad;"' ?> onclick="openCity(event, '<?php echo $ResultCeo['dep_id']; ?>')" <?php echo $defaultOpen ?>>
+                                    <?php echo $ResultCeo['description']; ?></button>
+                                <?php $defaultOpen = ""; ?>
+                            <?php
+                            }
+                            ?>
+                            <row style="padding: 5px;">
+                                <center>
+                                    <button class="btn btn-success" style="background-color: #28a745;width: 70%; text-align: center;color: #fff;" data-toggle="modal" data-target="#add_dep"> เพิ่มแผนก</button>
+                                </center>
+                            </row>
+                        </div>
+
                         <?php
-                        $sel_col = "SELECT * FROM tb_department";
                         $querysel_col = mysqli_query($con, $sel_col);
-                        $defaultOpen = 'id="defaultOpen"';
-                        while ($ResultCeo = mysqli_fetch_assoc($querysel_col)) {
+                        while ($ResultCeo_col = mysqli_fetch_assoc($querysel_col)) {
                         ?>
-                            <button class="tablinks" <?php echo $ResultCeo['status'] == 'Y' ? '' : 'style = "background-color: #aaabad;"' ?> onclick="openCity(event, '<?php echo $ResultCeo['id']; ?>')" <?php echo $defaultOpen ?>>
-                                <?php echo $ResultCeo['description']; ?></button>
-                            <?php $defaultOpen = ""; ?>
-                        <?php
-                        }
-                        ?>
-                        <row style="padding: 5px;">
-                            <center>
-                                <button class="btn btn-success" style="background-color: #28a745;width: 70%; text-align: center;color: #fff;" data-toggle="modal" data-target="#add_dep"> เพิ่มแผนก</button>
-                            </center>
-                        </row>
-                    </div>
-
-                    <?php
-                    $sel_col = "SELECT * FROM tb_department";
-                    $querysel_col = mysqli_query($con, $sel_col);
-                    while ($ResultCeo_col = mysqli_fetch_assoc($querysel_col)) {
-                    ?>
-                        <div id="<?php echo $ResultCeo_col['id']; ?>" class="tabcontent">
-                            <div class="table-responsive">
-                                <table class="table table-striped ">
-                                    <thead>
-                                        <th colspan="2">
-                                            <h4 style="font-weight: bold;"><?php echo $ResultCeo_col['description'] ?></h4>
-                                        </th>
-                                        <th colspan="2" style="text-align:right;">
-                                            <button class="btn btn-outline-warning" data-toggle="modal" data-target="#edit_dep<?php echo $ResultCeo_col['id']; ?>">แก้ไขชื่อแผนก</button>
-                                            <button class="btn btn-outline-<?php echo $ResultCeo_col['status'] == 'Y' ? 'danger' : 'success' ?>" data-toggle="modal" data-target="#status<?php echo $ResultCeo_col['id']; ?>"><?php echo $ResultCeo_col['status'] == 'Y' ? 'ปิดการใช้งาน' : 'เปิดการใช้งาน' ?></button>
-                                        </th>
-                                    </thead>
-                                    <thead>
-                                        <tr>
-                                            <th>แผนกที่เปิดบริการ</th>
-                                            <th>วันที่ให้บริการ</th>
-                                            <th>เวลาที่ให้บริการ</th>
-                                            <th>
-                                                <center>ดำเนินการ</center>
+                            <div id="<?php echo $ResultCeo_col['dep_id']; ?>" class="tabcontent">
+                                <div class="table-responsive">
+                                    <table class="table table-striped ">
+                                        <thead>
+                                            <th colspan="2">
+                                                <h4 style="font-weight: bold;"><i class="<?php echo $ResultCeo_col['icon_class'] ?>" style="font-size:26px;color:<?php echo $ResultCeo_col['icon_color'] ?>;"></i> <?php echo $ResultCeo_col['description'] ?></h4>
                                             </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        $sel = "SELECT  a.id as tb_a_id,
+                                            <th colspan="3" style="text-align:right;">
+                                                <button class="btn btn-outline-warning" data-toggle="modal" data-target="#edit_dep<?php echo $ResultCeo_col['dep_id']; ?>">แก้ไขข้อมูลแผนก</button>
+                                                <button class="btn btn-outline-<?php echo $ResultCeo_col['status'] == 'Y' ? 'danger' : 'success' ?>" data-toggle="modal" data-target="#status<?php echo $ResultCeo_col['dep_id']; ?>"><?php echo $ResultCeo_col['status'] == 'Y' ? 'ปิดการใช้งาน' : 'เปิดการใช้งาน' ?></button>
+                                            </th>
+                                        </thead>
+                                        <thead>
+                                            <tr>
+                                                <th>แผนกที่เปิดบริการ</th>
+                                                <th>วันที่ให้บริการ</th>
+                                                <th>
+                                                    <center>เวลาที่ให้บริการ</center>
+                                                </th>
+                                                <th>
+                                                    <center>เบอร์ติดต่อ</center>
+                                                </th>
+                                                <th>
+                                                    <center>ดำเนินการ</center>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $sel = "SELECT  a.id as tb_a_id,
                                                         b.id as tb_b_id,
                                                         c.id as tb_c_id,
                                                         d.id as tb_d_id,
@@ -211,7 +216,8 @@
                                                         d.date as td_day,
                                                         e.detail as td_detail,
                                                         f.time as td_time,
-                                                        b.status as status,                                                
+                                                        b.status as status,
+                                                        content,                                                
                                                         a.order_by
                                                 FROM tb_department_event a 
                                                 LEFT JOIN tb_department b ON a.department = b.id
@@ -220,43 +226,45 @@
                                                 LEFT JOIN tb_department_detail e ON a.department_detail = e.id
                                                 LEFT JOIN tb_department_time f ON a.department_time = f.id
                                                 ORDER BY  b.id,a.order_by";
-                                        $querysel = mysqli_query($con, $sel);
-                                        $tmp_name = '';
-                                        while ($ResultCeo = mysqli_fetch_assoc($querysel)) {
-                                            if ($ResultCeo['tb_b_id'] == $ResultCeo_col['id']) {
-                                                $ResultCeo['td_sub'] = str_replace(")", ")</span>", str_replace("(", "<span style=\"color:#0b5e2c\">(", $ResultCeo['td_sub']));
-                                        ?><tr>
-                                                    <td><?php echo $ResultCeo['td_sub'] != $tmp_name ? $ResultCeo['td_sub'] : ''; ?></td>
-                                                    <td><?php echo $ResultCeo['td_day'] . ' ' . ($ResultCeo['tb_e_id'] == '7' ? '' : $ResultCeo['td_detail']); ?></td>
-                                                    <td><?php echo $ResultCeo['td_time']; ?></td>
-                                                    <td>
-                                                        <center>
-                                                            <button class="btn btn-warning" data-toggle="modal" data-target="#edit<?php echo $ResultCeo['tb_a_id']; ?>">แก้ไข</button>
-                                                            <button class="btn btn-danger" data-toggle="modal" data-target="#delete<?php echo $ResultCeo['tb_a_id']; ?>">ลบ</button>
-                                                        </center>
-                                                    </td>
-                                                </tr>
-                                        <?php
-                                                $tmp_name = $ResultCeo['td_sub'];
+                                            $querysel = mysqli_query($con, $sel);
+                                            $tmp_name = '';
+                                            while ($ResultCeo = mysqli_fetch_assoc($querysel)) {
+                                                if ($ResultCeo['tb_b_id'] == $ResultCeo_col['dep_id']) {
+                                                    $ResultCeo['td_sub'] = str_replace(")", ")</strong>", str_replace("(", "<strong>(", $ResultCeo['td_sub']));
+                                            ?><tr>
+                                                        <td><?php echo $ResultCeo['td_sub'] != $tmp_name ? $ResultCeo['td_sub'] : ''; ?></td>
+                                                        <td><?php echo $ResultCeo['td_day'] . ' ' . ($ResultCeo['tb_e_id'] == '7' ? '' : $ResultCeo['td_detail']); ?></td>
+                                                        <td><?php echo $ResultCeo['td_time']; ?></td>
+                                                        <td><?php echo $ResultCeo['content']; ?></td>
+                                                        <td>
+                                                            <center>
+                                                                <button class="btn btn-warning" data-toggle="modal" data-target="#edit<?php echo $ResultCeo['tb_a_id']; ?>">แก้ไข</button>
+                                                                <button class="btn btn-danger" data-toggle="modal" data-target="#delete<?php echo $ResultCeo['tb_a_id']; ?>">ลบ</button>
+                                                            </center>
+                                                        </td>
+                                                    </tr>
+                                            <?php
+                                                    $tmp_name = $ResultCeo['td_sub'];
+                                                }
                                             }
-                                        }
-                                        ?>
-                                        <tr>
-                                            <td colspan="4">
-                                                <center>
-                                                    <button style="width: 100%;" class="btn btn-success" data-toggle="modal" data-target="#add<?php echo $ResultCeo_col['id']; ?>">เพิ่ม</button>
-                                                </center>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                            ?>
+                                            <tr>
+                                                <td colspan="4">
+                                                    <center>
+                                                        <button style="width: 100%;" class="btn btn-success" data-toggle="modal" data-target="#add<?php echo $ResultCeo_col['dep_id']; ?>">เพิ่มคลินิก</button>
+                                                    </center>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                        </div>
-                    <?php
-                    }
-                    ?>
+                        <?php
+                        }
+                        ?>
+                    </div>
                 </div>
-            </div>
+            </center>
             <?php
             $selectDate =    "SELECT * FROM tb_department_date ORDER BY (CASE
                                     WHEN date LIKE 'จ%' THEN '1'
@@ -270,11 +278,13 @@
             $selectDetail = "SELECT * FROM tb_department_detail";
             $selectTime = "SELECT * FROM tb_department_time ORDER BY time";
             $selectSub = "SELECT * FROM tb_department_sub ORDER BY description_sub";
+            $selectIcon = "SELECT * FROM cpa_icon";
 
             $queryDate = mysqli_query($con, $selectDate);
             $queryDetail = mysqli_query($con, $selectDetail);
             $queryTime = mysqli_query($con, $selectTime);
             $querySub = mysqli_query($con, $selectSub);
+            $queryIcon = mysqli_query($con, $selectIcon);
             foreach ($querysel as $item) {
             ?>
                 <!--///////////////////////////////////////////// Modal close job  ///////////////////////////////////////////////////////-->
@@ -291,6 +301,7 @@
                                                 <p>
                                                     <span style="text-align: left;font-size:16px;">แผนกที่เปิดบริการ</span>
                                                     <input type="text" name="sub" placeholder="ชื่อแผนกที่เปิดบริการ" class="form-last-name form-control" id="sub" value="<?php echo $item['td_sub']; ?>" required>
+                                                    <span style="text-align: left;font-size:14px;color:red;">*หากใส่ " ( " และ " ) " ข้อความจะเป็นตัวหนา</span>
                                                 </p>
                                             </div>
                                         </div>
@@ -348,6 +359,14 @@
                                                 </p>
                                             </div>
                                         </div>
+                                        <div class="row" style="padding-top: 10px; padding-bottom: 7px;">
+                                            <div class="col-md-12 col-sm-12 col-xs-12 ">
+                                                <p>
+                                                    <span style="text-align: left;font-size:16px;">เบอร์ติดต่อ</span>
+                                                    <input type="text" name="content" placeholder="ชื่อแผนกที่เปิดบริการ" class="form-last-name form-control" id="content" value="<?php echo $item['content']; ?>" required>
+                                                </p>
+                                            </div>
+                                        </div>
 
                                     </div>
                                 </div>
@@ -359,7 +378,8 @@
                                 sub 
                                 td_day
                                 td_detail
-                                td_time 
+                                td_time
+                                content 
                                 -->
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
                                     <button type="submit" class="btn btn-success" onclick="return confirm('แน่ใจหรือไม่')">ดำเนินการ</button>
@@ -399,7 +419,7 @@
                 <!--//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
             <?php } ?>
             <?php foreach ($querysel_col as $item) { ?>
-                <div class="modal fade" id="add<?php echo  $item['id']; ?>" role="dialog" aria-labelledby="exampleModal" aria-hidden="true" style="overflow:hidden;">
+                <div class="modal fade" id="add<?php echo  $item['dep_id']; ?>" role="dialog" aria-labelledby="exampleModal" aria-hidden="true" style="overflow:hidden;">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <form action="#" method="post">
@@ -410,7 +430,7 @@
                                             <div class="col-md-12 col-sm-12 col-xs-12 ">
                                                 <p>
                                                     <span style="text-align: left;font-size:16px;">แผนกที่เปิดบริการ</span>
-                                                    <select name="add_sub<?php echo  $item['id']; ?>" id="add_sub<?php echo  $item['id']; ?>" element.style="width: 90% !important;" class="form-control form-control-lg select2" required>
+                                                    <select name="add_sub<?php echo  $item['dep_id']; ?>" id="add_sub<?php echo  $item['dep_id']; ?>" element.style="width: 90% !important;" class="form-control form-control-lg select2" required>
                                                         <option value=""></option>
                                                         <?php foreach ($querySub as $item2) { ?>
                                                             <option value="<?php echo $item2['id']; ?>"><?php echo $item2['description_sub']; ?></option>
@@ -469,7 +489,7 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <input type="hidden" name="id" value="<? echo $item['id']; ?>">
+                                    <input type="hidden" name="id" value="<? echo $item['dep_id']; ?>">
                                     <input type="hidden" name="status" value="add">
                                     <!-- 
                                 sub 
@@ -484,7 +504,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal fade" id="status<?php echo  $item['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModal" aria-hidden="true">
+                <div class="modal fade" id="status<?php echo  $item['dep_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModal" aria-hidden="true">
                     <div class="modal-dialog">
                         <!-- Modal content-->
                         <div class="modal-content">
@@ -502,14 +522,14 @@
                                 <div class="modal-footer">
                                     <input type="hidden" name="status" value="status">
                                     <input type="hidden" name="status_dep" value="<? echo $item['status'] == 'Y' ? 'N' : 'Y' ?>">
-                                    <input type="hidden" name="id" value="<? echo $item['id']; ?>">
+                                    <input type="hidden" name="id" value="<? echo $item['dep_id']; ?>">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
-                <div class="modal fade" id="edit_dep<?php echo  $item['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModal" aria-hidden="true">
+                <div class="modal fade" id="edit_dep<?php echo  $item['dep_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModal" aria-hidden="true">
                     <div class="modal-dialog">
                         <!-- Modal content-->
                         <div class="modal-content">
@@ -533,11 +553,59 @@
                                                 </p>
                                             </div>
                                         </div>
+                                        <div class="row" style="padding-top: 10px; padding-bottom: 7px;">
+                                            <div class="col-md-12 col-sm-12 col-xs-12 ">
+                                                <p>
+                                                    <span style="text-align: left;font-size:16px;">รายละเอียด</span>
+                                                    <textarea class="form-about-yourself form-control" rows="3" style="background-color: white;" name="detail" id="detail" required><?php echo $item['detail']; ?></textarea>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <style>
+                                            select {
+                                                font-family: 'FontAwesome', 'sans-serif';
+                                            }
+
+                                            /* .fas option {
+
+                                                font-weight: 900;
+                                            } */
+                                        </style>
+                                        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" />
+                                        <div class="row" style="padding-top: 10px; padding-bottom: 7px;">
+                                            <div class="col-md-12 col-sm-12 col-xs-12 ">
+                                                <div class="row" style="padding-top: 0px; padding-bottom: 0px; text-align: center;">
+                                                    <div class="col-md-6 col-sm-6 col-xs-6 ">
+                                                        <span style="text-align: left;font-size:16px;">สัญลักษณ์ ICON</span>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-6 col-xs-6 ">
+                                                        </span><span class="text-left" style="text-align: left;font-size:16px;">สี ICON</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row" style="padding-top: 0px; padding-bottom: 0px;">
+                                                    <div class="col-md-6 col-sm-6 col-xs-6 ">
+                                                        <select name="icon_id_select" class="form-control " id="icon_id_select" style="font-size:18px;width:100%;height:30px;">
+                                                            <option value="<?php echo $item['icon_id'] ?>" class="fas"><i class="fas"><?php echo $item['icon_code'] . ";" ?></i></option>
+                                                            <?php
+                                                            foreach ($queryIcon as $Result) {
+                                                            ?>
+                                                                <option value="<?php echo $Result['id'] ?>" class="fas"><i class="fas"><?php echo $Result['icon_code'] . ";" ?></i></option>
+                                                            <?php } ?>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col-md-6 col-sm-6 col-xs-6 ">
+                                                        <input type="color" id="colorpicker" name="colorpicker" onchange="clickColor(0, -1, -1,5)" value="<?php echo $item['icon_color'] ?>" style="border-color:white;background-color:white;width:100%;height:30px;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                                 <div class="modal-footer">
                                     <input type="hidden" name="status" value="edit_dep">
-                                    <input type="hidden" name="id" value="<? echo $item['id']; ?>">
+                                    <input type="hidden" name="id" value="<? echo $item['dep_id']; ?>">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
                                     <button type="submit" class="btn btn-success" onclick="return confirm('แน่ใจหรือไม่')">บันทึก</button>
                                 </div>
@@ -574,17 +642,12 @@
                     </div>
                 </div>
             </div>
-
         </section>
     </div>
-
-
-
     <script>
         $(document).ready(function() {
             $.fn.modal.Constructor.prototype._enforceFocus = function() {};
             $('.select2').select2({
-
                 placeholder: 'ชื่อแผนกที่เปิดบริการ',
                 theme: 'bootstrap4',
                 tags: true,

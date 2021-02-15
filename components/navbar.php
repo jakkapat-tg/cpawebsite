@@ -78,7 +78,7 @@ $resultcolor = mysqli_fetch_assoc($querynavcolor);
 <!-- NAV -->
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	<div class="container">
-	   <a href="./"><img src="./cpawebsite/uploads/image/apay.png"  alt="Cinque Terre" height="70"></a> 
+		<a href="./"><img src="./cpawebsite/uploads/image/apay.png" alt="Cinque Terre" height="70"></a>
 		<!-- <a class="navbar-brand" href="./">โรงพยาบาล <span style="font-size: 84%;">เจ้าพระยาอภัยภูเบศร </span></a> -->
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="fa fa-bars"></span> เมนู
@@ -100,6 +100,7 @@ $resultcolor = mysqli_fetch_assoc($querynavcolor);
 						<a class="dropdown-item" href="./manager">คณะผู้บริหาร</a>
 						<a class="dropdown-item" href="./event">กิจกรรม</a>
 						<a class="dropdown-item" href="./medicinetables">ตารางตรวจแพทย์</a>
+						<a class="dropdown-item" href="./service">บริการของเรา</a>
 				</li>
 
 				<li class="nav-item <?php if ($page == "news") {

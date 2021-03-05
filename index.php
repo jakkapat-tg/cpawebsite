@@ -57,6 +57,10 @@ $router->map("GET", "/medicinetables", function () {
   require   "./cpawebsite/Pages/medicinetables.php";
 });
 
+$router->map("GET|POST", "/service", function () {
+  require   "./cpawebsite/Pages/service.php";
+});
+
 $router->map("GET", "/403", function () {
   require  "./cpawebsite/Pages/403.html";
 });

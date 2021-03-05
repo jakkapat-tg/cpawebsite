@@ -4,9 +4,15 @@ RewriteRule . index.php [L]
 
 php_value upload_max_filesize 5M
 
-ErrorDocument 404 localhost/404
-ErrorDocument 403 localhost/403
+ErrorDocument 404 http://cpa.go.th/404
+ErrorDocument 403 http://cpa.go.th/403
 
 #RewriteRule .*[Jj][Pp][Gg]$|.*[Gg][Ii][Ff]$|.*[Pp][Nn][Gg]$ http://cpa.go.th/403
 
 Options -Indexes
+
+deny from 45.155.205.108
+deny from 45.146.164.15
+deny from 91.241.19.84
+deny from 125.26.183.105
+

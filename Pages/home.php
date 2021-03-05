@@ -123,10 +123,11 @@
 					<td><button class="btn btn-outline-light" style="border:0px"><i class='fas fa-first-aid' style='font-size:30px ;color:#207dff'></i></button> </td>
 					<td><button class="btn btn-outline-light" style="border:0px"><i class='fas fa-diagnoses' style='font-size:30px ;color:#207dff'></i></button></td>
 					<td><button class="btn btn-outline-light" style="border:0px"><i class='fas fa-tooth' style='font-size:30px ;color:#207dff'></i></button> </td>
-					<td><button class="btn btn-outline-secondary" style="border:0px">อื่นๆ</button></td>
+					<td><a href="./service"><button class="btn btn-outline-secondary" style="border:0px">อื่นๆ</button></a></td>
 				</tr>
 			</table>
 		</div>
+
 
 
 
@@ -324,36 +325,36 @@
 	<!-- ------------------------------------------------------  EVENT PICTURE   ----------------------------------------------------------- -->
 	<section class="ftco-section">
 		<!-- <div class="container"> -->
-			<div class="row justify-content-center pb-5 mb-3">
-				<div class="col-md-7 heading-section text-center ftco-animate fadeInUp ftco-animated">
-					<h2>ประมวลภาพกิจกรรม</h2>
-				</div>
+		<div class="row justify-content-center pb-5 mb-3">
+			<div class="col-md-7 heading-section text-center ftco-animate fadeInUp ftco-animated">
+				<h2>ประมวลภาพกิจกรรม</h2>
 			</div>
-			<div class="container-fluid px-md-4">
-				<div class="row">
-					<?php
-					$selectevent = "SELECT * FROM cpa_events where cpa_event_status = '1' ORDER BY cpa_event_insert_date desc limit 8";
-					$queryEvents = mysqli_query($con, $selectevent);
-					while ($Resultevent = mysqli_fetch_assoc($queryEvents)) {
-					?>
-						<div class="col-md-3 ftco-animate">
-							<div class="work mb-4 img d-flex align-items-end" style="background-image: url(./cpawebsite/uploads/image/event/<?php echo $Resultevent['cpa_event_path']; ?>);">
-								<a href="./cpawebsite/uploads/image/event/<?php echo $Resultevent['cpa_event_path']; ?>" class="icon image-popup d-flex justify-content-center align-items-center">
-									<span class="fas fa-expand"></span>
-								</a>
-								<div class="desc w-100 px-4">
-									<div class="text w-100 mb-3">
-										<span><?php echo $Resultevent['cpa_event_detail']; ?></span>
-										<h2><a href="event-single/<?php echo $Resultevent['cpa_event_id']; ?>">
-												<?php echo $Resultevent['cpa_event_topic']; ?></a>
-										</h2>
-									</div>
+		</div>
+		<div class="container-fluid px-md-4">
+			<div class="row">
+				<?php
+				$selectevent = "SELECT * FROM cpa_events where cpa_event_status = '1' ORDER BY cpa_event_insert_date desc limit 8";
+				$queryEvents = mysqli_query($con, $selectevent);
+				while ($Resultevent = mysqli_fetch_assoc($queryEvents)) {
+				?>
+					<div class="col-md-3 ftco-animate">
+						<div class="work mb-4 img d-flex align-items-end" style="background-image: url(./cpawebsite/uploads/image/event/<?php echo $Resultevent['cpa_event_path']; ?>);">
+							<a href="./cpawebsite/uploads/image/event/<?php echo $Resultevent['cpa_event_path']; ?>" class="icon image-popup d-flex justify-content-center align-items-center">
+								<span class="fas fa-expand"></span>
+							</a>
+							<div class="desc w-100 px-4">
+								<div class="text w-100 mb-3">
+									<span><?php echo $Resultevent['cpa_event_detail']; ?></span>
+									<h2><a href="event-single/<?php echo $Resultevent['cpa_event_id']; ?>">
+											<?php echo $Resultevent['cpa_event_topic']; ?></a>
+									</h2>
 								</div>
 							</div>
 						</div>
-					<?php } ?>
-				</div>
+					</div>
+				<?php } ?>
 			</div>
+		</div>
 		<!-- </div> -->
 	</section>
 

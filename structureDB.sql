@@ -11,7 +11,7 @@
  Target Server Version : 50643
  File Encoding         : 65001
 
- Date: 08/02/2021 10:35:56
+ Date: 08/03/2021 10:30:39
 */
 
 SET NAMES utf8mb4;
@@ -211,7 +211,48 @@ CREATE TABLE `cpa_web_counter`  (
   `sessions_id` varchar(250) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `time_stamp` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP(0),
   PRIMARY KEY (`visit_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 38 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of cpa_web_counter
+-- ----------------------------
+INSERT INTO `cpa_web_counter` VALUES (1, '2021-02-08', '::1', '/service?', 'nkm7nuens4g2p4fis3simj0b80', '2021-02-08 11:05:42');
+INSERT INTO `cpa_web_counter` VALUES (2, '2021-02-08', '::1', '/service', 'nkm7nuens4g2p4fis3simj0b80', '2021-02-08 11:05:43');
+INSERT INTO `cpa_web_counter` VALUES (3, '2021-02-08', '::1', '/service?id_sub=', 'nkm7nuens4g2p4fis3simj0b80', '2021-02-08 11:06:16');
+INSERT INTO `cpa_web_counter` VALUES (4, '2021-02-08', '::1', '/service?id_sub=43', 'nkm7nuens4g2p4fis3simj0b80', '2021-02-08 11:06:48');
+INSERT INTO `cpa_web_counter` VALUES (5, '2021-02-08', '::1', '/service?id_sub=61', 'nkm7nuens4g2p4fis3simj0b80', '2021-02-08 11:08:13');
+INSERT INTO `cpa_web_counter` VALUES (6, '2021-02-08', '::1', '/', 'hkgvan8im535m7rp6mov9jalc5', '2021-02-08 11:31:50');
+INSERT INTO `cpa_web_counter` VALUES (7, '2021-02-08', '::1', '/medicinetables', 'nkm7nuens4g2p4fis3simj0b80', '2021-02-08 13:17:00');
+INSERT INTO `cpa_web_counter` VALUES (8, '2021-02-08', '::1', '/', 'nkm7nuens4g2p4fis3simj0b80', '2021-02-08 13:40:42');
+INSERT INTO `cpa_web_counter` VALUES (9, '2021-02-08', '::1', '/service', 'g106kf4eleola0g9s73a1n63p1', '2021-02-08 15:50:00');
+INSERT INTO `cpa_web_counter` VALUES (10, '2021-02-08', '::1', '/', 'g106kf4eleola0g9s73a1n63p1', '2021-02-08 15:51:09');
+INSERT INTO `cpa_web_counter` VALUES (11, '2021-02-12', '172.16.28.172', '/cpawebsite/', 'hif0m205env524sl93fglhfc32', '2021-02-12 10:35:40');
+INSERT INTO `cpa_web_counter` VALUES (12, '2021-02-12', '127.0.0.1', '/', 'a6nia4pvphqg9d7cm80ebk5sj4', '2021-02-12 18:55:14');
+INSERT INTO `cpa_web_counter` VALUES (13, '2021-02-15', '::1', '/', '8lq18v7ql8r9fdc73iiv1lr4n0', '2021-02-15 08:41:36');
+INSERT INTO `cpa_web_counter` VALUES (14, '2021-02-15', '::1', '/about', '8lq18v7ql8r9fdc73iiv1lr4n0', '2021-02-15 08:45:45');
+INSERT INTO `cpa_web_counter` VALUES (15, '2021-02-15', '::1', '/manager', '8lq18v7ql8r9fdc73iiv1lr4n0', '2021-02-15 08:45:47');
+INSERT INTO `cpa_web_counter` VALUES (16, '2021-02-15', '::1', '/event', '8lq18v7ql8r9fdc73iiv1lr4n0', '2021-02-15 08:45:49');
+INSERT INTO `cpa_web_counter` VALUES (17, '2021-02-15', '::1', '/medicinetables', '8lq18v7ql8r9fdc73iiv1lr4n0', '2021-02-15 08:45:51');
+INSERT INTO `cpa_web_counter` VALUES (18, '2021-02-15', '::1', '/', 'schbjsfd8qfnuut8cvu41rjcm7', '2021-02-15 09:20:13');
+INSERT INTO `cpa_web_counter` VALUES (19, '2021-02-17', '::1', '/', 'e90ltqs7a4j5oqo58tn30lqrn3', '2021-02-17 09:29:30');
+INSERT INTO `cpa_web_counter` VALUES (20, '2021-02-18', '::1', '/', 'u1tm8m7cn7thvrn275p7rqefm3', '2021-02-18 10:01:09');
+INSERT INTO `cpa_web_counter` VALUES (21, '2021-02-18', '172.16.44.60', '/cpawebsite/', 'kbkglvn9dohkh01o4rp7sbf8s4', '2021-02-18 11:56:40');
+INSERT INTO `cpa_web_counter` VALUES (22, '2021-02-18', '::1', '/', '5hp0o08bgur3mkk3jh5ipdp1c0', '2021-02-18 14:58:04');
+INSERT INTO `cpa_web_counter` VALUES (23, '2021-02-19', '::1', '/', '3ltiu1md62kdvt45mh3u6d7i35', '2021-02-19 11:21:11');
+INSERT INTO `cpa_web_counter` VALUES (24, '2021-02-22', '::1', '/', 'kac6b6isqcq5qhqsiipivc0aj4', '2021-02-22 09:49:21');
+INSERT INTO `cpa_web_counter` VALUES (25, '2021-02-22', '::1', '/', 'phfv9vftkffudng33injejv6q2', '2021-02-22 09:49:21');
+INSERT INTO `cpa_web_counter` VALUES (26, '2021-02-25', '::1', '/', 'evs223linv8inqmfoobci8m2v2', '2021-02-25 19:00:17');
+INSERT INTO `cpa_web_counter` VALUES (27, '2021-03-01', '::1', '/', '6oi129bomto1pn9p53g00553b4', '2021-03-01 08:59:48');
+INSERT INTO `cpa_web_counter` VALUES (28, '2021-03-03', '::1', '/', '17h3i0fin7du8bitialot3uam1', '2021-03-03 16:21:36');
+INSERT INTO `cpa_web_counter` VALUES (29, '2021-03-03', '::1', '/medicinetables', '17h3i0fin7du8bitialot3uam1', '2021-03-03 16:26:20');
+INSERT INTO `cpa_web_counter` VALUES (30, '2021-03-05', '::1', '/cpawebsite/index.php', '17h3i0fin7du8bitialot3uam1', '2021-03-05 09:38:10');
+INSERT INTO `cpa_web_counter` VALUES (31, '2021-03-05', '::1', '/', 'k52ej63eu992bvr05f226apte0', '2021-03-05 09:53:46');
+INSERT INTO `cpa_web_counter` VALUES (32, '2021-03-05', '::1', '/medicinetables', 'k52ej63eu992bvr05f226apte0', '2021-03-05 09:54:08');
+INSERT INTO `cpa_web_counter` VALUES (33, '2021-03-05', '::1', '/service', 'k52ej63eu992bvr05f226apte0', '2021-03-05 09:56:25');
+INSERT INTO `cpa_web_counter` VALUES (34, '2021-03-05', '::1', '/service?id_sub=10', 'k52ej63eu992bvr05f226apte0', '2021-03-05 09:56:35');
+INSERT INTO `cpa_web_counter` VALUES (35, '2021-03-05', '::1', '/ita', 'k52ej63eu992bvr05f226apte0', '2021-03-05 09:59:26');
+INSERT INTO `cpa_web_counter` VALUES (36, '2021-03-05', '::1', '/ita?year=2563', 'k52ej63eu992bvr05f226apte0', '2021-03-05 09:59:28');
+INSERT INTO `cpa_web_counter` VALUES (37, '2021-03-05', '::1', '/ita?year=2564', 'k52ej63eu992bvr05f226apte0', '2021-03-05 09:59:34');
 
 -- ----------------------------
 -- Table structure for cpa_web_event_gallery
@@ -535,6 +576,31 @@ CREATE TABLE `department`  (
   `id` int(11) NOT NULL,
   `description` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for employees
+-- ----------------------------
+DROP TABLE IF EXISTS `employees`;
+CREATE TABLE `employees`  (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `age` int(10) NOT NULL,
+  `country` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `position` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `wage` int(10) NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of employees
+-- ----------------------------
+INSERT INTO `employees` VALUES (1, 'test', 22, 'thailand', 'bank', 40000);
+INSERT INTO `employees` VALUES (2, 'test2', 25, 'thailand', 'babg', 12500);
+INSERT INTO `employees` VALUES (3, 'test3', 30, 'thailand', 'babggg', 25000);
+INSERT INTO `employees` VALUES (5, '1test', 22, 'thailand', 'bank', 40000);
+INSERT INTO `employees` VALUES (6, '2test2', 25, 'thailand', 'babg', 52500);
+INSERT INTO `employees` VALUES (7, '3test3', 30, 'thailand', 'babggg', 65000);
+INSERT INTO `employees` VALUES (8, '4ทดสอบ', 35, 'ไทย', 'ปราจีน', 75000);
 
 -- ----------------------------
 -- Table structure for ita_detail
@@ -1521,15 +1587,51 @@ CREATE TABLE `req_prob`  (
   `req_to` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `req_head` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `req_prob_type` int(2) NOT NULL,
-  `req_details` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `request` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `req_details` text CHARACTER SET utf8 COLLATE utf8_general_ci,
+  `request` text CHARACTER SET utf8 COLLATE utf8_general_ci,
   `offname` varchar(1) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT 'N',
   `req_time` datetime(0) DEFAULT NULL,
   `check_status` varchar(1) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT 'N',
   `check_time` datetime(0) DEFAULT NULL,
   `check_by` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 42 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of req_prob
+-- ----------------------------
+INSERT INTO `req_prob` VALUES (8, '3250100260350', 'น.ส.', 'สรญา', 'หนูประเสริฐ', 'F', 'พนง.บริษัท', 'กรุงเทพมหานคร', 'สวนหลวง', 'สวนหลวง', '', '10250', '', '0622969224', 'tucktae.i@gmail.com', 'ผู้บริหารโรงพยาบาลและผู้เกี่ยวข้อง', 'การคัดกรองผู้ป่วย', 3, 'เราเข้าใจเกี่ยวกับปัญหาโรคระบาดโควิด19 คุณใช้พนักงานเยอะมากในการคัดกรอกแต่ไม่มีคุณภาพ หมอนัดคนไข้มาฟังผลและส่งเสมหะเพื่อตรวจเพิ่ม แต่คุณไม่อ่านใบนัดเลย คนไข้มีอาการไอ แต่ไอมาตั้งแต่วันแรกที่มาโรงพยาบาลแล้ว และผลตรวจโควิด เป็นลบ พยาบาลคัดกรอกไม่สอบถาม แต่ก', 'แก้ไขการจัดการคัดกรองที่ซ้ำซ้อนและไม่สามารถอ่านใบนัดที่เป็นภาษาอังกฤษได้ ควรทำภาษาไทยให้พยาบาลอ่านได้ชัดเจน จะได้ประหยัดเวลา และรักษาโรคได้ถูกต้องและทันการ ', 'N', '2021-01-08 11:09:53', 'Y', '2021-01-18 12:31:58', 'ภกญ.สุธีวรรณ โหตกษาปน์กุล');
+INSERT INTO `req_prob` VALUES (11, '0000000000000', 'mmm', 'mmmm', 'mmmmmm', 'M', '', '', '', '', '', '', '', '0000000000', '', 'mmmmmm', 'แนะนำอาหาร', 4, 'ได้อ่านข่าว รพ.ฯ แนะนำหลักสูตร การใช้ใบกัญชาปรุงอาหาา อดีตเคยเสพ ขอแนะนำ ผัดกะเพราะปลากระป๋อง ยี่ห้ออะไรก็ได้ ในซอสมะเขือเทศ ในน้ำมัน ในน้ำแร่ ได้ทั้งนั้น ผัดเหมือนผัดกะเพราะทั่ว ๆ ไป รสชาติตามชอบ ตบท้ายด้วยซอยใบกัญชาแห้งเล็กน้อยหรือตามชอบ พร้อมใบกะเพรา ปิดไฟ แหล่มเลย หรือ จะยำก็ได้', 'mmmmmmmmmmmmmmmmmmmmmmmmmmmm ', 'Y', '2021-01-12 12:13:45', 'N', NULL, NULL);
+INSERT INTO `req_prob` VALUES (12, '1250100268826', 'นางสาว', 'รชตะ', 'บัวดอก', 'F', 'ว่างงาน', 'ปราจีนบุรี', 'เมืองปราจีนบุรี', 'บ้านพระ', '', '25230', '0959406097', '0959406097', '', 'ห่องจ่ายยา', 'รอจ่ายยานานมาก', 3, 'คุณหมอตรวจเสร็จ ทำบัตรนัดเรียบร้อยตั้งแต่เวลาประมาน 9 โมง 40  นาที ส่งใบสั่งยา นั่งรอประมาน 1 ชม. จนข้ามคิวไปประมาน 30 คิว ติดต่อเจ้าหน้าที่ผลปรากฏว่าใบสั่งยาหาไม่เจอ คือแย่มากค่ะ ต้องเสียเวลาร่วม2ชม.ในการรอยา', 'ประปรุงขั้นตอนการทำงานด้วยค่ะ ไหนจะโควิด ไหนจะคนไข้เจาะเลือดข้าวก้ยังไม่ได้ทาน ', 'N', '2021-01-18 11:26:47', 'N', NULL, NULL);
+INSERT INTO `req_prob` VALUES (13, '0000000000000', 'นาย', 'ไม่ต้องทราบ', 'ไม่ต้องทราบ', 'F', '', '', '', '', '', '', '0000000000', '', '', 'การบริการ', 'การพูดและน้ำเสียง', 4, 'เจ้าหน้าที่ ที่อยู่ทางระหว่างศูนย์อาหาร จุดตรวจ พูดไม่ค่อยเพราะ มาสอบถามนวด พอบอกมาจากกบินทร์ เค้าบอกเชิญ กลับ แล้วใช้มือเหมือนต้อนกลับบ้านเลย', 'ควรสุภาพกว่านี้ ', 'Y', '2021-01-22 13:07:55', 'Y', '2021-01-22 13:20:23', 'ภกญ.สุธีวรรณ โหตกษาปน์กุล');
+INSERT INTO `req_prob` VALUES (14, '3250100260350', 'น.ส.', 'สรญา', 'หนูประเสริฐ', 'F', 'พนง.บริษัท', 'กรุงเทพมหานคร', 'สวนหลวง', 'สวนหลวง', '', '10250', '', '0622969224', 'tucktae.i@gmail.com', 'ผู้บริหารโรงพยาบาลและผู้เกี่ยวข้อง', 'การคัดกรองผู้ป่วย', 3, 'เราเข้าใจเกี่ยวกับปัญหาโรคระบาดโควิด19 คุณใช้พนักงานเยอะมากในการคัดกรอกแต่ไม่มีคุณภาพ หมอนัดคนไข้มาฟังผลและส่งเสมหะเพื่อตรวจเพิ่ม แต่คุณไม่อ่านใบนัดเลย คนไข้มีอาการไอ แต่ไอมาตั้งแต่วันแรกที่มาโรงพยาบาลแล้ว และผลตรวจโควิด เป็นลบ พยาบาลคัดกรอกไม่สอบถาม แต่ก', 'แก้ไขการจัดการคัดกรองที่ซ้ำซ้อนและไม่สามารถอ่านใบนัดที่เป็นภาษาอังกฤษได้ ควรทำภาษาไทยให้พยาบาลอ่านได้ชัดเจน จะได้ประหยัดเวลา และรักษาโรคได้ถูกต้องและทันการ ', 'N', '2021-01-08 11:09:53', 'Y', '2021-01-18 12:31:58', 'ภกญ.สุธีวรรณ โหตกษาปน์กุล');
+INSERT INTO `req_prob` VALUES (15, '0000000000000', 'mmm', 'mmmm', 'mmmmmm', 'M', '', '', '', '', '', '', '', '0000000000', '', 'mmmmmm', 'แนะนำอาหาร', 4, 'ได้อ่านข่าว รพ.ฯ แนะนำหลักสูตร การใช้ใบกัญชาปรุงอาหาา อดีตเคยเสพ ขอแนะนำ ผัดกะเพราะปลากระป๋อง ยี่ห้ออะไรก็ได้ ในซอสมะเขือเทศ ในน้ำมัน ในน้ำแร่ ได้ทั้งนั้น ผัดเหมือนผัดกะเพราะทั่ว ๆ ไป รสชาติตามชอบ ตบท้ายด้วยซอยใบกัญชาแห้งเล็กน้อยหรือตามชอบ พร้อมใบกะเพรา ปิดไฟ แหล่มเลย หรือ จะยำก็ได้', 'mmmmmmmmmmmmmmmmmmmmmmmmmmmm ', 'Y', '2021-01-12 12:13:45', 'N', NULL, NULL);
+INSERT INTO `req_prob` VALUES (16, '1250100268826', 'นางสาว', 'รชตะ', 'บัวดอก', 'F', 'ว่างงาน', 'ปราจีนบุรี', 'เมืองปราจีนบุรี', 'บ้านพระ', '', '25230', '0959406097', '0959406097', '', 'ห่องจ่ายยา', 'รอจ่ายยานานมาก', 3, 'คุณหมอตรวจเสร็จ ทำบัตรนัดเรียบร้อยตั้งแต่เวลาประมาน 9 โมง 40  นาที ส่งใบสั่งยา นั่งรอประมาน 1 ชม. จนข้ามคิวไปประมาน 30 คิว ติดต่อเจ้าหน้าที่ผลปรากฏว่าใบสั่งยาหาไม่เจอ คือแย่มากค่ะ ต้องเสียเวลาร่วม2ชม.ในการรอยา', 'ประปรุงขั้นตอนการทำงานด้วยค่ะ ไหนจะโควิด ไหนจะคนไข้เจาะเลือดข้าวก้ยังไม่ได้ทาน ', 'N', '2021-01-18 11:26:47', 'N', NULL, NULL);
+INSERT INTO `req_prob` VALUES (17, '0000000000000', 'นาย', 'ไม่ต้องทราบ', 'ไม่ต้องทราบ', 'F', '', '', '', '', '', '', '0000000000', '', '', 'การบริการ', 'การพูดและน้ำเสียง', 4, 'เจ้าหน้าที่ ที่อยู่ทางระหว่างศูนย์อาหาร จุดตรวจ พูดไม่ค่อยเพราะ มาสอบถามนวด พอบอกมาจากกบินทร์ เค้าบอกเชิญ กลับ แล้วใช้มือเหมือนต้อนกลับบ้านเลย', 'ควรสุภาพกว่านี้ ', 'Y', '2021-01-22 13:07:55', 'Y', '2021-01-22 13:20:23', 'ภกญ.สุธีวรรณ โหตกษาปน์กุล');
+INSERT INTO `req_prob` VALUES (18, '3250100260350', 'น.ส.', 'สรญา', 'หนูประเสริฐ', 'F', 'พนง.บริษัท', 'กรุงเทพมหานคร', 'สวนหลวง', 'สวนหลวง', '', '10250', '', '0622969224', 'tucktae.i@gmail.com', 'ผู้บริหารโรงพยาบาลและผู้เกี่ยวข้อง', 'การคัดกรองผู้ป่วย', 3, 'เราเข้าใจเกี่ยวกับปัญหาโรคระบาดโควิด19 คุณใช้พนักงานเยอะมากในการคัดกรอกแต่ไม่มีคุณภาพ หมอนัดคนไข้มาฟังผลและส่งเสมหะเพื่อตรวจเพิ่ม แต่คุณไม่อ่านใบนัดเลย คนไข้มีอาการไอ แต่ไอมาตั้งแต่วันแรกที่มาโรงพยาบาลแล้ว และผลตรวจโควิด เป็นลบ พยาบาลคัดกรอกไม่สอบถาม แต่ก', 'แก้ไขการจัดการคัดกรองที่ซ้ำซ้อนและไม่สามารถอ่านใบนัดที่เป็นภาษาอังกฤษได้ ควรทำภาษาไทยให้พยาบาลอ่านได้ชัดเจน จะได้ประหยัดเวลา และรักษาโรคได้ถูกต้องและทันการ ', 'N', '2021-01-08 11:09:53', 'Y', '2021-01-18 12:31:58', 'ภกญ.สุธีวรรณ โหตกษาปน์กุล');
+INSERT INTO `req_prob` VALUES (19, '0000000000000', 'mmm', 'mmmm', 'mmmmmm', 'M', '', '', '', '', '', '', '', '0000000000', '', 'mmmmmm', 'แนะนำอาหาร', 4, 'ได้อ่านข่าว รพ.ฯ แนะนำหลักสูตร การใช้ใบกัญชาปรุงอาหาา อดีตเคยเสพ ขอแนะนำ ผัดกะเพราะปลากระป๋อง ยี่ห้ออะไรก็ได้ ในซอสมะเขือเทศ ในน้ำมัน ในน้ำแร่ ได้ทั้งนั้น ผัดเหมือนผัดกะเพราะทั่ว ๆ ไป รสชาติตามชอบ ตบท้ายด้วยซอยใบกัญชาแห้งเล็กน้อยหรือตามชอบ พร้อมใบกะเพรา ปิดไฟ แหล่มเลย หรือ จะยำก็ได้', 'mmmmmmmmmmmmmmmmmmmmmmmmmmmm ', 'Y', '2021-01-12 12:13:45', 'N', NULL, NULL);
+INSERT INTO `req_prob` VALUES (20, '1250100268826', 'นางสาว', 'รชตะ', 'บัวดอก', 'F', 'ว่างงาน', 'ปราจีนบุรี', 'เมืองปราจีนบุรี', 'บ้านพระ', '', '25230', '0959406097', '0959406097', '', 'ห่องจ่ายยา', 'รอจ่ายยานานมาก', 3, 'คุณหมอตรวจเสร็จ ทำบัตรนัดเรียบร้อยตั้งแต่เวลาประมาน 9 โมง 40  นาที ส่งใบสั่งยา นั่งรอประมาน 1 ชม. จนข้ามคิวไปประมาน 30 คิว ติดต่อเจ้าหน้าที่ผลปรากฏว่าใบสั่งยาหาไม่เจอ คือแย่มากค่ะ ต้องเสียเวลาร่วม2ชม.ในการรอยา', 'ประปรุงขั้นตอนการทำงานด้วยค่ะ ไหนจะโควิด ไหนจะคนไข้เจาะเลือดข้าวก้ยังไม่ได้ทาน ', 'N', '2021-01-18 11:26:47', 'N', NULL, NULL);
+INSERT INTO `req_prob` VALUES (21, '0000000000000', 'นาย', 'ไม่ต้องทราบ', 'ไม่ต้องทราบ', 'F', '', '', '', '', '', '', '0000000000', '', '', 'การบริการ', 'การพูดและน้ำเสียง', 4, 'เจ้าหน้าที่ ที่อยู่ทางระหว่างศูนย์อาหาร จุดตรวจ พูดไม่ค่อยเพราะ มาสอบถามนวด พอบอกมาจากกบินทร์ เค้าบอกเชิญ กลับ แล้วใช้มือเหมือนต้อนกลับบ้านเลย', 'ควรสุภาพกว่านี้ ', 'Y', '2021-01-22 13:07:55', 'Y', '2021-01-22 13:20:23', 'ภกญ.สุธีวรรณ โหตกษาปน์กุล');
+INSERT INTO `req_prob` VALUES (22, '3250100260350', 'น.ส.', 'สรญา', 'หนูประเสริฐ', 'F', 'พนง.บริษัท', 'กรุงเทพมหานคร', 'สวนหลวง', 'สวนหลวง', '', '10250', '', '0622969224', 'tucktae.i@gmail.com', 'ผู้บริหารโรงพยาบาลและผู้เกี่ยวข้อง', 'การคัดกรองผู้ป่วย', 3, 'เราเข้าใจเกี่ยวกับปัญหาโรคระบาดโควิด19 คุณใช้พนักงานเยอะมากในการคัดกรอกแต่ไม่มีคุณภาพ หมอนัดคนไข้มาฟังผลและส่งเสมหะเพื่อตรวจเพิ่ม แต่คุณไม่อ่านใบนัดเลย คนไข้มีอาการไอ แต่ไอมาตั้งแต่วันแรกที่มาโรงพยาบาลแล้ว และผลตรวจโควิด เป็นลบ พยาบาลคัดกรอกไม่สอบถาม แต่ก', 'แก้ไขการจัดการคัดกรองที่ซ้ำซ้อนและไม่สามารถอ่านใบนัดที่เป็นภาษาอังกฤษได้ ควรทำภาษาไทยให้พยาบาลอ่านได้ชัดเจน จะได้ประหยัดเวลา และรักษาโรคได้ถูกต้องและทันการ ', 'N', '2021-01-08 11:09:53', 'Y', '2021-01-18 12:31:58', 'ภกญ.สุธีวรรณ โหตกษาปน์กุล');
+INSERT INTO `req_prob` VALUES (23, '0000000000000', 'mmm', 'mmmm', 'mmmmmm', 'M', '', '', '', '', '', '', '', '0000000000', '', 'mmmmmm', 'แนะนำอาหาร', 4, 'ได้อ่านข่าว รพ.ฯ แนะนำหลักสูตร การใช้ใบกัญชาปรุงอาหาา อดีตเคยเสพ ขอแนะนำ ผัดกะเพราะปลากระป๋อง ยี่ห้ออะไรก็ได้ ในซอสมะเขือเทศ ในน้ำมัน ในน้ำแร่ ได้ทั้งนั้น ผัดเหมือนผัดกะเพราะทั่ว ๆ ไป รสชาติตามชอบ ตบท้ายด้วยซอยใบกัญชาแห้งเล็กน้อยหรือตามชอบ พร้อมใบกะเพรา ปิดไฟ แหล่มเลย หรือ จะยำก็ได้', 'mmmmmmmmmmmmmmmmmmmmmmmmmmmm ', 'Y', '2021-01-12 12:13:45', 'N', NULL, NULL);
+INSERT INTO `req_prob` VALUES (24, '1250100268826', 'นางสาว', 'รชตะ', 'บัวดอก', 'F', 'ว่างงาน', 'ปราจีนบุรี', 'เมืองปราจีนบุรี', 'บ้านพระ', '', '25230', '0959406097', '0959406097', '', 'ห่องจ่ายยา', 'รอจ่ายยานานมาก', 3, 'คุณหมอตรวจเสร็จ ทำบัตรนัดเรียบร้อยตั้งแต่เวลาประมาน 9 โมง 40  นาที ส่งใบสั่งยา นั่งรอประมาน 1 ชม. จนข้ามคิวไปประมาน 30 คิว ติดต่อเจ้าหน้าที่ผลปรากฏว่าใบสั่งยาหาไม่เจอ คือแย่มากค่ะ ต้องเสียเวลาร่วม2ชม.ในการรอยา', 'ประปรุงขั้นตอนการทำงานด้วยค่ะ ไหนจะโควิด ไหนจะคนไข้เจาะเลือดข้าวก้ยังไม่ได้ทาน ', 'N', '2021-01-18 11:26:47', 'N', NULL, NULL);
+INSERT INTO `req_prob` VALUES (25, '0000000000000', 'นาย', 'ไม่ต้องทราบ', 'ไม่ต้องทราบ', 'F', '', '', '', '', '', '', '0000000000', '', '', 'การบริการ', 'การพูดและน้ำเสียง', 4, 'เจ้าหน้าที่ ที่อยู่ทางระหว่างศูนย์อาหาร จุดตรวจ พูดไม่ค่อยเพราะ มาสอบถามนวด พอบอกมาจากกบินทร์ เค้าบอกเชิญ กลับ แล้วใช้มือเหมือนต้อนกลับบ้านเลย', 'ควรสุภาพกว่านี้ ', 'Y', '2021-01-22 13:07:55', 'Y', '2021-01-22 13:20:23', 'ภกญ.สุธีวรรณ โหตกษาปน์กุล');
+INSERT INTO `req_prob` VALUES (26, '3250100260350', 'น.ส.', 'สรญา', 'หนูประเสริฐ', 'F', 'พนง.บริษัท', 'กรุงเทพมหานคร', 'สวนหลวง', 'สวนหลวง', '', '10250', '', '0622969224', 'tucktae.i@gmail.com', 'ผู้บริหารโรงพยาบาลและผู้เกี่ยวข้อง', 'การคัดกรองผู้ป่วย', 3, 'เราเข้าใจเกี่ยวกับปัญหาโรคระบาดโควิด19 คุณใช้พนักงานเยอะมากในการคัดกรอกแต่ไม่มีคุณภาพ หมอนัดคนไข้มาฟังผลและส่งเสมหะเพื่อตรวจเพิ่ม แต่คุณไม่อ่านใบนัดเลย คนไข้มีอาการไอ แต่ไอมาตั้งแต่วันแรกที่มาโรงพยาบาลแล้ว และผลตรวจโควิด เป็นลบ พยาบาลคัดกรอกไม่สอบถาม แต่ก', 'แก้ไขการจัดการคัดกรองที่ซ้ำซ้อนและไม่สามารถอ่านใบนัดที่เป็นภาษาอังกฤษได้ ควรทำภาษาไทยให้พยาบาลอ่านได้ชัดเจน จะได้ประหยัดเวลา และรักษาโรคได้ถูกต้องและทันการ ', 'N', '2021-01-08 11:09:53', 'Y', '2021-01-18 12:31:58', 'ภกญ.สุธีวรรณ โหตกษาปน์กุล');
+INSERT INTO `req_prob` VALUES (27, '0000000000000', 'mmm', 'mmmm', 'mmmmmm', 'M', '', '', '', '', '', '', '', '0000000000', '', 'mmmmmm', 'แนะนำอาหาร', 4, 'ได้อ่านข่าว รพ.ฯ แนะนำหลักสูตร การใช้ใบกัญชาปรุงอาหาา อดีตเคยเสพ ขอแนะนำ ผัดกะเพราะปลากระป๋อง ยี่ห้ออะไรก็ได้ ในซอสมะเขือเทศ ในน้ำมัน ในน้ำแร่ ได้ทั้งนั้น ผัดเหมือนผัดกะเพราะทั่ว ๆ ไป รสชาติตามชอบ ตบท้ายด้วยซอยใบกัญชาแห้งเล็กน้อยหรือตามชอบ พร้อมใบกะเพรา ปิดไฟ แหล่มเลย หรือ จะยำก็ได้', 'mmmmmmmmmmmmmmmmmmmmmmmmmmmm ', 'Y', '2021-01-12 12:13:45', 'N', NULL, NULL);
+INSERT INTO `req_prob` VALUES (28, '1250100268826', 'นางสาว', 'รชตะ', 'บัวดอก', 'F', 'ว่างงาน', 'ปราจีนบุรี', 'เมืองปราจีนบุรี', 'บ้านพระ', '', '25230', '0959406097', '0959406097', '', 'ห่องจ่ายยา', 'รอจ่ายยานานมาก', 3, 'คุณหมอตรวจเสร็จ ทำบัตรนัดเรียบร้อยตั้งแต่เวลาประมาน 9 โมง 40  นาที ส่งใบสั่งยา นั่งรอประมาน 1 ชม. จนข้ามคิวไปประมาน 30 คิว ติดต่อเจ้าหน้าที่ผลปรากฏว่าใบสั่งยาหาไม่เจอ คือแย่มากค่ะ ต้องเสียเวลาร่วม2ชม.ในการรอยา', 'ประปรุงขั้นตอนการทำงานด้วยค่ะ ไหนจะโควิด ไหนจะคนไข้เจาะเลือดข้าวก้ยังไม่ได้ทาน ', 'N', '2021-01-18 11:26:47', 'N', NULL, NULL);
+INSERT INTO `req_prob` VALUES (29, '0000000000000', 'นาย', 'ไม่ต้องทราบ', 'ไม่ต้องทราบ', 'F', '', '', '', '', '', '', '0000000000', '', '', 'การบริการ', 'การพูดและน้ำเสียง', 4, 'เจ้าหน้าที่ ที่อยู่ทางระหว่างศูนย์อาหาร จุดตรวจ พูดไม่ค่อยเพราะ มาสอบถามนวด พอบอกมาจากกบินทร์ เค้าบอกเชิญ กลับ แล้วใช้มือเหมือนต้อนกลับบ้านเลย', 'ควรสุภาพกว่านี้ ', 'Y', '2021-01-22 13:07:55', 'Y', '2021-01-22 13:20:23', 'ภกญ.สุธีวรรณ โหตกษาปน์กุล');
+INSERT INTO `req_prob` VALUES (30, '3250100260350', 'น.ส.', 'สรญา', 'หนูประเสริฐ', 'F', 'พนง.บริษัท', 'กรุงเทพมหานคร', 'สวนหลวง', 'สวนหลวง', '', '10250', '', '0622969224', 'tucktae.i@gmail.com', 'ผู้บริหารโรงพยาบาลและผู้เกี่ยวข้อง', 'การคัดกรองผู้ป่วย', 3, 'เราเข้าใจเกี่ยวกับปัญหาโรคระบาดโควิด19 คุณใช้พนักงานเยอะมากในการคัดกรอกแต่ไม่มีคุณภาพ หมอนัดคนไข้มาฟังผลและส่งเสมหะเพื่อตรวจเพิ่ม แต่คุณไม่อ่านใบนัดเลย คนไข้มีอาการไอ แต่ไอมาตั้งแต่วันแรกที่มาโรงพยาบาลแล้ว และผลตรวจโควิด เป็นลบ พยาบาลคัดกรอกไม่สอบถาม แต่ก', 'แก้ไขการจัดการคัดกรองที่ซ้ำซ้อนและไม่สามารถอ่านใบนัดที่เป็นภาษาอังกฤษได้ ควรทำภาษาไทยให้พยาบาลอ่านได้ชัดเจน จะได้ประหยัดเวลา และรักษาโรคได้ถูกต้องและทันการ ', 'N', '2021-01-08 11:09:53', 'Y', '2021-01-18 12:31:58', 'ภกญ.สุธีวรรณ โหตกษาปน์กุล');
+INSERT INTO `req_prob` VALUES (31, '0000000000000', 'mmm', 'mmmm', 'mmmmmm', 'M', '', '', '', '', '', '', '', '0000000000', '', 'mmmmmm', 'แนะนำอาหาร', 4, 'ได้อ่านข่าว รพ.ฯ แนะนำหลักสูตร การใช้ใบกัญชาปรุงอาหาา อดีตเคยเสพ ขอแนะนำ ผัดกะเพราะปลากระป๋อง ยี่ห้ออะไรก็ได้ ในซอสมะเขือเทศ ในน้ำมัน ในน้ำแร่ ได้ทั้งนั้น ผัดเหมือนผัดกะเพราะทั่ว ๆ ไป รสชาติตามชอบ ตบท้ายด้วยซอยใบกัญชาแห้งเล็กน้อยหรือตามชอบ พร้อมใบกะเพรา ปิดไฟ แหล่มเลย หรือ จะยำก็ได้', 'mmmmmmmmmmmmmmmmmmmmmmmmmmmm ', 'Y', '2021-01-12 12:13:45', 'N', NULL, NULL);
+INSERT INTO `req_prob` VALUES (32, '1250100268826', 'นางสาว', 'รชตะ', 'บัวดอก', 'F', 'ว่างงาน', 'ปราจีนบุรี', 'เมืองปราจีนบุรี', 'บ้านพระ', '', '25230', '0959406097', '0959406097', '', 'ห่องจ่ายยา', 'รอจ่ายยานานมาก', 3, 'คุณหมอตรวจเสร็จ ทำบัตรนัดเรียบร้อยตั้งแต่เวลาประมาน 9 โมง 40  นาที ส่งใบสั่งยา นั่งรอประมาน 1 ชม. จนข้ามคิวไปประมาน 30 คิว ติดต่อเจ้าหน้าที่ผลปรากฏว่าใบสั่งยาหาไม่เจอ คือแย่มากค่ะ ต้องเสียเวลาร่วม2ชม.ในการรอยา', 'ประปรุงขั้นตอนการทำงานด้วยค่ะ ไหนจะโควิด ไหนจะคนไข้เจาะเลือดข้าวก้ยังไม่ได้ทาน ', 'N', '2021-01-18 11:26:47', 'N', NULL, NULL);
+INSERT INTO `req_prob` VALUES (33, '0000000000000', 'นาย', 'ไม่ต้องทราบ', 'ไม่ต้องทราบ', 'F', '', '', '', '', '', '', '0000000000', '', '', 'การบริการ', 'การพูดและน้ำเสียง', 4, 'เจ้าหน้าที่ ที่อยู่ทางระหว่างศูนย์อาหาร จุดตรวจ พูดไม่ค่อยเพราะ มาสอบถามนวด พอบอกมาจากกบินทร์ เค้าบอกเชิญ กลับ แล้วใช้มือเหมือนต้อนกลับบ้านเลย', 'ควรสุภาพกว่านี้ ', 'Y', '2021-01-22 13:07:55', 'Y', '2021-01-22 13:20:23', 'ภกญ.สุธีวรรณ โหตกษาปน์กุล');
+INSERT INTO `req_prob` VALUES (34, '3250100260350', 'น.ส.', 'สรญา', 'หนูประเสริฐ', 'F', 'พนง.บริษัท', 'กรุงเทพมหานคร', 'สวนหลวง', 'สวนหลวง', '', '10250', '', '0622969224', 'tucktae.i@gmail.com', 'ผู้บริหารโรงพยาบาลและผู้เกี่ยวข้อง', 'การคัดกรองผู้ป่วย', 3, 'เราเข้าใจเกี่ยวกับปัญหาโรคระบาดโควิด19 คุณใช้พนักงานเยอะมากในการคัดกรอกแต่ไม่มีคุณภาพ หมอนัดคนไข้มาฟังผลและส่งเสมหะเพื่อตรวจเพิ่ม แต่คุณไม่อ่านใบนัดเลย คนไข้มีอาการไอ แต่ไอมาตั้งแต่วันแรกที่มาโรงพยาบาลแล้ว และผลตรวจโควิด เป็นลบ พยาบาลคัดกรอกไม่สอบถาม แต่ก', 'แก้ไขการจัดการคัดกรองที่ซ้ำซ้อนและไม่สามารถอ่านใบนัดที่เป็นภาษาอังกฤษได้ ควรทำภาษาไทยให้พยาบาลอ่านได้ชัดเจน จะได้ประหยัดเวลา และรักษาโรคได้ถูกต้องและทันการ ', 'N', '2021-01-08 11:09:53', 'Y', '2021-01-18 12:31:58', 'ภกญ.สุธีวรรณ โหตกษาปน์กุล');
+INSERT INTO `req_prob` VALUES (35, '0000000000000', 'mmm', 'mmmm', 'mmmmmm', 'M', '', '', '', '', '', '', '', '0000000000', '', 'mmmmmm', 'แนะนำอาหาร', 4, 'ได้อ่านข่าว รพ.ฯ แนะนำหลักสูตร การใช้ใบกัญชาปรุงอาหาา อดีตเคยเสพ ขอแนะนำ ผัดกะเพราะปลากระป๋อง ยี่ห้ออะไรก็ได้ ในซอสมะเขือเทศ ในน้ำมัน ในน้ำแร่ ได้ทั้งนั้น ผัดเหมือนผัดกะเพราะทั่ว ๆ ไป รสชาติตามชอบ ตบท้ายด้วยซอยใบกัญชาแห้งเล็กน้อยหรือตามชอบ พร้อมใบกะเพรา ปิดไฟ แหล่มเลย หรือ จะยำก็ได้', 'mmmmmmmmmmmmmmmmmmmmmmmmmmmm ', 'Y', '2021-01-12 12:13:45', 'N', NULL, NULL);
+INSERT INTO `req_prob` VALUES (36, '1250100268826', 'นางสาว', 'รชตะ', 'บัวดอก', 'F', 'ว่างงาน', 'ปราจีนบุรี', 'เมืองปราจีนบุรี', 'บ้านพระ', '', '25230', '0959406097', '0959406097', '', 'ห่องจ่ายยา', 'รอจ่ายยานานมาก', 3, 'คุณหมอตรวจเสร็จ ทำบัตรนัดเรียบร้อยตั้งแต่เวลาประมาน 9 โมง 40  นาที ส่งใบสั่งยา นั่งรอประมาน 1 ชม. จนข้ามคิวไปประมาน 30 คิว ติดต่อเจ้าหน้าที่ผลปรากฏว่าใบสั่งยาหาไม่เจอ คือแย่มากค่ะ ต้องเสียเวลาร่วม2ชม.ในการรอยา', 'ประปรุงขั้นตอนการทำงานด้วยค่ะ ไหนจะโควิด ไหนจะคนไข้เจาะเลือดข้าวก้ยังไม่ได้ทาน ', 'N', '2021-01-18 11:26:47', 'N', NULL, NULL);
+INSERT INTO `req_prob` VALUES (37, '0000000000000', 'นาย', 'ไม่ต้องทราบ', 'ไม่ต้องทราบ', 'F', '', '', '', '', '', '', '0000000000', '', '', 'การบริการ', 'การพูดและน้ำเสียง', 4, 'เจ้าหน้าที่ ที่อยู่ทางระหว่างศูนย์อาหาร จุดตรวจ พูดไม่ค่อยเพราะ มาสอบถามนวด พอบอกมาจากกบินทร์ เค้าบอกเชิญ กลับ แล้วใช้มือเหมือนต้อนกลับบ้านเลย', 'ควรสุภาพกว่านี้ ', 'Y', '2021-01-22 13:07:55', 'Y', '2021-01-22 13:20:23', 'ภกญ.สุธีวรรณ โหตกษาปน์กุล');
+INSERT INTO `req_prob` VALUES (38, '3250100260350', 'น.ส.', 'สรญา', 'หนูประเสริฐ', 'F', 'พนง.บริษัท', 'กรุงเทพมหานคร', 'สวนหลวง', 'สวนหลวง', '', '10250', '', '0622969224', 'tucktae.i@gmail.com', 'ผู้บริหารโรงพยาบาลและผู้เกี่ยวข้อง', 'การคัดกรองผู้ป่วย', 3, 'เราเข้าใจเกี่ยวกับปัญหาโรคระบาดโควิด19 คุณใช้พนักงานเยอะมากในการคัดกรอกแต่ไม่มีคุณภาพ หมอนัดคนไข้มาฟังผลและส่งเสมหะเพื่อตรวจเพิ่ม แต่คุณไม่อ่านใบนัดเลย คนไข้มีอาการไอ แต่ไอมาตั้งแต่วันแรกที่มาโรงพยาบาลแล้ว และผลตรวจโควิด เป็นลบ พยาบาลคัดกรอกไม่สอบถาม แต่ก', 'แก้ไขการจัดการคัดกรองที่ซ้ำซ้อนและไม่สามารถอ่านใบนัดที่เป็นภาษาอังกฤษได้ ควรทำภาษาไทยให้พยาบาลอ่านได้ชัดเจน จะได้ประหยัดเวลา และรักษาโรคได้ถูกต้องและทันการ ', 'N', '2021-01-08 11:09:53', 'Y', '2021-01-18 12:31:58', 'ภกญ.สุธีวรรณ โหตกษาปน์กุล');
+INSERT INTO `req_prob` VALUES (39, '0000000000000', 'mmm', 'mmmm', 'mmmmmm', 'M', '', '', '', '', '', '', '', '0000000000', '', 'mmmmmm', 'แนะนำอาหาร', 4, 'ได้อ่านข่าว รพ.ฯ แนะนำหลักสูตร การใช้ใบกัญชาปรุงอาหาา อดีตเคยเสพ ขอแนะนำ ผัดกะเพราะปลากระป๋อง ยี่ห้ออะไรก็ได้ ในซอสมะเขือเทศ ในน้ำมัน ในน้ำแร่ ได้ทั้งนั้น ผัดเหมือนผัดกะเพราะทั่ว ๆ ไป รสชาติตามชอบ ตบท้ายด้วยซอยใบกัญชาแห้งเล็กน้อยหรือตามชอบ พร้อมใบกะเพรา ปิดไฟ แหล่มเลย หรือ จะยำก็ได้', 'mmmmmmmmmmmmmmmmmmmmmmmmmmmm ', 'Y', '2021-01-12 12:13:45', 'N', NULL, NULL);
+INSERT INTO `req_prob` VALUES (40, '1250100268826', 'นางสาว', 'รชตะ', 'บัวดอก', 'F', 'ว่างงาน', 'ปราจีนบุรี', 'เมืองปราจีนบุรี', 'บ้านพระ', '', '25230', '0959406097', '0959406097', '', 'ห่องจ่ายยา', 'รอจ่ายยานานมาก', 3, 'คุณหมอตรวจเสร็จ ทำบัตรนัดเรียบร้อยตั้งแต่เวลาประมาน 9 โมง 40  นาที ส่งใบสั่งยา นั่งรอประมาน 1 ชม. จนข้ามคิวไปประมาน 30 คิว ติดต่อเจ้าหน้าที่ผลปรากฏว่าใบสั่งยาหาไม่เจอ คือแย่มากค่ะ ต้องเสียเวลาร่วม2ชม.ในการรอยา', 'ประปรุงขั้นตอนการทำงานด้วยค่ะ ไหนจะโควิด ไหนจะคนไข้เจาะเลือดข้าวก้ยังไม่ได้ทาน ', 'N', '2021-01-18 11:26:47', 'N', NULL, NULL);
+INSERT INTO `req_prob` VALUES (41, '0000000000000', 'นาย', 'ไม่ต้องทราบ', 'ไม่ต้องทราบ', 'F', '', '', '', '', '', '', '0000000000', '', '', 'การบริการ', 'การพูดและน้ำเสียง', 4, 'เจ้าหน้าที่ ที่อยู่ทางระหว่างศูนย์อาหาร จุดตรวจ พูดไม่ค่อยเพราะ มาสอบถามนวด พอบอกมาจากกบินทร์ เค้าบอกเชิญ กลับ แล้วใช้มือเหมือนต้อนกลับบ้านเลย', 'ควรสุภาพกว่านี้ ', 'Y', '2021-01-22 13:07:55', 'Y', '2021-01-22 13:20:23', 'ภกญ.สุธีวรรณ โหตกษาปน์กุล');
 
 -- ----------------------------
 -- Table structure for req_prob_type
@@ -1647,7 +1749,7 @@ INSERT INTO `tb_department` VALUES (1, 'แผนกอายุรกรรม'
 INSERT INTO `tb_department` VALUES (2, 'แผนกสูติ-นรีวเชกรรม', 'obstetrics', 'Y', 'Test', '7', '#1ac79f');
 INSERT INTO `tb_department` VALUES (3, 'แผนกกุมารเวชกรรม', 'pediatrics', 'Y', 'ทดลอง', '40', '#1ac79f');
 INSERT INTO `tb_department` VALUES (4, 'แผนกศัลยกรรม', 'surgery', 'Y', 'Test', '52', '#1ac79f');
-INSERT INTO `tb_department` VALUES (5, 'แผนกอายุรกรรม', 'medicine', 'Y', 'ทดลอง', '63', '#1ac79f');
+INSERT INTO `tb_department` VALUES (5, 'แผนกโรคต่างๆ', 'other', 'Y', 'ทดลอง', '63', '#1ac79f');
 INSERT INTO `tb_department` VALUES (6, 'คลินิก SMC นอกเวลา', 'other', 'Y', 'Test', '22', '#1ac79f');
 INSERT INTO `tb_department` VALUES (7, 'แผนกแพทย์แผนไทย', 'thaitraditional', 'Y', 'ทดลอง', '11', '#1ac79f');
 
@@ -1659,7 +1761,7 @@ CREATE TABLE `tb_department_date`  (
   `id` int(3) NOT NULL AUTO_INCREMENT,
   `date` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tb_department_date
@@ -1679,6 +1781,9 @@ INSERT INTO `tb_department_date` VALUES (12, 'เสาร์');
 INSERT INTO `tb_department_date` VALUES (13, 'อาทิตย์');
 INSERT INTO `tb_department_date` VALUES (14, 'ทุกวัน');
 INSERT INTO `tb_department_date` VALUES (15, 'จันทร์ , อังคาร , พุธ');
+INSERT INTO `tb_department_date` VALUES (16, 'จันทร์ , อังคาร');
+INSERT INTO `tb_department_date` VALUES (17, 'อังคาร , พุธ');
+INSERT INTO `tb_department_date` VALUES (18, 'จันทร์ , พฤหัสบดี , ศุกร์');
 
 -- ----------------------------
 -- Table structure for tb_department_detail
@@ -1713,78 +1818,82 @@ CREATE TABLE `tb_department_event`  (
   `department_detail` varchar(3) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `department_time` varchar(3) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `order_by` int(3) DEFAULT NULL,
+  `detail` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 71 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 76 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tb_department_event
 -- ----------------------------
-INSERT INTO `tb_department_event` VALUES (1, '1', '1', '3', '7', '2', 1);
-INSERT INTO `tb_department_event` VALUES (2, '1', '2', '1', '5', '8', 2);
-INSERT INTO `tb_department_event` VALUES (3, '1', '2', '7', '7', '3', 3);
-INSERT INTO `tb_department_event` VALUES (4, '1', '2', '10', '7', '6', 4);
-INSERT INTO `tb_department_event` VALUES (5, '1', '3', '4', '7', '3', 5);
-INSERT INTO `tb_department_event` VALUES (6, '1', '3', '9', '7', '9', 6);
-INSERT INTO `tb_department_event` VALUES (7, '1', '3', '10', '7', '5', 7);
-INSERT INTO `tb_department_event` VALUES (8, '1', '4', '7', '7', '2', 8);
-INSERT INTO `tb_department_event` VALUES (9, '1', '5', '7', '7', '7', 9);
-INSERT INTO `tb_department_event` VALUES (10, '1', '5', '6', '5', '10', 10);
-INSERT INTO `tb_department_event` VALUES (11, '1', '6', '9', '3', '2', 11);
-INSERT INTO `tb_department_event` VALUES (12, '1', '7', '1', '7', '6', 12);
-INSERT INTO `tb_department_event` VALUES (13, '2', '9', '3', '7', '2', 1);
-INSERT INTO `tb_department_event` VALUES (14, '2', '10', '3', '7', '2', 2);
-INSERT INTO `tb_department_event` VALUES (15, '2', '11', '3', '7', '2', 3);
-INSERT INTO `tb_department_event` VALUES (16, '2', '12', '3', '7', '2', 4);
-INSERT INTO `tb_department_event` VALUES (17, '2', '13', '1', '1', '7', 5);
-INSERT INTO `tb_department_event` VALUES (18, '2', '14', '9', '1', '7', 6);
-INSERT INTO `tb_department_event` VALUES (19, '2', '15', '10', '2', '5', 7);
-INSERT INTO `tb_department_event` VALUES (20, '2', '16', '10', '2', '2', 8);
-INSERT INTO `tb_department_event` VALUES (21, '2', '45', '3', '7', '2', 9);
-INSERT INTO `tb_department_event` VALUES (22, '3', '17', '3', '7', '2', 1);
-INSERT INTO `tb_department_event` VALUES (23, '3', '18', '11', '7', '2', 2);
-INSERT INTO `tb_department_event` VALUES (24, '3', '19', '1', '7', '2', 3);
-INSERT INTO `tb_department_event` VALUES (25, '3', '20', '7', '7', '2', 4);
-INSERT INTO `tb_department_event` VALUES (26, '3', '21', '7', '2', '2', 5);
-INSERT INTO `tb_department_event` VALUES (27, '3', '22', '9', '1', '2', 6);
-INSERT INTO `tb_department_event` VALUES (28, '4', '23', '3', '7', '2', 1);
-INSERT INTO `tb_department_event` VALUES (29, '4', '24', '3', '7', '2', 2);
-INSERT INTO `tb_department_event` VALUES (30, '4', '25', '1', '7', '2', 3);
-INSERT INTO `tb_department_event` VALUES (31, '4', '26', '11', '7', '2', 4);
-INSERT INTO `tb_department_event` VALUES (32, '4', '27', '9', '7', '2', 5);
-INSERT INTO `tb_department_event` VALUES (33, '5', '28', '3', '7', '2', 1);
-INSERT INTO `tb_department_event` VALUES (34, '5', '29', '3', '7', '7', 2);
-INSERT INTO `tb_department_event` VALUES (35, '5', '30', '3', '7', '7', 3);
-INSERT INTO `tb_department_event` VALUES (36, '5', '31', '3', '7', '2', 4);
-INSERT INTO `tb_department_event` VALUES (37, '5', '32', '5', '7', '2', 5);
-INSERT INTO `tb_department_event` VALUES (38, '5', '33', '3', '7', '2', 6);
-INSERT INTO `tb_department_event` VALUES (39, '5', '34', '3', '6', '1', 7);
-INSERT INTO `tb_department_event` VALUES (40, '5', '34', '3', '6', '10', 8);
-INSERT INTO `tb_department_event` VALUES (41, '5', '35', '2', '7', '2', 9);
-INSERT INTO `tb_department_event` VALUES (42, '5', '36', '2', '7', '2', 10);
-INSERT INTO `tb_department_event` VALUES (43, '5', '37', '15', '7', '2', 11);
-INSERT INTO `tb_department_event` VALUES (44, '5', '38', '9', '7', '2', 12);
-INSERT INTO `tb_department_event` VALUES (45, '5', '39', '10', '7', '2', 13);
-INSERT INTO `tb_department_event` VALUES (46, '5', '40', '11', '7', '2', 14);
-INSERT INTO `tb_department_event` VALUES (47, '6', '46', '1', '7', '8', 1);
-INSERT INTO `tb_department_event` VALUES (48, '6', '47', '1', '7', '8', 2);
-INSERT INTO `tb_department_event` VALUES (49, '6', '48', '1', '7', '8', 3);
-INSERT INTO `tb_department_event` VALUES (50, '6', '49', '7', '7', '8', 4);
-INSERT INTO `tb_department_event` VALUES (51, '6', '50', '7', '7', '8', 5);
-INSERT INTO `tb_department_event` VALUES (52, '6', '51', '7', '7', '8', 6);
-INSERT INTO `tb_department_event` VALUES (53, '6', '52', '9', '7', '8', 7);
-INSERT INTO `tb_department_event` VALUES (54, '6', '53', '9', '7', '8', 8);
-INSERT INTO `tb_department_event` VALUES (55, '6', '54', '9', '7', '8', 9);
-INSERT INTO `tb_department_event` VALUES (56, '6', '55', '10', '7', '8', 10);
-INSERT INTO `tb_department_event` VALUES (57, '6', '56', '10', '7', '8', 11);
-INSERT INTO `tb_department_event` VALUES (58, '6', '57', '11', '7', '8', 12);
-INSERT INTO `tb_department_event` VALUES (59, '6', '58', '11', '3', '8', 13);
-INSERT INTO `tb_department_event` VALUES (60, '6', '59', '11', '4', '8', 14);
-INSERT INTO `tb_department_event` VALUES (61, '7', '42', '14', '7', '4', 1);
-INSERT INTO `tb_department_event` VALUES (62, '7', '43', '8', '7', '4', 2);
-INSERT INTO `tb_department_event` VALUES (63, '7', '43', '8', '7', '10', 3);
-INSERT INTO `tb_department_event` VALUES (65, '7', '61', '12', '1', '7', 4);
-INSERT INTO `tb_department_event` VALUES (68, '8', '33', '14', '1', '8', 1);
-INSERT INTO `tb_department_event` VALUES (70, '8', '48', '7', '4', '1', 2);
+INSERT INTO `tb_department_event` VALUES (1, '1', '1', '3', '7', '2', 1, NULL);
+INSERT INTO `tb_department_event` VALUES (2, '1', '2', '1', '5', '8', 2, NULL);
+INSERT INTO `tb_department_event` VALUES (3, '1', '2', '7', '7', '3', 3, NULL);
+INSERT INTO `tb_department_event` VALUES (4, '1', '2', '10', '7', '6', 4, NULL);
+INSERT INTO `tb_department_event` VALUES (5, '1', '3', '4', '7', '3', 5, NULL);
+INSERT INTO `tb_department_event` VALUES (6, '1', '3', '9', '7', '9', 6, NULL);
+INSERT INTO `tb_department_event` VALUES (7, '1', '3', '10', '7', '5', 7, NULL);
+INSERT INTO `tb_department_event` VALUES (8, '1', '4', '7', '7', '2', 8, NULL);
+INSERT INTO `tb_department_event` VALUES (9, '1', '5', '7', '7', '7', 9, NULL);
+INSERT INTO `tb_department_event` VALUES (10, '1', '5', '6', '5', '10', 10, NULL);
+INSERT INTO `tb_department_event` VALUES (11, '1', '6', '9', '3', '2', 11, NULL);
+INSERT INTO `tb_department_event` VALUES (12, '1', '7', '1', '7', '6', 12, NULL);
+INSERT INTO `tb_department_event` VALUES (13, '2', '9', '3', '7', '2', 1, NULL);
+INSERT INTO `tb_department_event` VALUES (14, '2', '10', '3', '7', '2', 2, NULL);
+INSERT INTO `tb_department_event` VALUES (15, '2', '11', '3', '7', '2', 3, NULL);
+INSERT INTO `tb_department_event` VALUES (16, '2', '12', '3', '7', '2', 4, NULL);
+INSERT INTO `tb_department_event` VALUES (17, '2', '13', '1', '1', '7', 5, NULL);
+INSERT INTO `tb_department_event` VALUES (18, '2', '14', '9', '1', '7', 6, NULL);
+INSERT INTO `tb_department_event` VALUES (19, '2', '15', '10', '2', '5', 7, NULL);
+INSERT INTO `tb_department_event` VALUES (20, '2', '16', '10', '2', '2', 8, NULL);
+INSERT INTO `tb_department_event` VALUES (21, '2', '45', '3', '7', '2', 9, NULL);
+INSERT INTO `tb_department_event` VALUES (22, '3', '17', '3', '7', '2', 1, NULL);
+INSERT INTO `tb_department_event` VALUES (23, '3', '18', '11', '7', '2', 2, NULL);
+INSERT INTO `tb_department_event` VALUES (24, '3', '19', '1', '7', '2', 3, NULL);
+INSERT INTO `tb_department_event` VALUES (25, '3', '20', '7', '7', '2', 4, '120');
+INSERT INTO `tb_department_event` VALUES (26, '3', '21', '7', '2', '2', 5, NULL);
+INSERT INTO `tb_department_event` VALUES (27, '3', '22', '9', '1', '2', 6, NULL);
+INSERT INTO `tb_department_event` VALUES (28, '4', '23', '3', '7', '2', 1, NULL);
+INSERT INTO `tb_department_event` VALUES (29, '4', '24', '3', '7', '2', 2, NULL);
+INSERT INTO `tb_department_event` VALUES (30, '4', '25', '1', '7', '2', 3, NULL);
+INSERT INTO `tb_department_event` VALUES (31, '4', '26', '11', '7', '2', 4, NULL);
+INSERT INTO `tb_department_event` VALUES (32, '4', '27', '9', '7', '2', 5, NULL);
+INSERT INTO `tb_department_event` VALUES (33, '5', '28', '3', '7', '2', 1, NULL);
+INSERT INTO `tb_department_event` VALUES (34, '5', '29', '3', '7', '7', 2, NULL);
+INSERT INTO `tb_department_event` VALUES (35, '5', '30', '3', '7', '7', 3, NULL);
+INSERT INTO `tb_department_event` VALUES (36, '5', '31', '3', '7', '2', 4, NULL);
+INSERT INTO `tb_department_event` VALUES (37, '5', '32', '5', '7', '2', 5, NULL);
+INSERT INTO `tb_department_event` VALUES (38, '5', '33', '3', '7', '2', 6, NULL);
+INSERT INTO `tb_department_event` VALUES (39, '5', '34', '3', '6', '1', 7, NULL);
+INSERT INTO `tb_department_event` VALUES (40, '5', '34', '3', '6', '10', 8, NULL);
+INSERT INTO `tb_department_event` VALUES (41, '5', '35', '2', '7', '2', 9, NULL);
+INSERT INTO `tb_department_event` VALUES (42, '5', '36', '2', '7', '2', 10, NULL);
+INSERT INTO `tb_department_event` VALUES (43, '5', '37', '15', '7', '2', 11, NULL);
+INSERT INTO `tb_department_event` VALUES (44, '5', '38', '9', '7', '2', 12, NULL);
+INSERT INTO `tb_department_event` VALUES (45, '5', '39', '10', '7', '2', 13, NULL);
+INSERT INTO `tb_department_event` VALUES (46, '5', '40', '11', '7', '2', 14, NULL);
+INSERT INTO `tb_department_event` VALUES (47, '6', '46', '1', '7', '8', 1, 'พญ.วรรณพร เอี่ยมวรวุฒิกุล');
+INSERT INTO `tb_department_event` VALUES (48, '6', '47', '1', '7', '8', 2, NULL);
+INSERT INTO `tb_department_event` VALUES (49, '6', '48', '1', '7', '8', 3, NULL);
+INSERT INTO `tb_department_event` VALUES (50, '6', '49', '7', '7', '8', 4, NULL);
+INSERT INTO `tb_department_event` VALUES (51, '6', '50', '7', '7', '8', 5, NULL);
+INSERT INTO `tb_department_event` VALUES (52, '6', '51', '7', '7', '8', 6, NULL);
+INSERT INTO `tb_department_event` VALUES (53, '6', '52', '9', '7', '8', 7, NULL);
+INSERT INTO `tb_department_event` VALUES (54, '6', '53', '9', '7', '8', 8, NULL);
+INSERT INTO `tb_department_event` VALUES (55, '6', '54', '9', '7', '8', 9, NULL);
+INSERT INTO `tb_department_event` VALUES (56, '6', '55', '10', '7', '8', 10, NULL);
+INSERT INTO `tb_department_event` VALUES (57, '6', '56', '10', '7', '8', 11, NULL);
+INSERT INTO `tb_department_event` VALUES (58, '6', '57', '11', '7', '8', 12, NULL);
+INSERT INTO `tb_department_event` VALUES (59, '6', '58', '11', '3', '8', 13, NULL);
+INSERT INTO `tb_department_event` VALUES (60, '6', '59', '11', '4', '8', 14, NULL);
+INSERT INTO `tb_department_event` VALUES (61, '7', '42', '14', '7', '4', 1, NULL);
+INSERT INTO `tb_department_event` VALUES (62, '7', '43', '8', '7', '4', 2, NULL);
+INSERT INTO `tb_department_event` VALUES (63, '7', '43', '8', '7', '10', 3, NULL);
+INSERT INTO `tb_department_event` VALUES (65, '7', '61', '12', '1', '7', 4, NULL);
+INSERT INTO `tb_department_event` VALUES (68, '8', '33', '14', '1', '8', 1, NULL);
+INSERT INTO `tb_department_event` VALUES (70, '8', '48', '7', '4', '1', 2, NULL);
+INSERT INTO `tb_department_event` VALUES (71, '5', '37', '16', '7', '2', 15, 'นพ.พิสิฎฐ์ ชัยประเสริฐสุด');
+INSERT INTO `tb_department_event` VALUES (72, '5', '37', '17', '7', '2', 16, 'นพ.ชินวัฒน์ โชติเกียรติ');
+INSERT INTO `tb_department_event` VALUES (73, '5', '37', '18', '7', '2', 17, 'นพ.ณัฐวุฒิ สุขสมัย');
 
 -- ----------------------------
 -- Table structure for tb_department_sub
@@ -1794,74 +1903,76 @@ CREATE TABLE `tb_department_sub`  (
   `id` int(3) NOT NULL AUTO_INCREMENT,
   `description_sub` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `en_description_sub` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `detail` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `content` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `word` text CHARACTER SET utf8 COLLATE utf8_general_ci,
   `img` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 60 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 62 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tb_department_sub
 -- ----------------------------
-INSERT INTO `tb_department_sub` VALUES (1, 'อายุรกรรมทั่วไป', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (2, 'คลินิกประสาทวิทยา', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (3, 'คลินิกโรคไต', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (4, 'คลินิกโรคปอด', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (5, 'คลินิกโรคความดันโลหิตสูง', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (6, 'คลินิกอายุรกรรมโรคข้อ', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (7, 'คลินิกเต้านม', NULL, 'XXXXXXX', NULL, 'service_7_20210205_092819.jpg');
-INSERT INTO `tb_department_sub` VALUES (8, 'คลีนิกผิวหนัง', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (9, 'สูติ-นรีเวชกรรมทั่วไป', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (10, 'ฝากครรภ์', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (11, 'ตรวจหลังคลอด', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (12, 'วางแผนครอบครัว', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (13, 'คลินิกมีบุตรยาก', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (14, 'คลินิกกามโรค', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (15, 'คลินิกวัยทอง (หญิง)', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (16, 'คลินิกวัยทอง (ชาย)', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (17, 'ตรวจโรคเด็กทั่วไป', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (18, 'คลินิกโรคเลือด', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (19, 'คลินิกพัฒนาการเด็ก', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (20, 'ตรวจสุขภาพเด็กดี (ฉีดวัคซีน)', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (21, 'คลินิกเด็กแรกคลอด', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (22, 'คลินิกโรคปอด,ภูมิแพ้และโรคไต', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (23, 'ศัลยกรรมทั่วไป', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (24, 'ศัลยกรรมกระดูก', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (25, 'ศัลยกรรมระบบทางเดินปัสสาวะ', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (26, 'ศัลยระบบสมอง', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (27, 'ศัลยกรรมตกแต่ง', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (28, 'ฟัน', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (29, 'คลินิกยาเสพติด,อดบุหรี่,อดสุรา', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (30, 'คลินิกคลายเครียด', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (31, 'คลินิกนิรนาม', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (32, 'เวชกรรมฟื้นฟู', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (33, 'กายภาพบำบัด', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (34, 'ตรวจโรคทั่วไป', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (35, 'ตา', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (36, 'หู คอ จมูก', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (37, 'จิตเวช', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (38, 'คลินิก DAY CARD', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (39, 'คลินิกเบาหวาน', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (40, 'คลินิกวัณโรค', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (41, 'คลินิกการแพทย์แผนไทย', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (42, 'อบสมุนไพร นวด กดจุด', NULL, 'XXXXXXX', NULL, 'service_42_20210205_110300.png');
-INSERT INTO `tb_department_sub` VALUES (43, 'ฝังเข็ม', NULL, 'XXXXXXX', NULL, 'service_43_20210205_105447.png');
-INSERT INTO `tb_department_sub` VALUES (44, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (45, 'คลินิกนมแม่', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (46, 'อายุรกรรมระบบประสาท (พญ.วรรณพร เอี่ยมวรวุฒิกุล)', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (47, 'อายุรกรรมโรคหัวใจ (พญ.ปาลิดา พึ่งผล\r\n)', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (48, 'กุมารเวชกรรมทั่วไป (พญ.พัชรินทร์ เกียรติกังวาฬไกล)', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (49, 'อายุรกรรมโรคติดเชื้อ (พญ.สุเบญจา พิณสาย\r\n)', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (50, 'อายุรกรรมทั่วไป (พญ.รังสิมา รังสีธรรมปัญญา)', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (51, 'กุมารเวชกรรมทั่วไป (พญ.ดลยา เอกวิชกุล)', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (52, 'อายุรกรรมโรคไต (นพ.วรพจน์ เตรียมตระการผล\r\n)', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (53, 'อายุรกรรมโรคเลือด (พญ.สิรภัทร รุ่งวิทยาธิวัฒน์)', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (54, 'กุมารเวชกรรมทั่วไป (พญ.ดลยา เอกวิชกุล)', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (55, 'อายุรกรรมโรคระบบทางเดินอาหาร (พญ.วิจิตรา คงคา)', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (56, 'อายุรกรรมทั่วไป (พญ.ปวีณา กนกพจนานนท์)', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (57, 'อายุรกรรมระบบประสาท (พญ.วรรณพร เอี่ยมวรวุฒิกุล)', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (58, 'อายุรกรรมโรคหัวใจ (พญ.ปาลิดา พึ่งผล)', NULL, 'XXXXXXX', NULL, NULL);
-INSERT INTO `tb_department_sub` VALUES (59, 'อายุรกรรมโรคติดเชื้อ (พญ.สุเบญจา พิณสาย)', NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (1, 'อายุรกรรมทั่วไป', NULL, '', 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (2, 'คลินิกประสาทวิทยา', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (3, 'คลินิกโรคไต', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (4, 'คลินิกโรคปอด', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (5, 'คลินิกโรคความดันโลหิตสูง', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (6, 'คลินิกอายุรกรรมโรคข้อ', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (7, 'คลินิกเต้านม', NULL, NULL, 'XXXXXXX', NULL, 'service_7_20210205_092819.jpg');
+INSERT INTO `tb_department_sub` VALUES (8, 'คลีนิกผิวหนัง', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (9, 'สูติ-นรีเวชกรรมทั่วไป', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (10, 'ฝากครรภ์', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (11, 'ตรวจหลังคลอด', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (12, 'วางแผนครอบครัว', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (13, 'คลินิกมีบุตรยาก', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (14, 'คลินิกกามโรค', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (15, 'คลินิกวัยทอง (หญิง)', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (16, 'คลินิกวัยทอง (ชาย)', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (17, 'ตรวจโรคเด็กทั่วไป', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (18, 'คลินิกโรคเลือด', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (19, 'คลินิกพัฒนาการเด็ก', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (20, 'ตรวจสุขภาพเด็กดี (ฉีดวัคซีน)', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (21, 'คลินิกเด็กแรกคลอด', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (22, 'คลินิกโรคปอด,ภูมิแพ้และโรคไต', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (23, 'ศัลยกรรมทั่วไป', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (24, 'ศัลยกรรมกระดูก', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (25, 'ศัลยกรรมระบบทางเดินปัสสาวะ', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (26, 'ศัลยระบบสมอง', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (27, 'ศัลยกรรมตกแต่ง', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (28, 'ฟัน', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (29, 'คลินิกยาเสพติด,อดบุหรี่,อดสุรา', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (30, 'คลินิกคลายเครียด', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (31, 'คลินิกนิรนาม', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (32, 'เวชกรรมฟื้นฟู', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (33, 'กายภาพบำบัด', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (34, 'ตรวจโรคทั่วไป', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (35, 'ตา', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (36, 'หู คอ จมูก', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (37, 'จิตเวช', NULL, 'คุณหมอเทส', 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (38, 'คลินิก DAY CARD', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (39, 'คลินิกเบาหวาน', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (40, 'คลินิกวัณโรค', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (41, 'คลินิกการแพทย์แผนไทย', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (42, 'อบสมุนไพร นวด กดจุด', NULL, NULL, 'XXXXXXX', NULL, 'service_42_20210205_110300.png');
+INSERT INTO `tb_department_sub` VALUES (43, 'ฝังเข็ม', NULL, NULL, 'XXXXXXX', NULL, 'service_43_20210205_105447.png');
+INSERT INTO `tb_department_sub` VALUES (44, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (45, 'คลินิกนมแม่', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (46, 'อายุรกรรมระบบประสาท', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (47, 'อายุรกรรมโรคหัวใจ (พญ.ปาลิดา พึ่งผล\r\n)', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (48, 'กุมารเวชกรรมทั่วไป', NULL, 'พญ.พัชรินทร์ เกียรติกังวาฬไกล', 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (49, 'อายุรกรรมโรคติดเชื้อ (พญ.สุเบญจา พิณสาย\r\n)', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (50, 'อายุรกรรมทั่วไป (พญ.รังสิมา รังสีธรรมปัญญา)', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (51, 'กุมารเวชกรรมทั่วไป (พญ.ดลยา เอกวิชกุล)', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (52, 'อายุรกรรมโรคไต (นพ.วรพจน์ เตรียมตระการผล\r\n)', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (53, 'อายุรกรรมโรคเลือด (พญ.สิรภัทร รุ่งวิทยาธิวัฒน์)', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (54, 'กุมารเวชกรรมทั่วไป (พญ.ดลยา เอกวิชกุล)', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (55, 'อายุรกรรมโรคระบบทางเดินอาหาร (พญ.วิจิตรา คงคา)', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (56, 'อายุรกรรมทั่วไป (พญ.ปวีณา กนกพจนานนท์)', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (57, 'อายุรกรรมระบบประสาท (พญ.วรรณพร เอี่ยมวรวุฒิกุล)', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (58, 'อายุรกรรมโรคหัวใจ (พญ.ปาลิดา พึ่งผล)', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (59, 'อายุรกรรมโรคติดเชื้อ (พญ.สุเบญจา พิณสาย)', NULL, NULL, 'XXXXXXX', NULL, NULL);
+INSERT INTO `tb_department_sub` VALUES (61, 'ลอง', NULL, NULL, 'XXX45XX', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for tb_department_time
@@ -1886,6 +1997,79 @@ INSERT INTO `tb_department_time` VALUES (7, '13.00 - 16.30 น.');
 INSERT INTO `tb_department_time` VALUES (8, '16.00 - 20.00 น.');
 INSERT INTO `tb_department_time` VALUES (9, '16.30 - 20.00 น.');
 INSERT INTO `tb_department_time` VALUES (10, '16.30 - 20.30 น.');
+
+-- ----------------------------
+-- Table structure for tbperson
+-- ----------------------------
+DROP TABLE IF EXISTS `tbperson`;
+CREATE TABLE `tbperson`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'primary key',
+  `name` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL COMMENT 'person name',
+  `salary` double NOT NULL COMMENT 'person salary',
+  `age` int(11) NOT NULL COMMENT 'person age',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 58 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci COMMENT = 'datatable demo table' ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbperson
+-- ----------------------------
+INSERT INTO `tbperson` VALUES (1, 'Tiger Nixon', 320800, 61);
+INSERT INTO `tbperson` VALUES (2, 'Garrett Winters', 170750, 63);
+INSERT INTO `tbperson` VALUES (3, 'Ashton Cox', 86000, 66);
+INSERT INTO `tbperson` VALUES (4, 'Cedric Kelly', 433060, 22);
+INSERT INTO `tbperson` VALUES (5, 'Airi Satou', 162700, 33);
+INSERT INTO `tbperson` VALUES (6, 'Brielle Williamson', 372000, 61);
+INSERT INTO `tbperson` VALUES (7, 'Herrod Chandler', 137500, 59);
+INSERT INTO `tbperson` VALUES (8, 'Rhona Davidson', 327900, 55);
+INSERT INTO `tbperson` VALUES (9, 'Colleen Hurst', 205500, 39);
+INSERT INTO `tbperson` VALUES (10, 'Sonya Frost', 103600, 23);
+INSERT INTO `tbperson` VALUES (11, 'Jena Gaines', 90560, 30);
+INSERT INTO `tbperson` VALUES (12, 'Quinn Flynn', 342000, 22);
+INSERT INTO `tbperson` VALUES (13, 'Charde Marshall', 470600, 36);
+INSERT INTO `tbperson` VALUES (14, 'Haley Kennedy', 313500, 43);
+INSERT INTO `tbperson` VALUES (15, 'Tatyana Fitzpatrick', 385750, 19);
+INSERT INTO `tbperson` VALUES (16, 'Michael Silva', 198500, 66);
+INSERT INTO `tbperson` VALUES (17, 'Paul Byrd', 725000, 64);
+INSERT INTO `tbperson` VALUES (18, 'Gloria Little', 237500, 59);
+INSERT INTO `tbperson` VALUES (19, 'Bradley Greer', 132000, 41);
+INSERT INTO `tbperson` VALUES (20, 'Dai Rios', 217500, 35);
+INSERT INTO `tbperson` VALUES (21, 'Jenette Caldwell', 345000, 30);
+INSERT INTO `tbperson` VALUES (22, 'Yuri Berry', 675000, 40);
+INSERT INTO `tbperson` VALUES (23, 'Caesar Vance', 106450, 21);
+INSERT INTO `tbperson` VALUES (24, 'Doris Wilder', 85600, 23);
+INSERT INTO `tbperson` VALUES (25, 'Angelica Ramos', 1200000, 47);
+INSERT INTO `tbperson` VALUES (26, 'Gavin Joyce', 92575, 42);
+INSERT INTO `tbperson` VALUES (27, 'Jennifer Chang', 357650, 28);
+INSERT INTO `tbperson` VALUES (28, 'Brenden Wagner', 206850, 28);
+INSERT INTO `tbperson` VALUES (29, 'Fiona Green', 850000, 48);
+INSERT INTO `tbperson` VALUES (30, 'Shou Itou', 163000, 20);
+INSERT INTO `tbperson` VALUES (31, 'Michelle House', 95400, 37);
+INSERT INTO `tbperson` VALUES (32, 'Suki Burks', 114500, 53);
+INSERT INTO `tbperson` VALUES (33, 'Prescott Bartlett', 145000, 27);
+INSERT INTO `tbperson` VALUES (34, 'Gavin Cortez', 235500, 22);
+INSERT INTO `tbperson` VALUES (35, 'Martena Mccray', 324050, 46);
+INSERT INTO `tbperson` VALUES (36, 'Unity Butler', 85675, 47);
+INSERT INTO `tbperson` VALUES (37, 'Howard Hatfield', 164500, 51);
+INSERT INTO `tbperson` VALUES (38, 'Hope Fuentes', 109850, 41);
+INSERT INTO `tbperson` VALUES (39, 'Vivian Harrell', 452500, 62);
+INSERT INTO `tbperson` VALUES (40, 'Timothy Mooney', 136200, 37);
+INSERT INTO `tbperson` VALUES (41, 'Jackson Bradshaw', 645750, 65);
+INSERT INTO `tbperson` VALUES (42, 'Olivia Liang', 234500, 64);
+INSERT INTO `tbperson` VALUES (43, 'Bruno Nash', 163500, 38);
+INSERT INTO `tbperson` VALUES (44, 'Sakura Yamamoto', 139575, 37);
+INSERT INTO `tbperson` VALUES (45, 'Thor Walton', 98540, 61);
+INSERT INTO `tbperson` VALUES (46, 'Finn Camacho', 87500, 47);
+INSERT INTO `tbperson` VALUES (47, 'Serge Baldwin', 138575, 64);
+INSERT INTO `tbperson` VALUES (48, 'Zenaida Frank', 125250, 63);
+INSERT INTO `tbperson` VALUES (49, 'Zorita Serrano', 115000, 56);
+INSERT INTO `tbperson` VALUES (50, 'Jennifer Acosta', 75650, 43);
+INSERT INTO `tbperson` VALUES (51, 'Cara Stevens', 145600, 46);
+INSERT INTO `tbperson` VALUES (52, 'Hermione Butler', 356250, 47);
+INSERT INTO `tbperson` VALUES (53, 'Lael Greer', 103500, 21);
+INSERT INTO `tbperson` VALUES (54, 'Jonas Alexander', 86500, 30);
+INSERT INTO `tbperson` VALUES (55, 'Shad Decker', 183000, 51);
+INSERT INTO `tbperson` VALUES (56, 'Michael Bruce', 183000, 29);
+INSERT INTO `tbperson` VALUES (57, 'Donna Snider', 112000, 27);
 
 -- ----------------------------
 -- Table structure for workdepartment

@@ -109,7 +109,7 @@
                 die('Could not connect');
             }
             if ($_POST["status"] == "update") { //แก้ไข description_sub ใน tb_department_sub
-                $sqlUpdate = "UPDATE tb_department_event SET department_date = '" . $_POST["td_day"] . "', department_detail = '" . $_POST["td_detail"] . "', department_time = '" . $_POST["td_time"] . "' WHERE id = '" . $_POST["id"] . "'";
+                $sqlUpdate = "UPDATE tb_department_event SET department_date = '" . $_POST["td_day"] . "', detail = '" . $_POST["td_Edetail"] . "', department_detail = '" . $_POST["td_detail"] . "', department_time = '" . $_POST["td_time"] . "' WHERE id = '" . $_POST["id"] . "'";
                 mysqli_query($con, $sqlUpdate);
                 $sqlUpdateSub = "UPDATE tb_department_sub SET description_sub = '" . $_POST["sub"] . "', content = '" . $_POST["content"] . "' WHERE id = '" . $_POST["sub_id"] . "'";
                 mysqli_query($con, $sqlUpdateSub);
@@ -125,8 +125,8 @@
                 if ($sql2 == '') {
                     $sql2 = '1';
                 }
-                $sqlIns_event = "INSERT INTO tb_department_event (department,department_sub,department_date,department_detail,department_time,order_by)
-                VALUES ('" . $_POST["id"] . "','" . $sql1 . "'  ,'" . $_POST["td_day"] . "','" . $_POST["td_detail"] . "','" . $_POST["td_time"] . "','" . $sql2 . "')";
+                $sqlIns_event = "INSERT INTO tb_department_event (department,department_sub,department_date,department_detail,department_time,order_by,detail)
+                VALUES ('" . $_POST["id"] . "','" . $sql1 . "'  ,'" . $_POST["td_day"] . "','" . $_POST["td_detail"] . "','" . $_POST["td_time"] . "','" . $sql2 . "','" . $_POST["td_Edetail"] . "')";
                 mysqli_query($con, $sqlIns_event);
             } else if ($_POST["status"] == "del") { // ลบข้อมูลในตาราง
                 mysqli_query($con, "DELETE FROM tb_department_event WHERE `id` = '" . $_POST["id"] . "'");
@@ -213,6 +213,8 @@
                                                         f.id as tb_f_id,
                                                         b.description as td_dep,
                                                         c.description_sub as td_sub,
+                                                        -- c.detail as td_sub_detail,
+                                                        a.detail as td_Edetail,
                                                         d.date as td_day,
                                                         e.detail as td_detail,
                                                         f.time as td_time,
@@ -227,12 +229,14 @@
                                                 LEFT JOIN tb_department_time f ON a.department_time = f.id
                                                 ORDER BY  b.id,a.order_by";
                                             $querysel = mysqli_query($con, $sel);
-                                            $tmp_name = '';
+
                                             while ($ResultCeo = mysqli_fetch_assoc($querysel)) {
                                                 if ($ResultCeo['tb_b_id'] == $ResultCeo_col['dep_id']) {
-                                                    $ResultCeo['td_sub'] = str_replace(")", ")</strong>", str_replace("(", "<strong>(", $ResultCeo['td_sub']));
+                                                    if ($ResultCeo['td_Edetail'] != '') {
+                                                        $ResultCeo['td_sub'] = $ResultCeo['td_sub'] . '<span style="color:#0b5e2c"> (' . $ResultCeo['td_Edetail'] . ')</span>';
+                                                    }
                                             ?><tr>
-                                                        <td><?php echo $ResultCeo['td_sub'] != $tmp_name ? $ResultCeo['td_sub'] : ''; ?></td>
+                                                        <td><?php echo $ResultCeo['td_sub'] ?></td>
                                                         <td><?php echo $ResultCeo['td_day'] . ' ' . ($ResultCeo['tb_e_id'] == '7' ? '' : $ResultCeo['td_detail']); ?></td>
                                                         <td><?php echo $ResultCeo['td_time']; ?></td>
                                                         <td><?php echo $ResultCeo['content']; ?></td>
@@ -244,7 +248,7 @@
                                                         </td>
                                                     </tr>
                                             <?php
-                                                    $tmp_name = $ResultCeo['td_sub'];
+
                                                 }
                                             }
                                             ?>
@@ -301,7 +305,14 @@
                                                 <p>
                                                     <span style="text-align: left;font-size:16px;">แผนกที่เปิดบริการ</span>
                                                     <input type="text" name="sub" placeholder="ชื่อแผนกที่เปิดบริการ" class="form-last-name form-control" id="sub" value="<?php echo $item['td_sub']; ?>" required>
-                                                    <span style="text-align: left;font-size:14px;color:red;">*หากใส่ " ( " และ " ) " ข้อความจะเป็นตัวหนา</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="padding-top: 10px; padding-bottom: 7px;">
+                                            <div class="col-md-12 col-sm-12 col-xs-12 ">
+                                                <p>
+                                                    <span style="text-align: left;font-size:16px;">รายละเอียด</span>
+                                                    <input type="text" name="td_Edetail" placeholder="รายละเอียด" class="form-last-name form-control" id="td_Edetail" value="<?php echo $item['td_Edetail']; ?>">
                                                 </p>
                                             </div>
                                         </div>
@@ -377,6 +388,7 @@
                                     <!-- 
                                 sub 
                                 td_day
+                                td_Edetail
                                 td_detail
                                 td_time
                                 content 
@@ -439,6 +451,14 @@
                                                 </p>
                                             </div>
                                         </div>
+                                        <div class="row" style="padding-top: 10px; padding-bottom: 7px;">
+                                            <div class="col-md-12 col-sm-12 col-xs-12 ">
+                                                <p>
+                                                    <span style="text-align: left;font-size:16px;">รายละเอียด <span style="color:red">(ถ้ามี)</span></span>
+                                                    <input type="text" name="td_Edetail" placeholder="รายละเอียด" class="form-last-name form-control" id="td_Edetail">
+                                                </p>
+                                            </div>
+                                        </div>
                                         <div class="row">
                                             <div class="col-md-12 col-sm-12 col-xs-12 ">
                                                 <p>
@@ -494,6 +514,7 @@
                                     <!-- 
                                 sub 
                                 td_day
+                                td_Edetail
                                 td_detail
                                 td_time 
                                 -->

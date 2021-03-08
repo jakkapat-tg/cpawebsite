@@ -118,6 +118,7 @@
                                 d.date as td_day,
                                 e.detail as td_detail,
                                 f.time as td_time,
+                                a.detail as tb_detail,
                                 a.order_by
                         FROM tb_department_event a 
                         LEFT JOIN tb_department b ON a.department = b.id
@@ -130,7 +131,9 @@
                 $tmp_name = '';
                 while ($ResultCeo = mysqli_fetch_assoc($querysel)) {
                   if ($ResultCeo['tb_id'] == $ResultCeo_col['id']) {
-                    $ResultCeo['td_sub'] = str_replace(")", ")</span>", str_replace("(", "<span style=\"color:#0b5e2c\">(", $ResultCeo['td_sub']));
+                    if ($ResultCeo['tb_detail'] != '') {
+                      $ResultCeo['td_sub'] = $ResultCeo['td_sub'] . '<span style="color:#0b5e2c"> (' . $ResultCeo['tb_detail'] . ')</span>';
+                    }
                 ?><tr>
                       <td><?php echo $ResultCeo['td_sub'] != $tmp_name ? $ResultCeo['td_sub'] : ''; ?></td>
                       <td><?php echo $ResultCeo['td_day'] . ' ' . ($ResultCeo['tb_e_id'] == '7' ? '' : $ResultCeo['td_detail']); ?></td>

@@ -61,6 +61,14 @@ $router->map("GET|POST", "/service", function () {
   require   "./cpawebsite/Pages/service.php";
 });
 
+$router->map("GET", "/openhouse", function () {
+  require   "./cpawebsite/Pages/openhouseinfo.php";
+});
+
+$router->map("GET|POST", "/register-openhouse", function () {
+  require   "./cpawebsite/Pages/registeropenhouse.php";
+});
+
 $router->map("GET", "/403", function () {
   require  "./cpawebsite/Pages/403.html";
 });

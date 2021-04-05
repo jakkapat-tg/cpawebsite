@@ -318,9 +318,24 @@
 	</section>
 
 
-
-
-
+	<!-- Modal Show event แบบฉุกเฉิน ไว้ปรับแก้ให้เพิ่มแก้ไขและโชวไม่โชวภายหลัง -->
+	<!-- Modal -->
+	<div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<img src="./cpawebsite/uploads/image/eventshow.jpg" alt="" width="100%">
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal Show event แบบฉุกเฉิน ไว้ปรับแก้ให้เพิ่มแก้ไขและโชวไม่โชวภายหลัง -->
 
 	<!-- ------------------------------------------------------  EVENT PICTURE   ----------------------------------------------------------- -->
 	<section class="ftco-section">
@@ -362,6 +377,9 @@
 
 
 	<?php include "./cpawebsite/components/footer.php" ?>
+	<script>
+		$('#myModal').modal('show')
+	</script>
 	<style>
 		.block-heights {
 			overflow: hidden;

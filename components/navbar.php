@@ -123,10 +123,10 @@ $resultcolor = mysqli_fetch_assoc($querynavcolor);
 										echo "active";
 									} ?> dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					openhouse
+					ติดต่อศึกษาดูงาน
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="./openhouse">เจ้าพระยาอภัยภูเบศร เปิดบ้าน</a>
+						<a class="dropdown-item" href="./openhouse">เจ้าพระยาอภัยภูเบศร open house</a>
 						<a class="dropdown-item" href="./register-openhouse">ลงทะเบียนเข้าเยี่ยมชม</a>
 				</li>
 

@@ -9,6 +9,7 @@
 
 <body>
     <?php
+    session_start();
     function send_line_notify($message, $token)
     {
         $ch = curl_init();
@@ -26,7 +27,7 @@
         return $result;
     }
     $token = 'h2HpXvbLStvNUIs2lqId3LVu9KTI4MLDOR9WQeRJzdJ';
-    send_line_notify($message, $token);
+    $message = '';
     include "../../../sqlconfig/config.php";
     $connstring = "host=172.16.0.192 dbname=cpahdb user=iptscanview password=iptscanview";
     $conn = pg_connect($connstring);
@@ -39,21 +40,22 @@
 
     if ($_POST['page'] == 'covid19' && ($_POST['submit'] != '' || $_POST['submit'] != null)) {
         $sql = "SELECT a.vn,d.lab_items_name,pt.pname,pt.fname,pt.lname,ov.main_dep,ov.pttype,c.lab_order_number,lab_order_result  ,pt.cid,pt.birthday,order_date , c.update_datetime
-FROM lab_head AS a
-INNER JOIN lab_order c ON c.lab_order_number = a.lab_order_number
-INNER JOIN lab_items d ON d.lab_items_code = c.lab_items_code  and d.lab_items_name like '%SARS%'--  AND d.icode IN ('3029894','3029917')
-INNER JOIN patient pt on pt.hn = a.hn
-INNER JOIN ovst ov on ov.vn = a.vn
-WHERE order_date BETWEEN '" . $_POST['datepickers'] . "' AND '" . $_POST['datepickert'] . "' ORDER BY lab_order_number, vstdate ";
+                FROM lab_head AS a
+                INNER JOIN lab_order c ON c.lab_order_number = a.lab_order_number
+                INNER JOIN lab_items d ON d.lab_items_code = c.lab_items_code  and d.lab_items_name like '%SARS%'--  AND d.icode IN ('3029894','3029917')
+                INNER JOIN patient pt on pt.hn = a.hn
+                INNER JOIN ovst ov on ov.vn = a.vn
+                WHERE order_date BETWEEN '" . $_POST['datepickers'] . "' AND '" . $_POST['datepickert'] . "' ORDER BY lab_order_number, vstdate ";
         $message = "\r\n" .
             'คุณ ' . $_SESSION['fname'] . ' ' . $_SESSION['lname'] . "\r\n" .
             'ดึงข้อมูล  Covid-19 ' . "\r\n" .
-            'วันที่: ' . $_POST['datepickers'] . '-' . $_POST['datepickert'] . "\r\n" .
+            'วันที่: ' . $_POST['datepickers'] . 'ถึง' . $_POST['datepickert'] . "\r\n" .
             'วันที่ดำเนินการ: ' . date('d-m-Y H:i น.');
-        $token = 'h2HpXvbLStvNUIs2lqId3LVu9KTI4MLDOR9WQeRJzdJ';
+    }
+    if ($message != '' &&  $token != '') {
         send_line_notify($message, $token);
     }
-
+    echo 'sql: ' . $sql;
     $resultqueryhos = pg_query($conn, $sql);
     ?>
 
@@ -65,7 +67,7 @@ WHERE order_date BETWEEN '" . $_POST['datepickers'] . "' AND '" . $_POST['datepi
                     $i = pg_num_fields($resultqueryhos);
                     for ($j = 0; $j < $i; $j++) {
                         $fieldname = pg_field_name($resultqueryhos, $j);
-                        echo '<th  bgcolor="#1abc9c" >' . $fieldname . '</th>';
+                        echo '<th  bgcolor="#25e1b2" >' . $fieldname . '</th>';
                     }
                     ?>
                 </tr>

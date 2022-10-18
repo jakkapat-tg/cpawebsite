@@ -69,6 +69,10 @@ $router->map("GET|POST", "/register-openhouse", function () {
   require   "./cpawebsite/Pages/registeropenhouse.php";
 });
 
+$router->map("GET", "/verifyEmail/{token}", function () {
+  require   "./cpawebsite/Pages/verifyEmail.php";
+});
+
 $router->map("GET", "/403", function () {
   require  "./cpawebsite/Pages/403.html";
 });
